@@ -1633,7 +1633,7 @@ const PlatinumDashboard = () => {
                 <div className="col-lg-7 mb-4">
                   <div className="card insight-card platinum-card">
                     <div className="card-body">
-                      <h5 className="card-title mb-4 text-start">
+                      <h5 className="card-title mb-4 text-start text-white">
                         Market Insights
                       </h5>
                       <div className="chart-placeholder mb-4">
