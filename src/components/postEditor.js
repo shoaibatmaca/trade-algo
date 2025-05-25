@@ -280,7 +280,7 @@ function PostEditor() {
               </div>
             </div>
 
-            <div className="row pt-5" data-aos="fade-up">
+            <div className="row pt-5">
               <div className="col-lg-8">
                 <div className="news-wrap">
                   {news.length > 0 ? (

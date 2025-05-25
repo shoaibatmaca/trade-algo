@@ -1,7 +1,7 @@
-import PostEditor from "../components/postEditor";
+import Posts from "../components/posts";
 
 function EventsDetails() {
-  return <PostEditor />;
+  return <Posts />;
 }
 
 export default EventsDetails;
