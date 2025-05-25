@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import "../styles/platinumDashboard.css";
 
 const CreditRequestPopup = ({ show, onClose }) => {
   const [email, setEmail] = useState("");
@@ -9,32 +9,33 @@ const CreditRequestPopup = ({ show, onClose }) => {
   const accessToken = localStorage.getItem("accessToken");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();s
+    e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}api/request-call-credits/`,
-        { email, phone, credits },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      setMessage("Request submitted!");
-      setEmail("");
-      setPhone("");
-      setCredits("");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}api/request-call-credits/`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, phone, credits }),
+      });
+      const result = await res.json();
+      setMessage(result.message || result.error);
+      if (res.ok) {
+        setEmail("");
+        setPhone("");
+        setCredits("");
+      }
     } catch (err) {
-      setMessage(err.response?.data?.error || "Submission failed.");
+      setMessage("Submission failed.");
     }
   };
 
   if (!show) return null;
 
   return (
-    <div className="popup-overlay">
-      <div className="popup-box">
+    <div className={styles.overlay}>
+      <div className={styles.popup}>
         <h4>Request More Call Credits</h4>
         <form onSubmit={handleSubmit}>
           <input
@@ -43,6 +44,7 @@ const CreditRequestPopup = ({ show, onClose }) => {
             value={credits}
             onChange={(e) => setCredits(e.target.value)}
             required
+            className={styles.input}
           />
           <input
             type="email"
@@ -50,6 +52,7 @@ const CreditRequestPopup = ({ show, onClose }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className={styles.input}
           />
           <input
             type="tel"
@@ -57,11 +60,16 @@ const CreditRequestPopup = ({ show, onClose }) => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
+            className={styles.input}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.button}>
+            Submit
+          </button>
         </form>
-        {message && <p>{message}</p>}
-        <button className="close-btn" onClick={onClose}>Close</button>
+        {message && <p className="mt-2">{message}</p>}
+        <button className={styles.close} onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

@@ -1002,8 +1002,6 @@ import Wabinars from "../components/DashboardPlatinum/Wabinars";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
-import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
-
 
 const PlatinumDashboard = () => {
   const [showCreditPopup, setShowCreditPopup] = useState(false);
