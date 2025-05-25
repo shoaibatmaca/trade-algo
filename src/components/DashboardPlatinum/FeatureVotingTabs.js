@@ -673,11 +673,6 @@ function FeatureVotingTabs() {
                       >
                         {feature.status}
                       </span>
-                      {feature.category && (
-                        <span className="feature-category">
-                          - {feature.category}
-                        </span>
-                      )}
                     </div>
                     <h2 className="feature-title">{feature.title}</h2>
                     <p className="feature-description">{feature.description}</p>

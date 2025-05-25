@@ -667,7 +667,7 @@ const Dashboard = () => {
                 />
                 <div className="username_data">
                   <h5 className={`mb-0 ${darkMode ? "text-white" : ""}`}>
-                    {userData?.username || "Null"}
+                    {userData?.username || "Loading..."}
                   </h5>
                 </div>
 
