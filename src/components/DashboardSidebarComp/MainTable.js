@@ -661,7 +661,10 @@ const MainTable = () => {
         </div>
 
         {/* Trend Buttons */}
-        <div className="d-flex gap-3 align-items-center mb-3" style={{justifyContent: 'end'}}>
+        <div
+          className="d-flex gap-3 align-items-center mb-3"
+          style={{ justifyContent: "end" }}
+        >
           <button
             className={`btn ${
               trend === "up" ? "btn-success" : "btn-outline-secondary"
@@ -700,11 +703,17 @@ const MainTable = () => {
           </thead>
           <tbody>
             {loading ? (
-              <tr>
-                <td colSpan="10" className="text-center">
-                  Loading data...
-                </td>
-              </tr>
+              [...Array(5)].map((_, i) => (
+                <tr key={i}>
+                  {Array(10)
+                    .fill(0)
+                    .map((_, j) => (
+                      <td key={j}>
+                        <div className="shimmer shimmer-line"></div>
+                      </td>
+                    ))}
+                </tr>
+              ))
             ) : error ? (
               <tr>
                 <td colSpan="10" className="text-center text-danger">
