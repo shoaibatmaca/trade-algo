@@ -2,7 +2,6 @@
 // // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 // // import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
-
 // // const HistoricalDataFlow = ({ darkMode }) => {
 // //   const [activeTab, setActiveTab] = useState("largeCaps");
 
@@ -46,7 +45,7 @@
 // //           >
 // //             Small Caps
 // //           </button>
-// //         </li> 
+// //         </li>
 
 // //       {/* trend icons */}
 // //       <span className="trend-icons">
@@ -2603,10 +2602,6 @@
 
 // // export default HistoricalDataFlow;
 
-
-
-
-
 // // // import React, { useState, useEffect } from "react";
 // // // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
 // // // import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
@@ -2754,7 +2749,6 @@
 // // // };
 
 // // // export default HistoricalDataFlow;
-
 
 // // // this code is work ====================
 // // import React, { useEffect, useState } from "react";
@@ -2925,8 +2919,6 @@
 // // };
 
 // // export default HistoricalDataFlow;
-
-
 
 // // import React, { useEffect, useState } from "react";
 // // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
@@ -3119,7 +3111,6 @@
 // // };
 
 // // export default HistoricalDataFlow;
-
 
 // // import React, { useEffect, useState } from "react";
 // // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
@@ -3315,7 +3306,6 @@
 
 // // export default HistoricalDataFlow;
 
-
 // // ==================================================================================================
 // // import React, { useEffect, useState } from "react";
 // // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
@@ -3349,15 +3339,15 @@
 // //       setLoading(true);
 // //       setError(null);
 // //       const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
-  
+
 // //       try {
 // //         const response = await fetch(url);
 // //         if (!response.ok) {
 // //           throw new Error(`HTTP error: ${response.status}`);
 // //         }
-  
+
 // //         const raw = await response.json();
-  
+
 // //         // NEW: Safely extract and parse trend-specific array
 // //         let cleanData = [];
 // //         if (Array.isArray(raw) && raw.length > 0) {
@@ -3369,7 +3359,7 @@
 // //             cleanData = rawList;
 // //           }
 // //         }
-  
+
 // //         setTableData(cleanData);
 // //       } catch (err) {
 // //         console.error("Fetch error:", err.message);
@@ -3379,10 +3369,10 @@
 // //         setLoading(false);
 // //       }
 // //     };
-  
+
 // //     fetchData();
 // //   }, [activeTab, trend]);
-  
+
 // //   // useEffect(() => {
 // //   //   const fetchData = async () => {
 // //   //     setLoading(true);
@@ -3552,7 +3542,6 @@
 
 // // export default HistoricalDataFlow;
 
-
 // // this is the code =========================================================================
 // import React, { useEffect, useState } from "react";
 // import "../DashboardSidebarComp/styles/historicalDataFlow.css";
@@ -3585,16 +3574,16 @@
 //     const fetchData = async () => {
 //       setLoading(true);
 //       setError(null);
-    
+
 //       const url = `${API_BASE_URL}${apiPaths[trend][activeTab]}`;
-    
+
 //       try {
 //         const response = await fetch(url);
 //         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-    
+
 //         const raw = await response.json();
 //         const cleanData = Array.isArray(raw) ? raw : [];
-    
+
 //         setTableData(cleanData);
 //       } catch (err) {
 //         console.error("Fetch error:", err.message);
@@ -3604,7 +3593,6 @@
 //         setLoading(false);
 //       }
 //     };
-    
 
 //     fetchData();
 //   }, [activeTab, trend]);
@@ -3752,10 +3740,9 @@
 
 // export default HistoricalDataFlow;
 
-
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css";
-import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
 
@@ -3825,7 +3812,9 @@ const HistoricalDataFlow = ({ darkMode }) => {
               className={`nav-link ${activeTab === tab ? "active" : ""}`}
               onClick={() => setActiveTab(tab)}
             >
-              {tab.replace("Caps", " Caps").replace(/^./, (c) => c.toUpperCase())}
+              {tab
+                .replace("Caps", " Caps")
+                .replace(/^./, (c) => c.toUpperCase())}
             </button>
           </li>
         ))}
@@ -3887,13 +3876,25 @@ const HistoricalDataFlow = ({ darkMode }) => {
               border: darkMode ? "1px solid #444" : "1px solid #ddd",
             }}
           >
-            {loading ? (
+            {/* {loading ? (
               <tr>
                 <td colSpan="5" className="text-center">Loading data...</td>
-              </tr>
+              </tr> */}
+            {loading ? (
+              [...Array(5)].map((_, rowIndex) => (
+                <tr key={rowIndex}>
+                  {[...Array(5)].map((_, colIndex) => (
+                    <td key={colIndex}>
+                      <div className="shimmer shimmer-line"></div>
+                    </td>
+                  ))}
+                </tr>
+              ))
             ) : error ? (
               <tr>
-                <td colSpan="5" className="text-center text-danger">{error}</td>
+                <td colSpan="5" className="text-center text-danger">
+                  {error}
+                </td>
               </tr>
             ) : tableData.length > 0 ? (
               tableData.map((item, idx) => (
@@ -3905,7 +3906,9 @@ const HistoricalDataFlow = ({ darkMode }) => {
                         ${item.from_price} <br />
                         <small>{item.from_time}</small>
                       </>
-                    ) : "-"}
+                    ) : (
+                      "-"
+                    )}
                   </td>
                   <td>
                     {item.to_price && item.to_time ? (
@@ -3913,17 +3916,25 @@ const HistoricalDataFlow = ({ darkMode }) => {
                         ${item.to_price} <br />
                         <small>{item.to_time}</small>
                       </>
-                    ) : "-"}
+                    ) : (
+                      "-"
+                    )}
                   </td>
                   <td>
-                    <span className={`badge ${trend === "up" ? "bg-success" : "bg-danger"}`}>
+                    <span
+                      className={`badge ${
+                        trend === "up" ? "bg-success" : "bg-danger"
+                      }`}
+                    >
                       {item.irregular_vol || "x"}
                     </span>
                   </td>
                   <td>
-                  <span
+                    <span
                       className={
-                        parseFloat(item.percent_change) >= 0 ? "text-success" : "text-danger"
+                        parseFloat(item.percent_change) >= 0
+                          ? "text-success"
+                          : "text-danger"
                       }
                     >
                       {parseFloat(item.percent_change) >= 0 ? "+" : ""}
@@ -3939,7 +3950,9 @@ const HistoricalDataFlow = ({ darkMode }) => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center">No data available.</td>
+                <td colSpan="5" className="text-center">
+                  No data available.
+                </td>
               </tr>
             )}
           </tbody>

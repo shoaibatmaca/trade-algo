@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import "../DashboardSidebarComp/styles/atsflow.css";
-import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 
 const API_BASE_URL = "https://valourwealthdjango-production.up.railway.app/";
 
@@ -135,11 +135,15 @@ const AtsFlow = ({ darkMode }) => {
             }}
           >
             {loading ? (
-              <tr>
-                <td colSpan="5" className="text-center">
-                  Loading data...
-                </td>
-              </tr>
+              [...Array(5)].map((_, rowIndex) => (
+                <tr key={rowIndex}>
+                  {[...Array(5)].map((_, colIndex) => (
+                    <td key={colIndex}>
+                      <div className="shimmer shimmer-line"></div>
+                    </td>
+                  ))}
+                </tr>
+              ))
             ) : error ? (
               <tr>
                 <td colSpan="5" className="text-center text-danger">

@@ -250,7 +250,7 @@
 
 // export default TradeAlertsTable;
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import "../DashboardSidebarComp/styles/historicalDataFlow.css"; // reuse same style
 
@@ -387,12 +387,22 @@ const TradeAlertsTable = ({ darkMode }) => {
               border: darkMode ? "1px solid #444" : "1px solid #ddd",
             }}
           >
-            {loading ? (
+            {/* {loading ? (
               <tr>
                 <td colSpan="5" className="text-center">
                   Loading...
                 </td>
-              </tr>
+              </tr> */}
+            {loading ? (
+              [...Array(5)].map((_, rowIndex) => (
+                <tr key={rowIndex}>
+                  {[...Array(5)].map((_, colIndex) => (
+                    <td key={colIndex}>
+                      <div className="shimmer shimmer-line"></div>
+                    </td>
+                  ))}
+                </tr>
+              ))
             ) : error ? (
               <tr>
                 <td colSpan="5" className="text-danger text-center">
