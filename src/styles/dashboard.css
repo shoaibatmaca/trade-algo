@@ -1297,9 +1297,14 @@ body .dark {
   padding: 10px 10px;
   margin-left: 10px;
 }
-.stock-details {
+/* .stock-details {
   margin-left: 20px;
   background-color: #1c1e20;
+} */
+.stock-details {
+  margin-left: 30px;
+  background-color: #1c1e20;
+  margin-top: -14px;
 }
 
 .detail-row {
@@ -1365,8 +1370,17 @@ body .dark {
   /* z-index: 10;
   display: flex;
   width: 100%; */
-  position: fixed !important;
-  background-color: #1c1e20 !important;
+  /* position: fixed !important;
+  background-color: transparent !important;
+  z-index: 10;
+  top: 0px;
+  justify-content: space-between;
+  width: -webkit-fill-available !important;
+  padding: 4px 12px !important; */
+
+  position: absolute;
+  top: -62px;
+  background-color: transparent !important;
   z-index: 10;
   top: 0px;
   justify-content: space-between;

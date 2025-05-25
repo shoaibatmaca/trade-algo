@@ -993,6 +993,7 @@ import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPop
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
+import MarketInsights from "../components/DashboardPlatinum/MarketInsights";
 import MarketNews from "../components/DashboardPlatinum/MarketNews";
 import PlatinumMembershipNFT from "../components/DashboardPlatinum/MembershipNft";
 import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
@@ -1632,75 +1633,12 @@ const PlatinumDashboard = () => {
               <div className="row">
                 <div className="col-lg-7 mb-4">
                   <div className="card insight-card platinum-card">
-                    <div className="card-body">
-                      <h5 className="card-title mb-4 text-start text-white">
-                        Market Insights
-                      </h5>
-                      <div className="chart-placeholder mb-4">
-                        <svg viewBox="0 0 600 120" className="w-100">
-                          <path
-                            d="M0,60 C100,40 200,80 300,60 C400,40 500,70 600,60"
-                            fill="none"
-                            stroke="#2a3042"
-                            strokeWidth="2"
-                            strokeDasharray="5,5"
-                          />
-                        </svg>
-                      </div>
-                      <div className="market-data">
-                        {[
-                          {
-                            pair: "EUR/USD",
-                            bid: "1.0850",
-                            ask: "1.0852",
-                            trend: "up",
-                          },
-                          {
-                            pair: "GBP/USD",
-                            bid: "1.2450",
-                            ask: "1.2452",
-                            trend: "down",
-                          },
-                          {
-                            pair: "USD/JPY",
-                            bid: "135.50",
-                            ask: "135.52",
-                            trend: "up",
-                          },
-                          {
-                            pair: "BTC/USD",
-                            bid: "63,245.00",
-                            ask: "63,250.00",
-                            trend: "up",
-                          },
-                        ].map(({ pair, bid, ask, trend }) => (
-                          <div className="market-row" key={pair}>
-                            <div className="market-cell currency">
-                              <i
-                                className={`bi bi-arrow-${
-                                  trend === "up" ? "up" : "down"
-                                }-right ${
-                                  trend === "up"
-                                    ? "text-success"
-                                    : "text-danger"
-                                } me-2`}
-                              ></i>
-                              <span>{pair}</span>
-                            </div>
-                            <div className="market-cell">
-                              <div className="price-label">Bid</div>
-                              <div className="price-value">{bid}</div>
-                            </div>
-                            <div className="market-cell">
-                              <div className="price-label">Ask</div>
-                              <div className="price-value">{ask}</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="col-lg-7">
+                      <MarketInsights />
                     </div>
                   </div>
                 </div>
+
                 <div className="col-lg-5 mb-4">
                   <div className="card chat-card">
                     <div className="card-body">
