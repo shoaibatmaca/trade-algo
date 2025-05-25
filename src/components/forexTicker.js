@@ -263,8 +263,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/ticker.css";
 
 const symbols = [
-  { symbol: "BINANCE:BTCUSDT", label: "BTC-USD", icon: "₿" },
-  { symbol: "BINANCE:ETHUSDT", label: "ETH-USD", icon: "Ξ" },
+  { symbol: "BINANCE:BTCUSDT", label: "BTC-USD", icon: "" },
+  { symbol: "BINANCE:ETHUSDT", label: "ETH-USD", icon: "" },
   { symbol: "BINANCE:BNBUSDT", label: "BNB-USD", icon: "" },
   { symbol: "BINANCE:DOGEUSDT", label: "DOGE-USD", icon: "" },
   { symbol: "BINANCE:XRPUSDT", label: "XRP-USD", icon: "" },

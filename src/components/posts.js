@@ -334,7 +334,7 @@ function Posts() {
     <section className="section_latest">
       <div className="container-fluid p-0">
         <div className="container">
-          <div className="recents" data-aos="fade-up">
+          <div className="recents">
             <div className="row">
               <div className="col-lg-12">
                 <div className="sec_heading pb-lg-3 pb-2">
