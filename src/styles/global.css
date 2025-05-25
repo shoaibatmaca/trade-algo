@@ -1031,7 +1031,7 @@ section:last-child {
 .shimmer {
   background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite linear;
+  animation: shimmer 3s infinite linear;
   border-radius: 8px;
 }
 
