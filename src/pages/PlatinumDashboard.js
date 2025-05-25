@@ -989,6 +989,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import ChatFeature from "../components/DashboardPlatinum/ChatFeature";
+import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
@@ -1001,6 +1002,8 @@ import Wabinars from "../components/DashboardPlatinum/Wabinars";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
+import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
+
 
 const PlatinumDashboard = () => {
   const [showCreditPopup, setShowCreditPopup] = useState(false);
