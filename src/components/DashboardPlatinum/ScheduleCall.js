@@ -624,7 +624,7 @@ const ScheduleCall = () => {
         </div>
         <div className="schedule-title">
           <h2>Schedule 1-on-1 Calls</h2>
-          <p>Book exclusive sessions with any user</p>
+          <p>Book exclusive sessions with valourwealth analysts</p>
         </div>
       </div>
 
@@ -692,13 +692,13 @@ const ScheduleCall = () => {
             </div>
 
             <div className="analyst-section">
-              <h4>Select User</h4>
+              <h4>Select Analyst</h4>
               <div className="select-dropdown">
                 <select
                   value={selectedUser}
                   onChange={(e) => setSelectedUser(e.target.value)}
                 >
-                  <option value="">Select a User</option>
+                  <option value="">Select a Analyst</option>
                   {users.map((user) => (
                     <option key={user.id} value={user.id}>
                       {user.username}

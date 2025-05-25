@@ -517,8 +517,8 @@
 
 // export default SessionManagement;
 
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import "../../styles/sessionManagementModal.css";
 
 const SessionManagement = () => {
@@ -573,7 +573,7 @@ const SessionManagement = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      alert("✅ Session Cancelled Successfully!");
+      alert("Session Cancelled Successfully!");
       fetchSessions();
     } catch (error) {
       console.error("Error cancelling session:", error);
@@ -655,7 +655,7 @@ const SessionManagement = () => {
               Join Session
             </button>
             <button
-              className="btn btn-link text-danger"
+              className="btn btn-danger text-white mt-2"
               onClick={() => handleCancel(session.id)}
             >
               Cancel Session
@@ -754,7 +754,7 @@ const SessionManagement = () => {
                 >
                   Cancel
                 </button>
-                <button className="btn btn-primary" onClick={saveNotes}>
+                <button className="btn btn-primary mt-2" onClick={saveNotes}>
                   Save Notes
                 </button>
               </div>
