@@ -1001,8 +1001,6 @@ import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge"
 import Wabinars from "../components/DashboardPlatinum/Wabinars";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
-// import "../styles/platinumDashboard.css";
-
 import "../styles/platinumDashboard.css";
 
 const PlatinumDashboard = () => {
