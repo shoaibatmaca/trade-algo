@@ -34,45 +34,46 @@ const CreditRequestPopup = ({ show, onClose }) => {
   if (!show) return null;
 
   return (
-    <div className={styles.overlay}>
-      <div className={styles.popup}>
-        <h4>Request More Call Credits</h4>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="number"
-            placeholder="Credits (e.g. 10, 20, 30)"
-            value={credits}
-            onChange={(e) => setCredits(e.target.value)}
-            required
-            className={styles.input}
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className={styles.input}
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            className={styles.input}
-          />
-          <button type="submit" className={styles.button}>
-            Submit
-          </button>
-        </form>
-        {message && <p className="mt-2">{message}</p>}
-        <button className={styles.close} onClick={onClose}>
-          Close
+  <div className="overlay">
+    <div className="popup">
+      <h4>Request More Call Credits</h4>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="number"
+          placeholder="Credits (e.g. 10, 20, 30)"
+          value={credits}
+          onChange={(e) => setCredits(e.target.value)}
+          required
+          className="input"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="input"
+        />
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+          className="input"
+        />
+        <button type="submit" className="button">
+          Submit
         </button>
-      </div>
+      </form>
+      {message && <p className="mt-2">{message}</p>}
+      <button className="button close" onClick={onClose}>
+        Close
+      </button>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default CreditRequestPopup;
