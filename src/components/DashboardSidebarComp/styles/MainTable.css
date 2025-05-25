@@ -147,3 +147,15 @@
 .nav-tabs .nav-link:not(.active):hover {
   border-color: #e9ecef #e9ecef #dee2e6;
 }
+
+.shimmer {
+  background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.shimmer-line {
+  height: 24px;
+  margin-bottom: 4px;
+}
