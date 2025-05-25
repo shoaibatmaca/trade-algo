@@ -5145,3 +5145,61 @@ h4 {
     font-size: 1.5rem;
   }
 }
+
+/* for credit popup modal */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.popup h4 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #444;
+  background: #2b2b2b;
+  color: white;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close {
+  background: #dc3545;
+  margin-top: 10px;
+}
+/* for credit popup modal */

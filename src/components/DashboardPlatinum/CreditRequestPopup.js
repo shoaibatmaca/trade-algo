@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import "../../styles/platinumDashboard.css"
+import "../../styles/platinumDashboard.css";
 
 const CreditRequestPopup = ({ show, onClose }) => {
   const [email, setEmail] = useState("");
