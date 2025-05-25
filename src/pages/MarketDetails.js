@@ -1,7 +1,7 @@
-import Posts from "../components/posts";
-
+// import Posts from "../components/posts";
+import MarketDetails from "../components/marketDetails";
 function MarketDetails() {
-  return <Posts />;
+  return <MarketDetails />;
 }
 
 export default MarketDetails;
