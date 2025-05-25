@@ -1372,14 +1372,14 @@ body .dark {
   width: 100%; */
   /* position: fixed !important;
   background-color: transparent !important;
-  z-index: 10;
+  z-index: 10;  
   top: 0px;
   justify-content: space-between;
   width: -webkit-fill-available !important;
   padding: 4px 12px !important; */
 
   position: absolute;
-  top: -62px;
+  top: -62px !important;
   background-color: transparent !important;
   z-index: 10;
   top: 0px;
