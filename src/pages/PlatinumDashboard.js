@@ -989,7 +989,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import ChatFeature from "../components/DashboardPlatinum/ChatFeature";
-import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
@@ -1004,7 +1003,6 @@ import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
 
 const PlatinumDashboard = () => {
-  const [showCreditPopup, setShowCreditPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const collapseRef = useRef(null);
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
