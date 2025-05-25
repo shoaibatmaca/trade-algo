@@ -1173,7 +1173,7 @@ const PlatinumDashboard = () => {
     if (!input.trim() || !conversationId) return;
     try {
       await axios.post(
-        `${API_BASE_URL}api/analyst-chat/send/`,
+        `${API_BASE_URL}api/analyst-chat/start/`,
         { chat: conversationId, content: input },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
@@ -1704,7 +1704,9 @@ const PlatinumDashboard = () => {
                 <div className="col-lg-5 mb-4">
                   <div className="card chat-card">
                     <div className="card-body">
-                      <h5 className="card-title mb-4">Platinum member Chat</h5>
+                      <h5 className="card-title mb-4 text-white">
+                        Platinum member Chat
+                      </h5>
                       <div className="chat-container">
                         {messages.map((msg) => {
                           const isCurrentUser =
