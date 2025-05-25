@@ -1003,6 +1003,7 @@ import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
 
 const PlatinumDashboard = () => {
+  const [showCreditPopup, setShowCreditPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const collapseRef = useRef(null);
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
@@ -1496,7 +1497,7 @@ const PlatinumDashboard = () => {
                     >
                       Edit Profile
                     </a>
-                    <a href="#" className="dropdown-item text-danger">
+                    <a href="/dashboard" className="dropdown-item text-danger">
                       Logout
                     </a>
                   </div>
@@ -1534,7 +1535,20 @@ const PlatinumDashboard = () => {
                   experience.
                 </p>
                 <div className="d-flex flex-wrap align-items-center mt-3">
-                  <div className="call-credits me-3 mb-2">
+                  {/* <div className="call-credits me-3 mb-2">
+                    <i className="bi bi-clock me-1"></i>
+                    <span>
+                      Call Credits:{" "}
+                      {callCredits !== null
+                        ? `${callCredits} hours remaining`
+                        : "Loading..."}
+                    </span>
+                  </div> */}
+                  <div
+                    className="call-credits me-3 mb-2"
+                    onClick={() => setShowCreditPopup(true)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <i className="bi bi-clock me-1"></i>
                     <span>
                       Call Credits:{" "}
@@ -1804,6 +1818,10 @@ const PlatinumDashboard = () => {
         {activeSection === "journal-page" && <JournalPage />}
       </div>
       <ChatFeature />
+      <CreditRequestPopup
+        show={showCreditPopup}
+        onClose={() => setShowCreditPopup(false)}
+      />
     </div>
   );
 };
