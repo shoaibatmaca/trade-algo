@@ -683,15 +683,10 @@ const OptionsAcademy = () => {
 
                   <div className="playlist-items">
                     {loading ? (
-                      [...Array(3)].map((_, i) => (
-                        <div key={i} className="playlist-item shimmer">
-                          <div className="thumbnail-skeleton"></div>
-                          <div className="info-skeleton">
-                            <div className="line short"></div>
-                            <div className="line long"></div>
-                          </div>
-                        </div>
-                      ))
+                      <div
+                        className="shimmer-block"
+                        style={{ height: "240px", marginBottom: "1rem" }}
+                      ></div>
                     ) : videos.length > 0 ? (
                       videos.map((video) => (
                         <div

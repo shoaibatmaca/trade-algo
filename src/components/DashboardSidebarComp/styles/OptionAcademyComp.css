@@ -431,69 +431,27 @@
 /* Shimmer Animation */
 @keyframes shimmer {
   0% {
-    background-position: -1000px 0;
+    background-position: -300% 0;
   }
   100% {
-    background-position: 1000px 0;
+    background-position: 300% 0;
   }
 }
 
 .shimmer {
   background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
-  background-size: 200% 100%;
+  background-size: 300% 100%;
   animation: shimmer 2.5s infinite linear;
   border-radius: 8px;
 }
 
-.shimmer-line {
-  height: 50px;
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-/* Playlist Loading UI */
-.playlist-item.shimmer {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #1f1f1f;
-  margin-bottom: 10px;
-}
-
-.playlist-item.shimmer .thumbnail-skeleton {
-  width: 100px;
-  height: 60px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2.5s infinite linear;
-}
-
-.playlist-item.shimmer .info-skeleton {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-}
-
-.playlist-item.shimmer .info-skeleton div {
-  height: 12px;
-  width: 80%;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2.5s infinite linear;
-}
-
-
+/* Full-width block shimmer (single strip) */
 .shimmer-block {
-  height: 200px;
+  height: 140px;
   width: 100%;
-  border-radius: 12px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
   background: linear-gradient(90deg, #1f2937 25%, #4ade80 50%, #1f2937 75%);
-  background-size: 200% 100%;
+  background-size: 300% 100%;
   animation: shimmer 2.5s infinite linear;
-  margin-bottom: 16px;
 }

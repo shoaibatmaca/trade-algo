@@ -56,9 +56,6 @@
 //       <div className="row">
 //         {/* {loading ? (
 //           <p className="text-white">Loading courses...</p> */}
-//           {loading ? (
-//   <div className="shimmer-block" style={{ height: "180px", width: "100%", marginBottom: "1rem" }}></div>
-
 //         ) : (
 //           courses.map((course, index) => (
 //             <div key={course.id} className={`col-md-3 mb-4 ${index !== 0 ? "blurred" : ""}`}>
