@@ -450,14 +450,7 @@ const PortfolioAnalysis = () => {
             >
               Sector Exposure
             </button>
-            <button
-              className={`tab-button ${
-                activeTab === "correlation-risk" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("correlation-risk")}
-            >
-              Portfolio Pulse
-            </button>
+
             <button
               className={`tab-button ${
                 activeTab === "diversification-level" ? "active" : ""
