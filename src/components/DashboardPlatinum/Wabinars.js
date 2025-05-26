@@ -656,6 +656,7 @@ const ExclusiveWebinars = () => {
                       <i className="bi bi-people"></i>
                       <span>{webinar.registered_count} registered</span>
                     </div>
+                    
                   </div>
                 </div>
 

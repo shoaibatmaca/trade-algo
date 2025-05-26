@@ -5247,3 +5247,7 @@ h4 {
     transform: scale(1);
   }
 }
+
+.webinar-car-img img {
+  height: 500px;
+}
