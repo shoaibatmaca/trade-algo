@@ -468,7 +468,7 @@ body .dark {
 }
 .dashboard_row .offset-3 {
   margin-left: 17%;
-  background-color: #1c1e20;
+  /* background-color: #1c1e20; */
 }
 
 .dropdown-container {
@@ -1361,25 +1361,12 @@ body .dark {
   position: relative;
 }
 .dashboard-header {
-  margin-top: 66px !important;
+  /* margin-top: 66px !important; */
 }
 
 .dashboard-head {
-  /* position: absolute; */
-  /* top: -74px; */
-  /* z-index: 10;
-  display: flex;
-  width: 100%; */
-  /* position: fixed !important;
-  background-color: transparent !important;
-  z-index: 10;  
-  top: 0px;
-  justify-content: space-between;
-  width: -webkit-fill-available !important;
-  padding: 4px 12px !important; */
-
   position: absolute;
-  top: -62px !important;
+  top: -68px !important;
   background-color: transparent !important;
   z-index: 10;
   top: 0px;
@@ -1389,4 +1376,91 @@ body .dark {
 }
 .dark-mode-content {
   margin-top: 70px !important;
+}
+.light-mode-content {
+  margin-top: 70px !important;
+}
+
+/* light mode css */
+.light-mode-content {
+  color: #000 !important;
+}
+
+.bg-light .dashboard-head {
+  top: 0 !important;
+  background-color: transparent !important;
+}
+.bg-light .search-container .search-bar {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #000;
+}
+.bg-light .webinar-car-img {
+  background-color: white;
+  color: #000;
+}
+.bg-light
+  .webinar-car-img
+  .webinar-description
+  .presenter-info
+  .presenter-name
+  .webinar-details
+  .detail-row
+  .detail-item {
+  color: #000 !important;
+}
+.bg-light .webinar-car-img .webinar-description {
+  color: #000;
+}
+
+.bg-light .webinar-car-img .presenter-name {
+  color: #000 !important;
+}
+.bg-light .webinar-car-img div {
+  color: #000 !important;
+}
+.bg-light .price-container .price {
+  color: #fff !important;
+}
+.bg-light .resources-section {
+  background-color: #fff !important;
+}
+.bg-light .video-title {
+  color: #000 !important;
+}
+
+.bg-light .resources-section .resources-section {
+  margin-top: 0 !important;
+}
+.bg-light .buttons-container .price-btn {
+  border: 1px solid #000 !important;
+  color: #000 !important;
+}
+.bg-dark .buttons-container .price-btn {
+  color: #fff;
+}
+.bg-dark .buttons-container .price-btn:hover {
+  color: #000 !important;
+}
+.bg-light .buttons-container .price-btn:hover {
+  color: #000 !important;
+}
+.bg-light .manage-btn {
+  color: #000 !important;
+  border: 1px solid #000 !important;
+}
+.bg-light .manage-btn .active {
+  color: #fff !important;
+}
+.bg-light .sessions-container .pricing-card {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+.bg-light .sessions-container .mentorship-panel {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.bg-light .sessions-container .mentorship-content p {
+  color: #000 !important;
 }
