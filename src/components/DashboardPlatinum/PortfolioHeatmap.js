@@ -246,11 +246,6 @@ function PortfolioComponent() {
           value: asset.value || 0, // optional if backend returns it
         })),
 
-        // assets: (data.assets || []).map((assetType) => ({
-        //   id: assetType,
-        //   asset_type: assetType,
-        //   percentage: 0, // 🔄 you can calculate allocation later if needed
-        // })),
         balance: data.account?.balance || 0,
         equity: data.account?.equity || 0,
         margin: data.account?.margin || 0,
@@ -259,20 +254,6 @@ function PortfolioComponent() {
         market_watch: data.market_watch || [],
         recent_trades: data.recent_trades || [],
       };
-
-      // const formatted = {
-      //   total_value: data.portfolio_value,
-      //   total_gain_loss: 0,
-      //   total_gain_loss_percent: 0,
-      //   assets: [],
-      //   balance: data.account?.balance || 0,
-      //   equity: data.account?.equity || 0,
-      //   margin: data.account?.margin || 0,
-      //   free_margin: data.account?.free_margin || 0,
-      //   leverage: data.account?.leverage || 0,
-      //   market_watch: data.market_watch || [],
-      //   recent_trades: data.recent_trades || [],
-      // };
 
       setPortfolio(formatted);
       setLoading(false);
