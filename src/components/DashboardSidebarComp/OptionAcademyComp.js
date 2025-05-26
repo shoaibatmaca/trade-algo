@@ -630,30 +630,6 @@ const OptionsAcademy = () => {
                 </div>
 
                 {videos.length > 0 && (
-                  // <div className="playlist-items">
-                  //   {videos.map((video) => (
-                  //     <div
-                  //       key={video.id}
-                  //       className={`playlist-item ${
-                  //         selectedVideo?.id === video.id ? "now-playing" : ""
-                  //       }`}
-                  //       onClick={() => setSelectedVideo(video)}
-                  //     >
-                  //       <div className="playlist-thumbnail">
-                  //         <img
-                  //           src={video.thumbnail_url || thumbnail}
-                  //           alt="Thumbnail"
-                  //         />
-                  //         {selectedVideo?.id === video.id && (
-                  //           <div className="playing-tag">Now Playing</div>
-                  //         )}
-                  //       </div>
-                  //       <div className="playlist-info">
-                  //         <div className="video-title-card">{video.title}</div>
-                  //       </div>
-                  //     </div>
-                  //   ))}
-                  // </div>
                   <div className="playlist-items">
                     {videos.length === 0
                       ? [...Array(3)].map((_, i) => (
