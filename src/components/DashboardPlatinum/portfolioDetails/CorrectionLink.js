@@ -117,7 +117,7 @@
 
 // export default CorrelationRisk;
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const correlationData = [
   { pair: "AAPL / MSFT", correlation: 0.85, level: "High" },
@@ -139,43 +139,43 @@ const getBarColor = (level) => {
 const CorrelationRisk = () => {
   const [dailyWrap, setDailyWrap] = useState("Loading AI summary...");
 
-  useEffect(() => {
-    fetch(
-      "https://working-coral-hopelessly.ngrok-free.app/portfolio-commentary",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          summary: { change_value: 25.99, percent_change: 5.0 },
-          asset_allocation: { stocks: 75, crypto: 15, cash: 10 },
-          portfolio_history: [],
-          market_watch: [
-            { symbol: "EURUSD", ask: 1.13323, bid: 1.1332, spread: 0.00003 },
-            { symbol: "GBPUSD", ask: 1.2845, bid: 1.2844, spread: 0.0001 },
-          ],
-          sentiment: {
-            AAPL: 0.12,
-            MSFT: -0.08,
-            TSLA: 0.25,
-            NVDA: 0.18,
-          },
-          headlines: [
-            "Fed holds rates steady amid inflation concerns",
-            "Tech earnings beat expectations across the board",
-            "Energy sector rallies on supply concerns",
-          ],
-        }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setDailyWrap(data.response || "No summary available.");
-      })
-      .catch((err) => {
-        console.error("Failed to fetch Portfolio Pulse:", err);
-        setDailyWrap("❌ Failed to load AI summary.");
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://working-coral-hopelessly.ngrok-free.app/portfolio-commentary",
+  //     {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({
+  //         summary: { change_value: 25.99, percent_change: 5.0 },
+  //         asset_allocation: { stocks: 75, crypto: 15, cash: 10 },
+  //         portfolio_history: [],
+  //         market_watch: [
+  //           { symbol: "EURUSD", ask: 1.13323, bid: 1.1332, spread: 0.00003 },
+  //           { symbol: "GBPUSD", ask: 1.2845, bid: 1.2844, spread: 0.0001 },
+  //         ],
+  //         sentiment: {
+  //           AAPL: 0.12,
+  //           MSFT: -0.08,
+  //           TSLA: 0.25,
+  //           NVDA: 0.18,
+  //         },
+  //         headlines: [
+  //           "Fed holds rates steady amid inflation concerns",
+  //           "Tech earnings beat expectations across the board",
+  //           "Energy sector rallies on supply concerns",
+  //         ],
+  //       }),
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setDailyWrap(data.response || "No summary available.");
+  //     })
+  //     .catch((err) => {
+  //       console.error("Failed to fetch Portfolio Pulse:", err);
+  //       setDailyWrap("❌ Failed to load AI summary.");
+  //     });
+  // }, []);
 
   return (
     <div className="correlation-risk d-flex flex-wrap gap-4">
