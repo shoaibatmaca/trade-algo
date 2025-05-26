@@ -244,33 +244,36 @@ function PortfolioDetailsBootstrap() {
 
         const data = response.data;
 
-        // Extract positions and trades
-        const formattedPositions = (data.open_positions || []).map(
-          (pos, index) => ({
-            id: index + 1,
-            asset: pos.symbol || "-",
-            type: pos.type || "-",
-            quantity: pos.quantity,
-            entryPrice: pos.entry_price,
-            currentPrice: pos.current_price,
-            value: pos.value,
-            pl: pos.pnl,
-            plPercentage: pos.pnl_percent,
-          })
+        // 🧹 Filter out blank entries
+        const filteredPositions = (data.open_positions || []).filter(
+          (p) => p.symbol
+        );
+        const filteredTrades = (data.recent_trades || []).filter(
+          (t) => t.symbol
         );
 
-        const formattedTransactions = (data.recent_trades || []).map(
-          (trade, index) => ({
-            id: index + 1,
-            date: new Date().toISOString().split("T")[0], // Static date placeholder
-            asset: trade.symbol || "-",
-            type: trade.type === 0 ? "Buy" : "Sell",
-            quantity: trade.volume,
-            price: trade.price,
-            total: trade.volume * trade.price,
-            status: "Completed",
-          })
-        );
+        const formattedPositions = filteredPositions.map((pos, index) => ({
+          id: index + 1,
+          asset: pos.symbol,
+          type: pos.type,
+          quantity: pos.quantity,
+          entryPrice: pos.entry_price,
+          currentPrice: pos.current_price,
+          value: pos.value,
+          pl: pos.pnl,
+          plPercentage: pos.pnl_percent,
+        }));
+
+        const formattedTransactions = filteredTrades.map((trade, index) => ({
+          id: index + 1,
+          date: new Date().toISOString().split("T")[0],
+          asset: trade.symbol,
+          type: trade.type === 0 ? "Buy" : "Sell",
+          quantity: trade.volume,
+          price: trade.price,
+          total: trade.volume * trade.price,
+          status: "Completed",
+        }));
 
         setOpenPositionsData(formattedPositions);
         setRecentTransactionsData(formattedTransactions);

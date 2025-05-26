@@ -307,8 +307,8 @@ h3 {
   padding: 15px 50px;
 }
 
-.section_latest {
-  /* background-color: #ccc; */
+.section_latest .card img {
+  height: 300px;
 }
 
 .news-wrap img {
@@ -332,7 +332,13 @@ h3 {
 }
 .other-news-info h4 {
   font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .side-news-img {
   width: 130px;
 }
@@ -482,7 +488,12 @@ h3 {
 .extra-heading {
   color: #000 !important;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .market_details .editor_desc {
   background-color: #fff;
@@ -936,9 +947,7 @@ section:last-child {
 }
 .blur {
   filter: blur(4px);
-  /*Adjustblurintensity*/
   pointer-events: none;
-  /*Disableinteractionwithblurredcontent*/
   user-select: none;
   -webkit-filter: blur(4px);
 }
