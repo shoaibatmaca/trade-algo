@@ -463,6 +463,8 @@ const OptionsAcademy = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const [loading, setLoading] = useState(true);
+
   const accessToken = localStorage.getItem("accessToken");
   const API_BASE_URL = process.env.REACT_APP_API_URL?.endsWith("/")
     ? process.env.REACT_APP_API_URL
@@ -475,7 +477,29 @@ const OptionsAcademy = () => {
     return "Forex";
   };
 
+  // const fetchCourses = async (category) => {
+  //   try {
+  //     const res = await axios.get(
+  //       `${API_BASE_URL}api/beginnerhub/courses/${category}/`,
+  //       {
+  //         headers: { Authorization: `Bearer ${accessToken}` },
+  //       }
+  //     );
+  //     setCourses(res.data);
+  //     if (res.data.length > 0) {
+  //       setSelectedCourseId(res.data[0].id);
+  //       fetchVideos(res.data[0].id);
+  //     } else {
+  //       setVideos([]);
+  //       setSelectedVideo(null);
+  //     }
+  //   } catch (err) {
+  //     console.error("Error fetching courses:", err);
+  //   }
+  // };
+
   const fetchCourses = async (category) => {
+    setLoading(true); // ✅ start shimmer
     try {
       const res = await axios.get(
         `${API_BASE_URL}api/beginnerhub/courses/${category}/`,
@@ -486,13 +510,15 @@ const OptionsAcademy = () => {
       setCourses(res.data);
       if (res.data.length > 0) {
         setSelectedCourseId(res.data[0].id);
-        fetchVideos(res.data[0].id);
+        await fetchVideos(res.data[0].id); // await to maintain loading state
       } else {
         setVideos([]);
         setSelectedVideo(null);
       }
     } catch (err) {
       console.error("Error fetching courses:", err);
+    } finally {
+      setLoading(false); // ✅ end shimmer
     }
   };
 
@@ -656,42 +682,44 @@ const OptionsAcademy = () => {
                   // </div>
 
                   <div className="playlist-items">
-                    {videos.length === 0
-                      ? [...Array(3)].map((_, i) => (
-                          <div key={i} className="playlist-item shimmer">
-                            <div className="thumbnail-skeleton"></div>
-                            <div className="info-skeleton">
-                              <div className="line short"></div>
-                              <div className="line long"></div>
+                    {loading ? (
+                      [...Array(3)].map((_, i) => (
+                        <div key={i} className="playlist-item shimmer">
+                          <div className="thumbnail-skeleton"></div>
+                          <div className="info-skeleton">
+                            <div className="line short"></div>
+                            <div className="line long"></div>
+                          </div>
+                        </div>
+                      ))
+                    ) : videos.length > 0 ? (
+                      videos.map((video) => (
+                        <div
+                          key={video.id}
+                          className={`playlist-item ${
+                            selectedVideo?.id === video.id ? "now-playing" : ""
+                          }`}
+                          onClick={() => setSelectedVideo(video)}
+                        >
+                          <div className="playlist-thumbnail">
+                            <img
+                              src={video.thumbnail_url || thumbnail}
+                              alt="Thumbnail"
+                            />
+                            {selectedVideo?.id === video.id && (
+                              <div className="playing-tag">Now Playing</div>
+                            )}
+                          </div>
+                          <div className="playlist-info">
+                            <div className="video-title-card">
+                              {video.title}
                             </div>
                           </div>
-                        ))
-                      : videos.map((video) => (
-                          <div
-                            key={video.id}
-                            className={`playlist-item ${
-                              selectedVideo?.id === video.id
-                                ? "now-playing"
-                                : ""
-                            }`}
-                            onClick={() => setSelectedVideo(video)}
-                          >
-                            <div className="playlist-thumbnail">
-                              <img
-                                src={video.thumbnail_url || thumbnail}
-                                alt="Thumbnail"
-                              />
-                              {selectedVideo?.id === video.id && (
-                                <div className="playing-tag">Now Playing</div>
-                              )}
-                            </div>
-                            <div className="playlist-info">
-                              <div className="video-title-card">
-                                {video.title}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="text-muted">No videos available.</div>
+                    )}
                   </div>
                 )}
               </div>
