@@ -225,7 +225,7 @@ function PortfolioComponent() {
     try {
       const token = localStorage.getItem("accessToken");
       const response = await axios.get(
-        "https://valourwealthdjango-production.up.railway.app/api/portfolio/",
+        "https://valourwealthdjango-production.up.railway.app/api/mt5-snapshot/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -234,6 +234,24 @@ function PortfolioComponent() {
       );
 
       const data = response.data;
+
+      const formatted = {
+        total_value: data.portfolio_value || 0,
+        total_gain_loss: 0, // 🔄 You can compute this later if needed
+        total_gain_loss_percent: 0,
+        assets: (data.assets || []).map((assetType) => ({
+          id: assetType,
+          asset_type: assetType,
+          percentage: 0, // 🔄 you can calculate allocation later if needed
+        })),
+        balance: data.account?.balance || 0,
+        equity: data.account?.equity || 0,
+        margin: data.account?.margin || 0,
+        free_margin: data.account?.free_margin || 0,
+        leverage: data.account?.leverage || 0,
+        market_watch: data.market_watch || [],
+        recent_trades: data.recent_trades || [],
+      };
 
       // const formatted = {
       //   total_value: data.portfolio_value,
@@ -247,50 +265,6 @@ function PortfolioComponent() {
       //   leverage: data.account?.leverage || 0,
       //   market_watch: data.market_watch || [],
       //   recent_trades: data.recent_trades || [],
-      // };
-
-      const formatted = {
-        total_value: data.summary?.total_portfolio_value || 0,
-        total_gain_loss: data.summary?.change_value || 0,
-        total_gain_loss_percent: data.summary?.percent_change || 0,
-
-        assets: [
-          {
-            id: 1,
-            asset_type: "stocks",
-            value: data.asset_allocation?.stock_value || 0,
-            percentage: data.asset_allocation?.stocks || 0,
-          },
-          {
-            id: 2,
-            asset_type: "crypto",
-            value: data.asset_allocation?.crypto_value || 0,
-            percentage: data.asset_allocation?.crypto || 0,
-          },
-        ],
-
-        balance: data.account?.balance || 0,
-        equity: data.account?.equity || 0,
-        margin: data.account?.margin || 0,
-        free_margin: data.account?.free_margin || 0,
-        leverage: data.account?.leverage || 0,
-
-        market_watch: data.market_watch || [],
-        recent_trades: data.recent_trades || [],
-      };
-
-      // const formatted = {
-      //   total_value: data.portfolio_value,
-      //   total_gain_loss: 0,
-      //   total_gain_loss_percent: 0,
-      //   assets: [], // optionally fill from asset_allocation
-      //   balance: data.account?.balance || 0,
-      //   equity: data.account.equity,
-      //   margin: data.account.margin,
-      //   free_margin: data.account.free_margin,
-      //   leverage: data.account.leverage,
-      //   market_watch: data.market_watch,
-      //   recent_trades: data.recent_trades,
       // };
 
       setPortfolio(formatted);
