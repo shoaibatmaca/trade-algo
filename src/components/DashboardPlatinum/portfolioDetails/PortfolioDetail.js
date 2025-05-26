@@ -425,7 +425,7 @@ function PortfolioDetailsBootstrap() {
       try {
         const token = localStorage.getItem("accessToken");
         const res = await axios.get(
-          "https://valourwealthdjango-production.up.railway.app/api/portfolio/summary/",
+          "https://valourwealthdjango-production.up.railway.app/api/mt5-snapshot/",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
