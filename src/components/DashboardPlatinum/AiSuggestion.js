@@ -254,16 +254,68 @@ const AISuggestions = () => {
         const rawText = response.data.suggestions || "";
 
         // Split AI text into individual numbered lines (1. ..., 2. ...)
+        // const lines = rawText
+        //   .split("\n")
+        //   .filter((line) => line.trim().match(/^\d+\./)) // only numbered lines
+        //   .map((line, idx) => {
+        //     const match = line.match(/^\d+\.\s*\*{0,2}(.*?)\*{0,2}:\s*(.*)$/);
+        //     const title = match ? match[1].trim() : `Suggestion ${idx + 1}`;
+        //     const description = match ? match[2].trim() : line;
+
+        //     return {
+        //       id: idx + 1,
+        //       title,
+        //       description,
+        //       impact: "Moderate Impact",
+        //       impactLevel: "medium",
+        //     };
+        //   });
+
+        // .map((line, idx) => ({
+        //   id: idx + 1,
+        //   title: `Suggestion ${idx + 1}`,
+        //   description: line.trim(),
+        //   impact: "Moderate Impact", // Optional: derive based on keywords
+        //   impactLevel: "medium", // Optional: high/medium/low styling
+        // }));
         const lines = rawText
           .split("\n")
-          .filter((line) => line.trim().match(/^\d+\./)) // only numbered lines
-          .map((line, idx) => ({
-            id: idx + 1,
-            title: `Suggestion ${idx + 1}`,
-            description: line.trim(),
-            impact: "Moderate Impact", // Optional: derive based on keywords
-            impactLevel: "medium", // Optional: high/medium/low styling
-          }));
+          .filter((line) => line.trim().match(/^\d+\./))
+          .map((line, idx) => {
+            const match = line.match(
+              /^\d+\.\s*(.*?)\:\s*(.*?)\s*\[Impact:\s*(high|moderate|low)\]$/i
+            );
+
+            if (match) {
+              const [_, rawTitle, rawDesc, rawImpact] = match;
+              const title = rawTitle.trim();
+              const description = rawDesc.trim();
+              const impactLevel = rawImpact.toLowerCase();
+
+              const impactMap = {
+                high: "High Impact",
+                moderate: "Moderate Impact",
+                low: "Low Impact",
+              };
+
+              return {
+                id: idx + 1,
+                title,
+                description,
+                impact: impactMap[impactLevel],
+                impactLevel,
+              };
+            }
+
+            // fallback: treat line as raw text if no match
+            return {
+              id: idx + 1,
+              title: `Suggestion ${idx + 1}`,
+              description: line.trim(),
+              impact: "Moderate Impact",
+              impactLevel: "moderate",
+            };
+          });
 
         setSuggestions(lines);
       } catch (err) {
@@ -297,12 +349,21 @@ const AISuggestions = () => {
 
       <div className="suggestions-container">
         {suggestions.map((suggestion) => (
+          // <div key={suggestion.id} className="suggestion-card">
+          //   <div className="suggestion-header">
+          //     <div className={`impact-badge ${suggestion.impactLevel}-impact`}>
+          //       {suggestion.impact}
+          //     </div>
+          //   </div>
+          //   <p className="suggestion-description">{suggestion.description}</p>
+          // </div>
           <div key={suggestion.id} className="suggestion-card">
             <div className="suggestion-header">
               <div className={`impact-badge ${suggestion.impactLevel}-impact`}>
                 {suggestion.impact}
               </div>
             </div>
+            <h4 className="suggestion-title">{suggestion.title}</h4>
             <p className="suggestion-description">{suggestion.description}</p>
           </div>
         ))}
