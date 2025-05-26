@@ -239,11 +239,18 @@ function PortfolioComponent() {
         total_value: data.portfolio_value || 0,
         total_gain_loss: 0, // 🔄 You can compute this later if needed
         total_gain_loss_percent: 0,
-        assets: (data.assets || []).map((assetType) => ({
-          id: assetType,
-          asset_type: assetType,
-          percentage: 0, // 🔄 you can calculate allocation later if needed
+        assets: (data.assets || []).map((asset, index) => ({
+          id: index + 1,
+          asset_type: asset.asset_type || "",
+          percentage: asset.percentage || 0,
+          value: asset.value || 0, // optional if backend returns it
         })),
+
+        // assets: (data.assets || []).map((assetType) => ({
+        //   id: assetType,
+        //   asset_type: assetType,
+        //   percentage: 0, // 🔄 you can calculate allocation later if needed
+        // })),
         balance: data.account?.balance || 0,
         equity: data.account?.equity || 0,
         margin: data.account?.margin || 0,
