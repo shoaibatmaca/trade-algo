@@ -219,7 +219,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AISuggestions from "../AiSuggestion";
 import DiversificationLevel from "../DisverificationLevel";
-import CorrectionLink from "../portfolioDetails/CorrectionLink";
 
 const PortfolioAnalysis = () => {
   const [activeTab, setActiveTab] = useState("sector-exposure");
@@ -417,8 +416,7 @@ const PortfolioAnalysis = () => {
             </div>
           </>
         );
-      case "correlation-risk":
-        return <CorrectionLink />;
+
       case "diversification-level":
         return <DiversificationLevel />;
       case "ai-suggestions":

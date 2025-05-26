@@ -1,25 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const SectorIQ = ({ assetAllocation, sentimentBySector, latestNews }) => {
+const SectorIQ = () => {
   const [aiSummary, setAiSummary] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSectorPulse = async () => {
-      if (!latestNews || latestNews.length === 0) {
-        setAiSummary("No latest news provided.");
-        setLoading(false);
-        return;
-      }
-
       try {
         const token = localStorage.getItem("accessToken");
 
         const response = await axios.post(
           "https://valourwealthdjango-production.up.railway.app/api/portfolio/sector-iq/",
-          { latest_news: latestNews }, // if latestNews is array of dicts, keep it like this
+          {}, // No need to send body now
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -28,7 +22,7 @@ const SectorIQ = ({ assetAllocation, sentimentBySector, latestNews }) => {
           }
         );
 
-        const text = response.data.pulse || "No AI response returned.";
+        const text = response.data.pulse || "No AI summary returned.";
         setAiSummary(text);
       } catch (err) {
         console.error("SectorIQ API error:", err);
@@ -39,7 +33,7 @@ const SectorIQ = ({ assetAllocation, sentimentBySector, latestNews }) => {
     };
 
     fetchSectorPulse();
-  }, [latestNews]);
+  }, []);
 
   return (
     <div className="sector-iq-container p-4 rounded shadow-sm">
