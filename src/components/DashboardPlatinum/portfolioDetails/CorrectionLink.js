@@ -222,12 +222,15 @@
 
 // export default CorrelationRisk;
 
-
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const CorrelationRisk = () => {
-  const [diversification, setDiversification] = useState({ score: 0, breakdown: [], insight: "" });
+  const [diversification, setDiversification] = useState({
+    score: 0,
+    breakdown: [],
+    insight: "",
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -292,11 +295,13 @@ const CorrelationRisk = () => {
                 : "Low Diversification"}
             </h3>
             <p className="diversification-description">
-              Your portfolio has a {diversification.score >= 75
+              Your portfolio has a{" "}
+              {diversification.score >= 75
                 ? "strong"
                 : diversification.score >= 50
                 ? "moderate"
-                : "limited"} level of diversification across multiple dimensions.
+                : "limited"}{" "}
+              level of diversification across multiple dimensions.
             </p>
           </div>
         </div>
@@ -309,7 +314,9 @@ const CorrelationRisk = () => {
               <div key={idx} className="breakdown-item mb-4">
                 <div className="d-flex justify-content-between mb-2">
                   <div className="breakdown-category">{item.category}</div>
-                  <div className="breakdown-score">{item.score}/{item.maxScore}</div>
+                  <div className="breakdown-score">
+                    {item.score}/{item.maxScore}
+                  </div>
                 </div>
                 <div className="progress">
                   <div

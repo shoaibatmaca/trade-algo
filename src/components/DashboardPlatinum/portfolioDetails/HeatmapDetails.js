@@ -458,7 +458,7 @@ const PortfolioAnalysis = () => {
               }`}
               onClick={() => setActiveTab("correlation-risk")}
             >
-              Portfolio Pulse
+              Diversification Level
             </button>
             <button
               className={`tab-button ${
