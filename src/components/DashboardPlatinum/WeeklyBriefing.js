@@ -625,6 +625,19 @@ const PlatinumBriefing = () => {
 
   const API_BASE_URL = process.env.REACT_APP_API_URL;
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API_BASE_URL}api/weekly-briefings/`, {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setBriefings(res.data);
+  //       setCurrent(res.data[0]);
+  //     })
+  //     .catch((err) => console.error("Error fetching briefings", err));
+  // }, []);
   useEffect(() => {
     axios
       .get(`${API_BASE_URL}api/weekly-briefings/`, {
@@ -633,8 +646,8 @@ const PlatinumBriefing = () => {
         },
       })
       .then((res) => {
-        setBriefings(res.data);
-        setCurrent(res.data[0]);
+        setBriefings([res.data]); // wrap single object in array
+        setCurrent(res.data); // it's a single object, not res.data[0]
       })
       .catch((err) => console.error("Error fetching briefings", err));
   }, []);
