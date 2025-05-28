@@ -1560,7 +1560,7 @@ const PlatinumDashboard = () => {
                     </span>
                   </div>
 
-                  <a href="#" className="benefits-link mb-2">
+                  <a href="/benefits" className="benefits-link mb-2">
                     View Benefits <i className="bi bi-chevron-right"></i>
                   </a>
                 </div>

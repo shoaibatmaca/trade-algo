@@ -476,6 +476,13 @@ const PortfolioAnalysis = () => {
             >
               AI Suggestions
             </button>
+            <button
+              className={`tab-button ${
+                activeTab === "ai-suggestions" ? "active" : ""
+              }`}
+            >
+              CorrectionLink
+            </button>
           </div>
         </div>
       </div>

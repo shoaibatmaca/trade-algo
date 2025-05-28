@@ -1,36 +1,35 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/layout";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import PrivacyPolicy from "./pages/Privacypolicy";
-import CoursesDetail from "./pages/CoursesDetail";
-import ContactPage from "./pages/ContactPage";
+import Layout from "./components/layout";
+import News from "./components/News";
 import AboutUs from "./pages/AboutUs";
-import Feature from "./pages/Feature";
-import MarketDetails from "./pages/MarketDetails";
-import TechnologyDetail from "./pages/TechnologyDetail";
-import WealthDetails from "./pages/WealthDetails";
-import EventsDetails from "./pages/EventsDetails";
+import ContactPage from "./pages/ContactPage";
 import CryptoDetails from "./pages/CryptoDetails";
 import CustomerSupport from "./pages/CustomerSupport";
+import EventsDetails from "./pages/EventsDetails";
+import Feature from "./pages/Feature";
+import Home from "./pages/Home";
+import LegalDisclaimer from "./pages/LegalDisclaimer";
+import Login from "./pages/Login";
+import MarketDetails from "./pages/MarketDetails";
+import PrivacyPolicy from "./pages/Privacypolicy";
 import Review from "./pages/Review";
-import News from "./components/News";
+import TechnologyDetail from "./pages/TechnologyDetail";
 import TermsService from "./pages/TermsService";
 import UsePolicy from "./pages/UsePolicy";
-import LegalDisclaimer from "./pages/LegalDisclaimer";
+import WealthDetails from "./pages/WealthDetails";
 // import OurAnalyst from "./pages/OurAnalyst";
-import Products from "./pages/Products";
-import RequestDemo from "./pages/RequestDemo";
+import Benefits from "./components/DashboardPlatinum/Benefits";
+import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
 import CourseDetails from "./pages/CourseDetails";
 import PlatinumDashboard from "./pages/PlatinumDashboard";
-import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
-
+import Products from "./pages/Products";
+import RequestDemo from "./pages/RequestDemo";
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/benefits" element={<Benefits />} />
         <Route
           path="/"
           element={
