@@ -12,9 +12,9 @@ function ReleaseNotes() {
       </p>
 
       <div className="releasenotes_section">
-        <h2 className="releasenotes_title">Wealth Series Lite Now Available</h2>
+        <h2 className="releasenotes_title">Wealth Series Now Available</h2>
         <p className="releasenotes_meta">May 29, 2025 • v2.15.0</p>
-        <h3 className="releasenotes_product">Wealth Series Lite</h3>
+        <h3 className="releasenotes_product">Wealth Series</h3>
         <p>
           Wealth Series Lite combines our proprietary AI stock selection engine
           with an intuitive, gamified portfolio builder. Compete on a global
@@ -59,7 +59,7 @@ function ReleaseNotes() {
 
       <div className="releasenotes_section">
         <h2 className="releasenotes_title">
-          Beginner Hub – Trading Academy Expansion
+          Beginner Hub
         </h2>
         <p className="releasenotes_meta">Feb 12, 2025 • v2.12.0</p>
         <h3 className="releasenotes_product">Beginner Hub</h3>

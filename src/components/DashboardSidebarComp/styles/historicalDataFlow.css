@@ -135,6 +135,7 @@
   background-color: var(--theme-color) !important;
   border-color: #1c1e20 !important;
   color: #fff !important;
+  padding: 14px;
 }
 
 .table_history th,

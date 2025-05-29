@@ -89,9 +89,21 @@ const Resources = ({ darkMode }) => {
                     alt="Thumbnail"
                     className="video-thumbnail"
                   />
-                  <button className="play-button-resources" aria-label="Play">
-                    <i className="fas fa-play"></i>
+                  <button
+                    style={{
+                      borderRadius: "50%",
+                      height: "50px",
+                      width: "50px",
+                      position: "absolute",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                    }}
+                    className="play-button-resources"
+                    aria-label="Play"
+                  >
+                    ▶
                   </button>
+                
                 </div>
 
                 <video

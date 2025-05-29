@@ -487,12 +487,7 @@ const ExtraContent = () => {
         <div className="row mb-4">
           <div className="col-md-6 mb-3">
             <div className="card market-card">
-              <div className="card-header mb-0">
-                <h5 className="card-title mb-0 text-success">
-                  <i className="fas fa-arrow-up me-2"></i>
-                  Top Gainers
-                </h5>
-              </div>
+            
               <div className="card-body">
                 {topGainersLosers.top_gainers
                   ?.slice(0, 5)
@@ -517,12 +512,6 @@ const ExtraContent = () => {
 
           <div className="col-md-6 mb-3">
             <div className="card market-card">
-              <div className="card-header mb-0">
-                <h5 className="card-title mb-0 text-danger">
-                  <i className="fas fa-arrow-down me-2"></i>
-                  Top Losers
-                </h5>
-              </div>
               <div className="card-body">
                 {topGainersLosers.top_losers
                   ?.slice(0, 5)

@@ -626,7 +626,7 @@ const MainTable = () => {
 
         {/* Market Cap Tabs */}
         <div className="nav nav-tabs gap-2 mt-4 historic-table">
-          <ul className="nav nav-pills cap-nav">
+          <ul className="nav nav-pills cap-nav" style={{border:'none'}}>
             <li className="nav-item">
               <button
                 className={`cap-btn ${
@@ -685,7 +685,7 @@ const MainTable = () => {
       </div>
 
       {/* Table */}
-      <div className="table-responsive table_history">
+      <div className="table-responsive table_history" style={{border:'none'}}>
         <table className="table table-hover stocks-table">
           <thead className="bg-primary text-white">
             <tr>
