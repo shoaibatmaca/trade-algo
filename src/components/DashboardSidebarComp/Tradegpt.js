@@ -80,26 +80,26 @@ function Tradegpt() {
         <div className="col-lg-8 text-center">
           <h1 className="fw-bold display-5">TradeGPT</h1>
           <hr style={{ width: "60px", margin: "20px auto" }} />
-          <h3 className="lead text-muted">
+          <p className="lead text-muted">
             Introducing TradeGPT by ValourWealth — Your AI-Powered Trading
             Companion ValourWealth proudly unveils its latest innovation:
             TradeGPT — an advanced AI-driven trading assistant crafted to
             empower members with intelligent insights across stocks, forex,
-            options, and cryptocurrencies.
-          </h3>
-          <h3 className="text-muted">
+            options, and cryptocurrenciesp{" "}
+          </p>
+          <p className="text-muted">
             Whether you’re analyzing market trends or seeking strategy ideas,
             TradeGPT delivers real-time, data-backed responses powered by over
             50 million data points.
-          </h3>
-          <h3 className="text-muted">
+          </p>
+          <p className="text-muted">
             Simply ask TradeGPT any question and instantly receive AI-powered
             answers based on over 50 million data points.
-          </h3>
-          <h3 className="text-muted">
+          </p>
+          <p className="text-muted">
             Instant data, analysis and even trade recommendations are all
             engineered to help Valourwealth members boost their trading profits.
-          </h3>
+          </p>
           <p className="fw-bold mt-4">
             Jump-start your trading with Valourwealth's “Super-Intelligent” AI
             today
