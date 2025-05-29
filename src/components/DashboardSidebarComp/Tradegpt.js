@@ -1,3 +1,5 @@
+// import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.jpg";
+
 // function Tradegpt() {
 //   const handleTradeGPTRedirect = async () => {
 //     const accessToken = localStorage.getItem("accessToken");
@@ -26,16 +28,24 @@
 //   };
 //   return (
 //     <>
-//       <button onClick={handleTradeGPTRedirect} className="btn btn-primary">
-//         Go to TradeGPT
-//       </button>
+//       <div class="container">
+//         <div class="row">
+//           <div class="col-lg-4">
+//             <div
+//               class="tradegpt-img"
+//               style={{ cursor: "pointer" }}
+//               onClick={handleTradeGPTRedirect}
+//             >
+//               <img className="obj_fit" src={TradeGpt} alt="" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
 //     </>
 //   );
 // }
 
 // export default Tradegpt;
-
-import TradeGpt from "../DashboardSidebarComp/images/TradeGPT.jpg";
 
 function Tradegpt() {
   const handleTradeGPTRedirect = async () => {
@@ -63,22 +73,46 @@ function Tradegpt() {
       console.error("TradeGPT redirect failed:", error);
     }
   };
+
   return (
-    <>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div
-              class="tradegpt-img"
-              style={{ cursor: "pointer" }}
-              onClick={handleTradeGPTRedirect}
-            >
-              <img className="obj_fit" src={TradeGpt} alt="" />
-            </div>
-          </div>
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-8 text-center">
+          <h1 className="fw-bold display-5">TradeGPT</h1>
+          <hr style={{ width: "60px", margin: "20px auto" }} />
+          <p className="lead text-muted">
+            TradeAlgo has launched its newest AI product called TradeGPT. It is
+            the world's most powerful AI trading agent that is designed to help
+            TradeAlgo members reach their financial goals with
+            “super-intelligent” insights into stocks, options, forex and
+            cryptos.
+          </p>
+          <p className="text-muted">
+            Simply ask TradeGPT any question and instantly receive AI-powered
+            answers based on over 50 million data points.
+          </p>
+          <p className="text-muted">
+            Instant data, analysis and even trade recommendations are all
+            engineered to help TradeAlgo members boost their trading profits.
+          </p>
+          <p className="fw-bold mt-4">
+            Jump-start your trading with TradeAlgo's “Super-Intelligent” AI
+            today
+          </p>
+          <button
+            className="btn btn-primary px-4 py-2 mt-3"
+            style={{
+              background: "linear-gradient(to right, #0084ff, #00e0c6)",
+              border: "none",
+              fontWeight: "bold",
+            }}
+            onClick={handleTradeGPTRedirect}
+          >
+            Try TradeGPT Now
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
