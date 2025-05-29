@@ -81,9 +81,9 @@ function Tradegpt() {
           <h1 className="fw-bold display-5">TradeGPT</h1>
           <hr style={{ width: "60px", margin: "20px auto" }} />
           <p className="lead text-muted">
-            TradeAlgo has launched its newest AI product called TradeGPT. It is
-            the world's most powerful AI trading agent that is designed to help
-            TradeAlgo members reach their financial goals with
+            Valourwealth has launched its newest AI product called TradeGPT. It
+            is the world's most powerful AI trading agent that is designed to
+            help Valourwealth members reach their financial goals with
             “super-intelligent” insights into stocks, options, forex and
             cryptos.
           </p>
@@ -93,23 +93,29 @@ function Tradegpt() {
           </p>
           <p className="text-muted">
             Instant data, analysis and even trade recommendations are all
-            engineered to help TradeAlgo members boost their trading profits.
+            engineered to help Valourwealth members boost their trading profits.
           </p>
           <p className="fw-bold mt-4">
-            Jump-start your trading with TradeAlgo's “Super-Intelligent” AI
+            Jump-start your trading with Valourwealth's “Super-Intelligent” AI
             today
           </p>
-          <button
-            className="btn btn-primary px-4 py-2 mt-3"
-            style={{
-              background: "linear-gradient(to right, #0084ff, #00e0c6)",
-              border: "none",
-              fontWeight: "bold",
-            }}
-            onClick={handleTradeGPTRedirect}
-          >
-            Try TradeGPT Now
-          </button>
+          {/* Bottom-right Button */}
+          <div className="position-absolute end-0 bottom-0 p-4">
+            <button
+              className="btn px-3 py-2"
+              style={{
+                background: "linear-gradient(to right, #0084ff, #00e0c6)",
+                color: "#fff",
+                fontWeight: "bold",
+                fontSize: "0.9rem",
+                border: "none",
+                borderRadius: "5px",
+              }}
+              onClick={handleTradeGPTRedirect}
+            >
+              Try TradeGPT Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
