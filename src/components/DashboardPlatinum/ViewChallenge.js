@@ -1,329 +1,6 @@
-// // import React, { useState } from "react";
-
-// // function ViewChallenge() {
-// //   const [answer, setAnswer] = useState("");
-// //   const [screenshot, setScreenshot] = useState(null);
-// //   const [previewUrl, setPreviewUrl] = useState("");
-// //   const [submitted, setSubmitted] = useState(false);
-
-// //   // Sample challenge data (you would fetch this from API in real app)
-// //   const challenge = {
-// //     deadline: "May 10, 2025",
-// //   };
-
-// //   const handleAnswerChange = (e) => {
-// //     setAnswer(e.target.value);
-// //   };
-
-// //   const handleScreenshotChange = (e) => {
-// //     const file = e.target.files[0];
-// //     if (file) {
-// //       setScreenshot(file);
-// //       setPreviewUrl(URL.createObjectURL(file));
-// //     }
-// //   };
-
-// //   const handleSubmit = (e) => {
-// //     e.preventDefault();
-
-// //     // In a real app, you would send this data to a backend
-// //     console.log("Submitting:", { answer, screenshot });
-
-// //     // Show success message
-// //     setSubmitted(true);
-
-// //     // Reset form after 3 seconds
-// //     setTimeout(() => {
-// //       setSubmitted(false);
-// //       setAnswer("");
-// //       setScreenshot(null);
-// //       setPreviewUrl("");
-// //     }, 3000);
-// //   };
-
-// //   return (
-// //     <div className="challenge-container">
-// //       <div className="challenge-header-details">
-// //         <h2>{challenge.title}</h2>
-// //         <div className="challenge-meta">
-// //           <span className="badge-challenge bg-primary me-2">
-// //             Deadline: {challenge.deadline}
-// //           </span>
-// //         </div>
-// //       </div>
-
-// //       <div className="challenge-description-details">
-// //         <h4>Challenge Description:</h4>
-// //         <p>{challenge.description}</p>
-// //       </div>
-
-// //       <div className="submission-form">
-// //         <h4>Your Submission</h4>
-// //         <form onSubmit={handleSubmit}>
-// //           <div className="mb-3 challenge-form">
-// //             <label htmlFor="answerText" className="form-label">
-// //               Your Answer:
-// //             </label>
-// //             <textarea
-// //               id="answerText"
-// //               className="form-control"
-// //               rows="6"
-// //               value={answer}
-// //               onChange={handleAnswerChange}
-// //               placeholder="Type your answer here..."
-// //               required
-// //             ></textarea>
-// //           </div>
-
-// //           <div className="mb-4">
-// //             <label htmlFor="screenshotUpload" className="form-label">
-// //               Upload Screenshot:
-// //             </label>
-// //             <input
-// //               type="file"
-// //               className="form-control"
-// //               id="screenshotUpload"
-// //               accept="image/*"
-// //               onChange={handleScreenshotChange}
-// //               required
-// //             />
-
-// //             {previewUrl && (
-// //               <div className="screenshot-preview mt-2">
-// //                 <h5>Preview:</h5>
-// //                 <img
-// //                   src={previewUrl}
-// //                   alt="Screenshot preview"
-// //                   className="img-thumbnail"
-// //                 />
-// //               </div>
-// //             )}
-// //           </div>
-
-// //           <button
-// //             type="submit"
-// //             className="btn btn-primary submit-btn"
-// //             disabled={submitted}
-// //           >
-// //             {submitted ? "Submitted!" : "Submit Answer"}
-// //           </button>
-
-// //           {submitted && (
-// //             <div className="alert alert-success mt-3" role="alert">
-// //               Your challenge answer has been submitted successfully!
-// //             </div>
-// //           )}
-// //         </form>
-// //       </div>
-// //     </div>
-// //   );
-// // }
-
-// // export default ViewChallenge;
-
-// import axios from "axios";
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-
-// function ViewChallenge() {
-//   const { id } = useParams();
-//   const [challenge, setChallenge] = useState(null);
-//   const [answer, setAnswer] = useState("");
-//   const [screenshot, setScreenshot] = useState(null);
-//   const [previewUrl, setPreviewUrl] = useState("");
-//   const [submitted, setSubmitted] = useState(false);
-//   const [membersCount, setMembersCount] = useState(0);
-
-//   const token = localStorage.getItem("accessToken");
-
-//   useEffect(() => {
-//     const fetchChallenge = async () => {
-//       try {
-//         const res = await axios.get(
-//           `https://valourwealthdjango-production.up.railway.app/api/challenges/${id}/`,
-//           {
-//             headers: {
-//               Authorization: `Bearer ${token}`,
-//             },
-//           }
-//         );
-//         setChallenge(res.data);
-//       } catch (err) {
-//         console.error("Failed to load challenge", err);
-//       }
-//     };
-
-//     const fetchParticipants = async () => {
-//       try {
-//         const res = await axios.get(
-//           `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
-//           {
-//             headers: {
-//               Authorization: `Bearer ${token}`,
-//             },
-//           }
-//         );
-//         setMembersCount(res.data.length);
-//       } catch (err) {
-//         console.error("Failed to fetch participants", err);
-//       }
-//     };
-
-//     const fetchAll = async () => {
-//       await fetchChallenge();
-//       await fetchParticipants();
-//     };
-
-//     fetchAll();
-//   }, [id, token]);
-
-//   const handleAnswerChange = (e) => setAnswer(e.target.value);
-
-//   const handleScreenshotChange = (e) => {
-//     const file = e.target.files[0];
-//     if (file) {
-//       setScreenshot(file);
-//       setPreviewUrl(URL.createObjectURL(file));
-//     }
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const formData = new FormData();
-//     // formData.append("answer", answer);
-//     // formData.append("screenshot", screenshot);
-//     // formData.append("challenge", id);
-//     formData.append("answers", answer);
-//     formData.append("screenshots", screenshot);
-//     formData.append("challenge", id);
-
-//     try {
-//       await axios.post(
-//         "https://valourwealthdjango-production.up.railway.app/api/challenge-participants/",
-//         formData,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//             "Content-Type": "multipart/form-data",
-//           },
-//         }
-//       );
-//       setSubmitted(true);
-//       setAnswer("");
-//       setScreenshot(null);
-//       setPreviewUrl("");
-
-//       // Refetch members after successful submission
-//       const res = await axios.get(
-//         `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/?challenge=${id}`,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//           },
-//         }
-//       );
-//       setMembersCount(res.data.length);
-
-//       // Reset submission status after 3s
-//       setTimeout(() => setSubmitted(false), 3000);
-//     } catch (err) {
-//       console.error("Submission failed", err);
-//       alert("Submission failed");
-//     }
-//   };
-
-//   if (!challenge) return <div>Loading challenge details...</div>;
-
-//   const isChallengeOutdated = new Date(challenge.end_date) < new Date();
-
-//   return (
-//     <div className="challenge-container">
-//       <div className="challenge-header-details">
-//         <h2 className="text-white">{challenge.title}</h2>
-//         <div className="challenge-meta">
-//           <span className="badges bg-primary me-2">
-//             Deadline: {challenge.end_date}
-//           </span>
-//           <span className="badges bg-secondary">
-//             Participants: {membersCount}
-//           </span>
-//         </div>
-//       </div>
-
-//       <div className="challenge-description-details mt-3">
-//         <h4 className="text-white">Challenge Description:</h4>
-//         <p className="text-white">{challenge.description}</p>
-//       </div>
-
-//       <div className="submission-form mt-4">
-//         {isChallengeOutdated ? (
-//           <div className="alert alert-warning mt-3">
-//             This challenge has ended. Submissions are closed.
-//           </div>
-//         ) : (
-//           <form onSubmit={handleSubmit}>
-//             <div className="mb-3 challenge-form">
-//               <textarea
-//                 id="answerText"
-//                 className="form-control"
-//                 rows="6"
-//                 value={answer}
-//                 onChange={handleAnswerChange}
-//                 placeholder="Type your answer here..."
-//                 required
-//               ></textarea>
-//             </div>
-
-//             <div className="mb-4">
-//               <label htmlFor="screenshotUpload" className="form-label">
-//                 Upload Screenshot:
-//               </label>
-//               <input
-//                 type="file"
-//                 className="form-control"
-//                 id="screenshotUpload"
-//                 accept="image/*"
-//                 onChange={handleScreenshotChange}
-//                 required
-//               />
-//               {previewUrl && (
-//                 <div className="screenshot-preview mt-2">
-//                   <h5>Preview:</h5>
-//                   <img
-//                     src={previewUrl}
-//                     alt="Screenshot preview"
-//                     className="img-thumbnail"
-//                   />
-//                 </div>
-//               )}
-//             </div>
-
-//             <button
-//               type="submit"
-//               className="btn submit-btn"
-//               disabled={submitted}
-//             >
-//               {submitted ? "Submitted!" : "Submit Answer"}
-//             </button>
-
-//             {submitted && (
-//               <div className="alert alert-success mt-3" role="alert">
-//                 Your challenge answer has been submitted successfully!
-//               </div>
-//             )}
-//           </form>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ViewChallenge;
-
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function ViewChallenge() {
   const { id } = useParams();
@@ -332,11 +9,16 @@ function ViewChallenge() {
   const [screenshot, setScreenshot] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [membersCount, setMembersCount] = useState(0);
   const [isJoined, setIsJoined] = useState(false);
   const [participantId, setParticipantId] = useState(null);
-
+  const [existingAnswer, setExistingAnswer] = useState(null);
+  const [existingScreenshot, setExistingScreenshot] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
   const token = localStorage.getItem("accessToken");
+  const isChallengeOutdated = (challenge) => {
+    return new Date(challenge.end_date) < new Date();
+  };
 
   useEffect(() => {
     const fetchChallenge = async () => {
@@ -345,29 +27,40 @@ function ViewChallenge() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setChallenge(res.data);
-    };
-
-    const fetchParticipants = async () => {
-      const res = await axios.get(
-        `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      const user = JSON.parse(localStorage.getItem("user"));
-      const participant = res.data.find(
-        (p) => p.challenge === parseInt(id) && p.user === user?.id
-      );
-      setMembersCount(
-        res.data.filter((p) => p.challenge === parseInt(id)).length
-      );
-      if (participant) {
+      if (res.data.is_joined) {
         setIsJoined(true);
-        setParticipantId(participant.id);
+        setParticipantId(res.data.participant_id);
       }
     };
 
     fetchChallenge();
-    fetchParticipants();
   }, [id, token]);
+
+  useEffect(() => {
+    const fetchParticipantData = async () => {
+      if (!participantId) return;
+
+      try {
+        const res = await axios.get(
+          `https://valourwealthdjango-production.up.railway.app/api/challenge-participants/${participantId}/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (res.data.answers || res.data.screenshot_url) {
+          setExistingAnswer(res.data.answers);
+          setExistingScreenshot(res.data.screenshot_url);
+        }
+      } catch (error) {
+        console.error("Failed to fetch participant data", error);
+      }
+    };
+
+    fetchParticipantData();
+  }, [participantId]);
 
   const handleAnswerChange = (e) => setAnswer(e.target.value);
   const handleScreenshotChange = (e) => {
@@ -396,6 +89,8 @@ function ViewChallenge() {
         }
       );
       setSubmitted(true);
+      setExistingAnswer(answer);
+      setExistingScreenshot(previewUrl);
       setAnswer("");
       setScreenshot(null);
       setPreviewUrl("");
@@ -407,7 +102,25 @@ function ViewChallenge() {
   };
 
   if (!challenge) return <div>Loading challenge details...</div>;
-  const isChallengeOutdated = new Date(challenge.end_date) < new Date();
+
+  // ⛔ Prevent access to past challenges if not joined
+  if (!isJoined && new Date(challenge.end_date) < new Date()) {
+    return (
+      <div className="alert alert-danger mt-3">
+        This challenge has <strong>expired</strong> and is no longer open to
+        join.
+      </div>
+    );
+  }
+
+  // 🚫 Block unjoined users on active challenges
+  if (!isJoined) {
+    return (
+      <div className="alert alert-danger mt-3">
+        You must <strong>join this challenge</strong> before accessing details.
+      </div>
+    );
+  }
 
   return (
     <div className="challenge-container">
@@ -418,7 +131,7 @@ function ViewChallenge() {
             Deadline: {challenge.end_date}
           </span>
           <span className="badges bg-secondary">
-            Participants: {membersCount}
+            Participants: {challenge.participants_count}
           </span>
         </div>
       </div>
@@ -429,13 +142,31 @@ function ViewChallenge() {
       </div>
 
       <div className="submission-form mt-4">
-        {isChallengeOutdated ? (
+        {isChallengeOutdated(challenge) ? (
           <div className="alert alert-warning mt-3">
             This challenge has ended. Submissions are closed.
           </div>
-        ) : !isJoined ? (
-          <div className="alert alert-danger mt-3">
-            You must <strong>join this challenge</strong> before submitting.
+        ) : existingAnswer || existingScreenshot ? (
+          <div className="submitted-view">
+            <div className="alert alert-info">
+              <strong>
+                You already submitted a response to this challenge.
+              </strong>
+            </div>
+            <p>
+              <strong>Your Answer:</strong> {existingAnswer}
+            </p>
+            {existingScreenshot && (
+              <div className="screenshot-preview mt-3">
+                <strong>Uploaded Screenshot:</strong>
+                <img
+                  src={existingScreenshot}
+                  alt="Screenshot preview"
+                  className="img-thumbnail mt-2"
+                  style={{ maxWidth: "400px" }}
+                />
+              </div>
+            )}
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -470,6 +201,7 @@ function ViewChallenge() {
                     src={previewUrl}
                     alt="Screenshot preview"
                     className="img-thumbnail"
+                    style={{ maxWidth: "400px" }}
                   />
                 </div>
               )}
@@ -482,12 +214,6 @@ function ViewChallenge() {
             >
               {submitted ? "Submitted!" : "Submit Answer"}
             </button>
-
-            {submitted && (
-              <div className="alert alert-success mt-3" role="alert">
-                Your challenge answer has been submitted successfully!
-              </div>
-            )}
           </form>
         )}
       </div>
