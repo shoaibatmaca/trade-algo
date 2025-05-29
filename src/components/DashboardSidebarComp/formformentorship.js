@@ -48,7 +48,7 @@ function SalesContactForm({ onClose, inquiryType }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2 className="sales-form-title">Sales Contact Form</h2>
+        <h1 className="sales-form-title">Sales Contact Form</h1>
         <h3>
           Thanks for your interest! Please share your contact details below, and
           one of our sales representatives will reach out to you soon.
