@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import UpcomingIPOs from "./UpcomingIpo";
+import UpcomingIPOs from "./UpcomingIPOs";
 
 const API_KEY = "04RGF1U9PAJ49VYI";
 const defaultSymbols = [
