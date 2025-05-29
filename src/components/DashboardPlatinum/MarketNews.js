@@ -1,72 +1,35 @@
-// import React, { useState } from 'react';
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 
 // const MarketNews = () => {
-//   const [activeTab, setActiveTab] = useState('Market News');
-//   const [searchText, setSearchText] = useState('');
+//   const [activeTab, setActiveTab] = useState("Market News");
+//   const [searchText, setSearchText] = useState("");
+//   const [newsArticles, setNewsArticles] = useState([]);
 
-//   // Sample news data
-//   const newsArticles = [
-//     {
-//       id: 1,
-//       title: 'Fed Signals Potential Rate Cut in Coming Months',
-//       content: 'Federal Reserve officials indicated they could begin cutting interest rates in the coming months if inflation continues to cool, according to minutes from their latest meeting.',
-//       source: 'Financial Times',
-//       timeAgo: '2 hours ago',
-//       category: 'Economy',
-//       isPlatinum: true,
-//       externalLink: '#'
-//     },
-//     {
-//       id: 2,
-//       title: 'Tech Stocks Rally as Earnings Beat Expectations',
-//       content: 'Major technology companies reported stronger-than-expected quarterly earnings, driving a broad rally in tech stocks and pushing the Nasdaq to new record highs.',
-//       source: 'Bloomberg',
-//       timeAgo: '4 hours ago',
-//       category: 'Stocks',
-//       isPlatinum: true,
-//       externalLink: '#'
-//     },
-//     {
-//       id: 3,
-//       title: 'Oil Prices Surge Amid Middle East Tensions',
-//       content: 'Crude oil prices jumped more than 3% as geopolitical tensions in the Middle East raised concerns about potential supply disruptions in the region.',
-//       source: 'Reuters',
-//       timeAgo: '6 hours ago',
-//       category: 'Commodities',
-//       isPlatinum: false,
-//       externalLink: '#'
-//     },
-//     {
-//       id: 4,
-//       title: 'Bitcoin Breaks $65,000 Resistance Level',
-//       content: 'Bitcoin surged past the $65,000 resistance level, reaching its highest price in weeks as institutional investors continue to increase their cryptocurrency holdings.',
-//       source: 'CoinDesk',
-//       timeAgo: '8 hours ago',
-//       category: 'Crypto',
-//       isPlatinum: true,
-//       externalLink: '#'
-//     },
-//     {
-//       id: 5,
-//       title: 'European Markets Close Higher on Strong Economic Data',
-//       content: 'European stock markets ended the day higher after new economic data showed stronger-than-expected growth in several key economies across the continent.',
-//       source: 'CNBC',
-//       timeAgo: '10 hours ago',
-//       category: 'Global Markets',
-//       isPlatinum: false,
-//       externalLink: '#'
-//     },
-//     {
-//       id: 6,
-//       title: 'Central Banks Worldwide Reassess Gold Reserves',
-//       content: 'Central banks around the world are increasing their gold reserves at the fastest pace in decades, signaling a shift in global monetary policy and asset allocation strategies.',
-//       source: 'Wall Street Journal',
-//       timeAgo: '12 hours ago',
-//       category: 'Economy',
-//       isPlatinum: true,
-//       externalLink: '#'
-//     }
-//   ];
+//   const API_BASE_URL = process.env.REACT_APP_API_URL;
+
+//   useEffect(() => {
+//     const fetchNews = async () => {
+//       try {
+//         const res = await axios.get(`${API_BASE_URL}api/market-news/`);
+//         const formattedNews = res.data.map((article, index) => ({
+//           id: index + 1,
+//           title: article.title,
+//           content: article.summary,
+//           source: article.source,
+//           timeAgo: article.published_at,
+//           category: article.tags?.[0] || "General",
+//           isPlatinum: article.tags?.includes("Platinum"),
+//           externalLink: article.url,
+//         }));
+//         setNewsArticles(formattedNews);
+//       } catch (error) {
+//         console.error("Failed to fetch market news", error);
+//       }
+//     };
+
+//     fetchNews();
+//   }, []);
 
 //   const handleTabChange = (tab) => {
 //     setActiveTab(tab);
@@ -76,11 +39,12 @@
 //     setSearchText(e.target.value);
 //   };
 
-//   // Filter news based on search text
-//   const filteredNews = newsArticles.filter(article => {
-//     if (searchText === '') return true;
-//     return article.title.toLowerCase().includes(searchText.toLowerCase()) ||
-//            article.content.toLowerCase().includes(searchText.toLowerCase());
+//   const filteredNews = newsArticles.filter((article) => {
+//     if (searchText === "") return true;
+//     return (
+//       article.title.toLowerCase().includes(searchText.toLowerCase()) ||
+//       article.content.toLowerCase().includes(searchText.toLowerCase())
+//     );
 //   });
 
 //   return (
@@ -91,7 +55,9 @@
 //         </div>
 //         <div>
 //           <h2 className="news-title">Market News</h2>
-//           <p className="news-subtitle">Curated financial news from premium sources for platinum members</p>
+//           <p className="news-subtitle">
+//             Curated financial news from premium sources for platinum members
+//           </p>
 //         </div>
 //       </div>
 
@@ -107,7 +73,6 @@
 //                 value={searchText}
 //                 onChange={handleSearchChange}
 //               />
-//               {/* <i className="bi bi-search search-icon"></i> */}
 //             </div>
 //             <button className="filter-button">
 //               <i className="bi bi-funnel"></i>
@@ -117,26 +82,28 @@
 
 //         <div className="tabs-container">
 //           <button
-//             className={`tab-button ${activeTab === 'Market News' ? 'active' : ''}`}
-//             onClick={() => handleTabChange('Market News')}
+//             className={`tab-button ${
+//               activeTab === "Market News" ? "active" : ""
+//             }`}
+//             onClick={() => handleTabChange("Market News")}
 //           >
 //             Market News
 //           </button>
-//           {/* <button
-//             className={`tab-button ${activeTab === 'Premium Analysis' ? 'active' : ''}`}
-//             onClick={() => handleTabChange('Premium Analysis')}
-//           >
-//             Premium Analysis
-//           </button> */}
 //         </div>
 
 //         <div className="news-grid">
-//           {filteredNews.map(article => (
+//           {filteredNews.map((article) => (
 //             <div key={article.id} className="news-item">
 //               <div className="news-item-content">
 //                 <h4 className="news-item-title">
-//                   {article.title}
-//                   <i className="bi bi-box-arrow-up-right external-link-icon"></i>
+//                   <a
+//                     href={article.externalLink}
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                   >
+//                     {article.title}
+//                     <i className="bi bi-box-arrow-up-right external-link-icon"></i>
+//                   </a>
 //                 </h4>
 //                 <p className="news-item-description">{article.content}</p>
 //                 <div className="news-item-footer">
@@ -163,6 +130,7 @@
 // };
 
 // export default MarketNews;
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -170,11 +138,13 @@ const MarketNews = () => {
   const [activeTab, setActiveTab] = useState("Market News");
   const [searchText, setSearchText] = useState("");
   const [newsArticles, setNewsArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchNews = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(`${API_BASE_URL}api/market-news/`);
         const formattedNews = res.data.map((article, index) => ({
@@ -190,6 +160,8 @@ const MarketNews = () => {
         setNewsArticles(formattedNews);
       } catch (error) {
         console.error("Failed to fetch market news", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -257,37 +229,125 @@ const MarketNews = () => {
         </div>
 
         <div className="news-grid">
-          {filteredNews.map((article) => (
-            <div key={article.id} className="news-item">
-              <div className="news-item-content">
-                <h4 className="news-item-title">
-                  <a
-                    href={article.externalLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {article.title}
-                    <i className="bi bi-box-arrow-up-right external-link-icon"></i>
-                  </a>
-                </h4>
-                <p className="news-item-description">{article.content}</p>
-                <div className="news-item-footer">
-                  <div className="news-source-time">
-                    <span className="news-source">{article.source}</span>
-                    <span className="news-time">
-                      <i className="bi bi-clock"></i> {article.timeAgo}
-                    </span>
+          {loading ? (
+            // Shimmer Effect for News Articles
+            <>
+              {[...Array(6)].map((_, index) => (
+                <div key={index} className="news-item">
+                  <div className="news-item-content">
+                    {/* News Title Shimmer */}
+                    <div
+                      className="shimmer-block mb-3"
+                      style={{
+                        height: "24px",
+                        width: "90%",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                    <div
+                      className="shimmer-block mb-3"
+                      style={{
+                        height: "24px",
+                        width: "70%",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+
+                    {/* News Description Shimmer */}
+                    <div
+                      className="shimmer-block mb-2"
+                      style={{
+                        height: "16px",
+                        width: "100%",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                    <div
+                      className="shimmer-block mb-2"
+                      style={{
+                        height: "16px",
+                        width: "85%",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                    <div
+                      className="shimmer-block mb-3"
+                      style={{
+                        height: "16px",
+                        width: "60%",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+
+                    {/* News Footer Shimmer */}
+                    <div className="news-item-footer">
+                      <div className="news-source-time">
+                        <div
+                          className="shimmer-block mb-1"
+                          style={{
+                            height: "14px",
+                            width: "80px",
+                            borderRadius: "4px",
+                          }}
+                        ></div>
+                        <div
+                          className="shimmer-block"
+                          style={{
+                            height: "14px",
+                            width: "100px",
+                            borderRadius: "4px",
+                          }}
+                        ></div>
+                      </div>
+                      <div className="news-tags">
+                        <div
+                          className="shimmer-block"
+                          style={{
+                            height: "20px",
+                            width: "60px",
+                            borderRadius: "12px",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="news-tags">
-                    <span className="news-category">{article.category}</span>
-                    {article.isPlatinum && (
-                      <span className="news-platinum">Platinum</span>
-                    )}
+                </div>
+              ))}
+            </>
+          ) : (
+            // Actual News Articles
+            filteredNews.map((article) => (
+              <div key={article.id} className="news-item">
+                <div className="news-item-content">
+                  <h4 className="news-item-title">
+                    <a
+                      href={article.externalLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {article.title}
+                      <i className="bi bi-box-arrow-up-right external-link-icon"></i>
+                    </a>
+                  </h4>
+                  <p className="news-item-description">{article.content}</p>
+                  <div className="news-item-footer">
+                    <div className="news-source-time">
+                      <span className="news-source">{article.source}</span>
+                      <span className="news-time">
+                        <i className="bi bi-clock"></i> {article.timeAgo}
+                      </span>
+                    </div>
+                    <div className="news-tags">
+                      <span className="news-category">{article.category}</span>
+                      {article.isPlatinum && (
+                        <span className="news-platinum">Platinum</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

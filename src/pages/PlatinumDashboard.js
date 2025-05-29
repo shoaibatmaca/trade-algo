@@ -990,6 +990,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import ChatFeature from "../components/DashboardPlatinum/ChatFeature";
 import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
+import ExtraContent from "../components/DashboardPlatinum/ExtraContent";
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
 import JournalPage from "../components/DashboardPlatinum/JournalPage";
 import Leaderboard from "../components/DashboardPlatinum/Leaderboard";
@@ -997,6 +998,7 @@ import MarketInsights from "../components/DashboardPlatinum/MarketInsights";
 import MarketNews from "../components/DashboardPlatinum/MarketNews";
 import PlatinumMembershipNFT from "../components/DashboardPlatinum/MembershipNft";
 import PortfolioHeatmap from "../components/DashboardPlatinum/PortfolioHeatmap";
+import RealtimeQuotes from "../components/DashboardPlatinum/RealtimeQuotes";
 import ScheduleCall from "../components/DashboardPlatinum/ScheduleCall";
 import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge";
 import Wabinars from "../components/DashboardPlatinum/Wabinars";
@@ -1734,6 +1736,8 @@ const PlatinumDashboard = () => {
                     </div>
                   </div>
                 </div>
+                <RealtimeQuotes />
+                <ExtraContent />
               </div>
             )}
             {activeDashboardTab === "schedule-Calls" && <ScheduleCall />}

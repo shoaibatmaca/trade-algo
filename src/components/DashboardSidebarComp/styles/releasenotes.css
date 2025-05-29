@@ -73,3 +73,59 @@
   font-size: 0.9rem;
   color: #888;
 }
+
+.releasenotes_container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+}
+
+.releasenotes_heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.releasenotes_intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.releasenotes_section {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.releasenotes_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #003366;
+}
+
+.releasenotes_meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.releasenotes_product {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.releasenotes_footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 4rem;
+}
