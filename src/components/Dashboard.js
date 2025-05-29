@@ -5,6 +5,7 @@ import {
   Building,
   CandlestickChart,
   DollarSign,
+  FileText,
   Gem,
   GraduationCap,
   Home,
@@ -48,6 +49,7 @@ import CryptoData from "./DashboardSidebarComp/CryptoData";
 import EditProfile from "./DashboardSidebarComp/EditProfile";
 import ForexData from "./DashboardSidebarComp/ForexData";
 import Logout from "./DashboardSidebarComp/Logout";
+import ReleaseNotes from "./DashboardSidebarComp/ReleaseNotes";
 import StocksData from "./DashboardSidebarComp/StocksData";
 import Tradegpt from "./DashboardSidebarComp/Tradegpt";
 import StockTicker from "./StockTicker";
@@ -205,6 +207,11 @@ const Dashboard = () => {
       label: "TradeGpt",
       icon: <CandlestickChart size={20} />,
     },
+    {
+      id: "releasenotes",
+      label: "Relase Notes",
+      icon: <FileText size={20} />,
+    },
   ];
 
   const renderContent = () => {
@@ -220,6 +227,7 @@ const Dashboard = () => {
         "edit-profile",
         "logout",
         "trade-gpt",
+        "releasenotes",
       ],
       premium: [
         "dashboard",
@@ -237,6 +245,7 @@ const Dashboard = () => {
         "maintable",
         "atsTable",
         "trade-gpt",
+        "releasenotes",
       ],
       platinum: [
         "dashboard",
@@ -257,6 +266,7 @@ const Dashboard = () => {
         "main-table",
         "trade-gpt",
         "trade-alerts",
+        "releasenotes",
       ],
     };
 
@@ -323,6 +333,8 @@ const Dashboard = () => {
                 return <MainTable darkMode={darkMode} />;
               case "trade-gpt":
                 return <Tradegpt darkMode={darkMode} />;
+              case "releasenotes":
+                return <ReleaseNotes darkMode={darkMode} />;
               default:
                 return null;
             }

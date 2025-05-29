@@ -21,6 +21,7 @@ import WealthDetails from "./pages/WealthDetails";
 // import OurAnalyst from "./pages/OurAnalyst";
 import Benefits from "./components/DashboardPlatinum/Benefits";
 import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
+import ReleaseNotes from "./components/DashboardSidebarComp/ReleaseNotes";
 import CourseDetails from "./pages/CourseDetails";
 import PlatinumDashboard from "./pages/PlatinumDashboard";
 import Products from "./pages/Products";
@@ -30,6 +31,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/benefits" element={<Benefits />} />
+        <Route path="/releasenotes" element={<ReleaseNotes />} />
         <Route
           path="/"
           element={
