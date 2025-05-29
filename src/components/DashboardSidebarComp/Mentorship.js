@@ -90,12 +90,12 @@ const SessionsComponent = () => {
                   <i className="telegram-icon">✈</i> Mentorship Telegram Alerts
                 </a>
               </button>
-              <button
+              {/* <button
                 onClick={handleTradeGPTRedirect}
                 className="btn btn-primary"
               >
                 Go to TradeGPT
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

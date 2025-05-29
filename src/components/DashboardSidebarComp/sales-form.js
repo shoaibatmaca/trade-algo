@@ -137,6 +137,10 @@ function SalesContactForm({ onClose, inquiryType }) {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2 className="sales-form-title">Sales Contact Form</h2>
+        <h3>
+          Thanks for your interest! Please share your contact details below, and
+          one of our sales representatives will reach out to you soon.
+        </h3>
         <p className="sales-form-subtitle">
           Inquiry Type: <strong>{inquiryType}</strong>
         </p>
@@ -205,7 +209,11 @@ function SalesContactForm({ onClose, inquiryType }) {
             <button type="submit" className="btn-submit">
               Submit
             </button>
-            <button type="button" className="btn-cancel" onClick={onClose}>
+            <button
+              type="button"
+              className="btn-cancel button close"
+              onClick={onClose}
+            >
               Cancel
             </button>
           </div>

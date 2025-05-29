@@ -81,11 +81,16 @@ function Tradegpt() {
           <h1 className="fw-bold display-5">TradeGPT</h1>
           <hr style={{ width: "60px", margin: "20px auto" }} />
           <p className="lead text-muted">
-            Valourwealth has launched its newest AI product called TradeGPT. It
-            is the world's most powerful AI trading agent that is designed to
-            help Valourwealth members reach their financial goals with
-            “super-intelligent” insights into stocks, options, forex and
-            cryptos.
+            Introducing TradeGPT by ValourWealth — Your AI-Powered Trading
+            Companion ValourWealth proudly unveils its latest innovation:
+            TradeGPT — an advanced AI-driven trading assistant crafted to
+            empower members with intelligent insights across stocks, forex,
+            options, and cryptocurrencies.
+          </p>
+          <p className="text-muted">
+            Whether you’re analyzing market trends or seeking strategy ideas,
+            TradeGPT delivers real-time, data-backed responses powered by over
+            50 million data points.
           </p>
           <p className="text-muted">
             Simply ask TradeGPT any question and instantly receive AI-powered
@@ -99,23 +104,26 @@ function Tradegpt() {
             Jump-start your trading with Valourwealth's “Super-Intelligent” AI
             today
           </p>
-          {/* Bottom-right Button */}
-          <div className="position-absolute end-0 bottom-0 p-4">
-            <button
-              className="btn px-3 py-2"
-              style={{
-                background: "linear-gradient(to right, #0084ff, #00e0c6)",
-                color: "#fff",
-                fontWeight: "bold",
-                fontSize: "0.9rem",
-                border: "none",
-                borderRadius: "5px",
-              }}
-              onClick={handleTradeGPTRedirect}
-            >
-              Try TradeGPT Now
-            </button>
-          </div>
+          <p className="fw-bold mt-4">
+            From instant analytics to personalized trade suggestions, every
+            feature is designed to support your financial growth and elevate
+            your trading performance.
+          </p>
+          <p className="fw-bold mt-4">
+            Experience the future of trading with ValourWealth’s next-generation
+            AI — TradeGPT.
+          </p>
+          <button
+            className="btn btn-primary px-4 py-2 mt-3"
+            style={{
+              background: "linear-gradient(to right, #0084ff, #00e0c6)",
+              border: "none",
+              fontWeight: "bold",
+            }}
+            onClick={handleTradeGPTRedirect}
+          >
+            Try TradeGPT Now
+          </button>
         </div>
       </div>
     </div>
