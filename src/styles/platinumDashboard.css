@@ -1676,11 +1676,13 @@ body::-webkit-scrollbar-thumb {
 
 /* Challenge card styles */
 .challenge-card {
-  background-color: #1a1a1a;
   border-radius: 8px;
   margin-bottom: 20px;
   display: flex;
   overflow: hidden;
+}
+.challenge-actions .action-btn {
+  margin-left: 0 !important;
 }
 
 .challenge-main {
@@ -1858,6 +1860,7 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   transition: all 0.3s ease;
   flex: 1;
+  margin-left: 0;
 }
 
 .action-button.outline {
@@ -5044,6 +5047,9 @@ h4 {
   flex-wrap: wrap;
   margin-top: 10px;
 }
+.challenge-meta span {
+  padding: 10px;
+}
 
 .badge-challenge {
   font-size: 0.85rem;
@@ -5051,9 +5057,9 @@ h4 {
 }
 
 .challenge-description-details {
-  padding: 20px;
+  padding: 0px;
   border-radius: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 12px;
 }
 
 .challenge-description-details h4 {
@@ -5070,8 +5076,16 @@ h4 {
 
 .submission-form {
   background-color: #1a1a1a;
-  padding: 25px;
   border-radius: 6px;
+}
+.submission-form  button {
+  background-color: #ccc;
+}
+.submission-form  button:hover {
+    background-color: transparent;
+    border: 1px solid #ffff;
+
+
 }
 
 .submission-form h4 {
@@ -5086,9 +5100,16 @@ h4 {
   min-height: 150px;
   border: 1px solid #43484c;
   background-color: #1a1a1a;
+  color: #fff;
+}
+.challenge-form textarea.form-control:focus {
+  border: 1px solid #fff;
+  box-shadow: none;
+
+
 }
 .challenge-form textarea::placeholder {
-  color: #fff;
+  color: #fff !important;
 }
 
 .challenge-form button {
