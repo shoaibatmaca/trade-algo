@@ -82,36 +82,37 @@ function Tradegpt() {
           <hr style={{ width: "60px", margin: "20px auto" }} />
           <p className="lead text-muted">
             Introducing TradeGPT by ValourWealth — Your AI-Powered Trading
-            Companion ValourWealth proudly unveils its latest innovation:
-            TradeGPT — an advanced AI-driven trading assistant crafted to
-            empower members with intelligent insights across stocks, forex,
-            options, and cryptocurrenciesp{" "}
+            Companion
           </p>
           <p className="text-muted">
-            Whether you’re analyzing market trends or seeking strategy ideas,
-            TradeGPT delivers real-time, data-backed responses powered by over
-            50 million data points.
+            ValourWealth is proud to introduce TradeGPT, an advanced AI-driven
+            assistant designed to empower you with intelligent insights across
+            stocks, forex, options, and cryptocurrencies. Whether you’re
+            analyzing market trends or crafting new strategies, TradeGPT
+            delivers real-time, data-backed responses grounded in over 50
+            million data points.
           </p>
-          <p className="text-muted">
-            Simply ask TradeGPT any question and instantly receive AI-powered
-            answers based on over 50 million data points.
-          </p>
-          <p className="text-muted">
-            Instant data, analysis and even trade recommendations are all
-            engineered to help Valourwealth members boost their trading profits.
-          </p>
+
+          <ul className="text-muted">
+            <li>
+              <strong>Instant Insights:</strong> Ask TradeGPT any question and
+              receive AI-generated answers on demand.
+            </li>
+            <li>
+              <strong>Comprehensive Analysis:</strong> Leverage deep,
+              data-driven market overviews to inform your decisions.
+            </li>
+            <li>
+              <strong>Actionable Recommendations:</strong> Get tailored trade
+              ideas to help you maximize your profits.
+            </li>
+          </ul>
+
           <p className="fw-bold mt-4">
-            Jump-start your trading with Valourwealth's “Super-Intelligent” AI
-            today
-          </p>
-          <p className="fw-bold mt-4">
-            From instant analytics to personalized trade suggestions, every
-            feature is designed to support your financial growth and elevate
-            your trading performance.
-          </p>
-          <p className="fw-bold mt-4">
-            Experience the future of trading with ValourWealth’s next-generation
-            AI — TradeGPT.
+            Jump-start your trading journey with ValourWealth’s
+            “super-intelligent” AI. From on-the-fly analytics to personalized
+            trade suggestions, every feature is engineered to support your
+            financial growth and elevate your performance.
           </p>
           <button
             className="btn btn-primary px-4 py-2 mt-3"
