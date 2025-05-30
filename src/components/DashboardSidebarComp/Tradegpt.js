@@ -93,7 +93,7 @@ function Tradegpt() {
             million data points.
           </p>
 
-          <ul className="text-muted">
+          <ul className="text-muted list-unstyled">
             <li>
               <strong>Instant Insights:</strong> Ask TradeGPT any question and
               receive AI-generated answers on demand.
