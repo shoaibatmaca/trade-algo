@@ -202,6 +202,64 @@ const TradingPlatform = () => {
     fetchWebinars();
   }, []);
 
+  const handleRegister = async (id) => {
+    try {
+      const res = await axios.post(
+        `${API_URL}${id}/register/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (res.data.success) {
+        const updated = webinars.map((w) =>
+          w.id === id
+            ? {
+                ...w,
+                registered_count: res.data.registered_count,
+                already_registered: true,
+              }
+            : w
+        );
+        setWebinars(updated);
+      }
+    } catch (err) {
+      console.error("Failed to register:", err);
+    }
+  };
+
+  const handleUnregister = async (id) => {
+    try {
+      const res = await axios.post(
+        `${API_URL}${id}/unregister/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (res.data.success) {
+        const updated = webinars.map((w) =>
+          w.id === id
+            ? {
+                ...w,
+                registered_count: res.data.registered_count,
+                already_registered: false,
+              }
+            : w
+        );
+        setWebinars(updated);
+      }
+    } catch (err) {
+      console.error("Failed to unregister:", err);
+    }
+  };
+
   return (
     <div className="container-fluid p-0">
       <div className="row g-0">
