@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
-import "../styles/global.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect } from "react";
+import Newsletter from "../components/newsletter";
+import PostEditor from "../components/postEditor";
 import Posts from "../components/posts";
 import Technology from "../components/technology";
-import PostEditor from "../components/postEditor";
-import Newsletter from "../components/newsletter";
+import "../styles/global.css";
 
-import appStoreImg from "../assets/images/app-store-img.png";
-import googleImg from "../assets/images/google-img.png";
+import backgroundVideo from "../assets/images/bannergreen.mp4";
 import Stocks from "../components/Stocks";
-import Products from "../components/Products";
 import EditorChoice from "../components/editorChoice";
 import MarketDetails from "../components/marketDetails";
-import backgroundVideo from "../assets/images/bannergreen.mp4";
 
 function Home() {
   useEffect(() => {
@@ -46,7 +43,6 @@ function Home() {
               Your browser does not support the video tag.
             </video>
 
-
             <div className="banner-text" data-aos="fade-up">
               <h5>Introducing</h5>
               <h1>TradeGPT</h1>
@@ -56,27 +52,7 @@ function Home() {
               </p>
               <button className="theme_btn">Try It For Free</button>
 
-              <div className="text_down">
-                <p>Available now on mobile</p>
-                <div className="store-images">
-                  {/* App Store Link */}
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <img
-                      className="store-img app-btn"
-                      src={appStoreImg}
-                      alt="Download on App Store"
-                    />
-                  </a>
-                  {/* Google Play Link */}
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <img
-                      className="google-img app-btn"
-                      src={googleImg}
-                      alt="Get it on Google Play"
-                    />
-                  </a>
-                </div>
-              </div>
+              {/*  */}
             </div>
           </div>
         </div>

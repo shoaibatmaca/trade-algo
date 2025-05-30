@@ -209,7 +209,7 @@ const Dashboard = () => {
     },
     {
       id: "releasenotes",
-      label: "Relase Notes",
+      label: "Release Notes",
       icon: <FileText size={20} />,
     },
   ];
