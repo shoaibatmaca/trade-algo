@@ -1057,10 +1057,31 @@ video::-webkit-media-controls {
   pointer-events: none !important;
 }
 
-.feature-info p {
-  min-height: 200px !important;
+/* features-service card */
+.feature-card-service {
+  background-color: #161616;
+  padding: 30px;
+  min-height: 350px;
+  text-align: center;
+  transition: 0.3s;
+  border: 2px solid transparent;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.feature-card-service .feature-info h2 {
+  font-size: 18px !important;
+  text-align: center;
+  height: 50px;
+}
+.feature-card-service .feature-info p {
+  color: #cbd5e1;
 }
 
-.features .feature-card {
-  height: auto !important;
+.info-bullets {
+  list-style: none;
+  height: 185px;
+  padding: 0;
+}
+.feature-card-service:hover {
+  border: 2px solid var(--theme-color);
 }

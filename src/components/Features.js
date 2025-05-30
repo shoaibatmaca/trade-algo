@@ -7,23 +7,18 @@ function Features() {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-3">
-            <div className="feature-card">
+            <div className="feature-card-service">
               <div className="feature-info">
                 <h2>AI-Powered Trade Journal</h2>
-                <div className="pt-2">
-                  <p>
-                    • <strong>Log your Stock, Forex & Commodity trades:</strong>{" "}
-                    AI-driven reflections to learn from your executions.
-                  </p>
-                  <p>
-                    • <strong>Weekly performance summaries:</strong> Strategy
-                    takeaways to improve your approach and build confidence.
-                  </p>
-                  <p>
-                    • <strong>Personal growth design:</strong> All built to
-                    refine your approach over time.
-                  </p>
-                </div>
+
+                <ul className="info-bullets">
+                  <li>Log your Stock, Forex & Commodity trades</li>
+                  <li>Weekly performance summaries and strategy takeaways</li>
+                  <li>
+                    Designed to help you refine your approach and build
+                    confidence
+                  </li>
+                </ul>
               </div>
               <div className="contact-us-btn">
                 <a href="/contact">Contact for More</a>
@@ -32,23 +27,19 @@ function Features() {
           </div>
 
           <div className="col-lg-3">
-            <div className="feature-card">
+            <div className="feature-card-service">
               <div className="feature-info">
                 <h2>Personalized Coaching & Resources</h2>
-                <div className="pt-2">
-                  <p>
-                    • <strong>Step-by-step video lessons:</strong> Master
-                    analysis techniques and risk management.
-                  </p>
-                  <p>
-                    • <strong>Live group Q&A sessions:</strong> Get one-on-one
-                    support to sharpen your skills.
-                  </p>
-                  <p>
-                    • <strong>Exclusive access:</strong> Updated guides,
-                    webinars & community forum.
-                  </p>
-                </div>
+                <ul className="info-bullets">
+                  <li>
+                    Step-by-step video lessons on analysis techniques and risk
+                    management
+                  </li>
+                  <li>Live group Q\&A sessions and one-on-one support</li>
+                  <li>
+                    Access to up-to-date guides, webinars & community forum
+                  </li>
+                </ul>
               </div>
               <div className="contact-us-btn">
                 <a href="/contact">Contact for More</a>
@@ -57,25 +48,17 @@ function Features() {
           </div>
 
           <div className="col-lg-3">
-            <div className="feature-card">
+            <div className="feature-card-service">
               <div className="feature-info">
                 <h2>Exclusive Dark Pool Insights</h2>
-                <p className="pt-2">
-                  •{" "}
-                  <strong>
+                <ul className="info-bullets">
+                  <li>
                     Visibility into large-block transactions via our hedge-fund
                     partnership
-                  </strong>
-                  •
-                  <strong>
-                    {" "}
-                    Track market sentiment and uncover hidden trends
-                  </strong>
-                  •{" "}
-                  <strong>
-                    Seamlessly integrate these insights into your plan
-                  </strong>
-                </p>
+                  </li>
+                  <li>Track market sentiment and uncover hidden trends</li>
+                  <li> Seamlessly integrate these insights into your plan</li>
+                </ul>
               </div>
               <div className="contact-us-btn">
                 <a href="/contact">Contact for More</a>
@@ -83,23 +66,16 @@ function Features() {
             </div>
           </div>
           <div className="col-lg-3">
-            <div className="feature-card">
+            <div className="feature-card-service">
               <div className="feature-info">
                 <h2>Comprehensive Toolkit</h2>
-                <div className="pt-2">
-                  <p>
-                    • <strong>Institutional visibility:</strong> Track
-                    large-block transactions via our hedge-fund partnership.
-                  </p>
-                  <p>
-                    • <strong>Sentiment analysis:</strong> Uncover hidden market
-                    trends before the crowd.
-                  </p>
-                  <p>
-                    • <strong>Strategy integration:</strong> Seamlessly apply
-                    insights to your trading plan.
-                  </p>
-                </div>
+                <ul className="info-bullets">
+                  <li>Real-time screeners and scanners</li>
+                  <li>Sentiment & volume indicators</li>
+                  <li>
+                    AI-powered research assistant for swift market analysis
+                  </li>
+                </ul>
               </div>
               <div className="contact-us-btn">
                 <a href="/contact">Contact for More</a>

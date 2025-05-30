@@ -157,3 +157,13 @@
   height: 50px;
   width: 225px;
 }
+
+/* Hide media controls in Safari/Chrome (WebKit) */
+video.dashboard-bg-video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Block all user interaction */
+.dashboard-bg-video {
+  pointer-events: none;
+}

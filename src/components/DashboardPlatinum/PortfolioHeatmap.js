@@ -293,13 +293,13 @@ function PortfolioComponent() {
                     <div className="small">Total Portfolio Value</div>
                     <div className="total-value">
                       ${parseFloat(portfolio.total_value).toLocaleString()}
-                      <span className="value-change">
+                      {/* <span className="value-change">
                         <i className="bi bi-arrow-up"></i> +$
                         {parseFloat(
                           portfolio.total_gain_loss
                         ).toLocaleString()}{" "}
                         ({portfolio.total_gain_loss_percent}%)
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </div>
