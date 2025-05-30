@@ -139,13 +139,47 @@ const TradeGPT = () => {
   const [buttonText, setButtonText] = useState("Try TradeGPT Now");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleButtonClick = () => {
+  // const handleButtonClick = () => {
+  //   setIsLoading(true);
+  //   setButtonText("Launching...");
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //     setButtonText("Try TradeGPT Now");
+  //   }, 2000);
+  // };
+
+  const handleButtonClick = async () => {
     setIsLoading(true);
     setButtonText("Launching...");
-    setTimeout(() => {
+
+    const accessToken = localStorage.getItem("accessToken");
+
+    try {
+      const response = await fetch(
+        `https://valourwealthdjango-production.up.railway.app/api/generate-tradegpt-token/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to get token");
+      }
+
+      const { token } = await response.json();
+
+      // Optional: wait 1-2 seconds before redirect (for smoother UX)
+      setTimeout(() => {
+        window.location.href = `https://frontend-eight-rho-95.vercel.app?token=${token}`;
+      }, 1500);
+    } catch (error) {
+      console.error("TradeGPT redirect failed:", error);
       setIsLoading(false);
       setButtonText("Try TradeGPT Now");
-    }, 2000);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   const styles = {
