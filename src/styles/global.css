@@ -1049,3 +1049,10 @@ section:last-child {
   margin-bottom: 12px;
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+.banner-video {
+  pointer-events: none !important;
+}

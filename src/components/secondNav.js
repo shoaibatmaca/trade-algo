@@ -1,15 +1,12 @@
-import "../styles/secondnavbar.css"
-import  market1  from "../assets/images/intel-mrket-img.webp"
-import  market2  from "../assets/images/reddit-market-img.webp"
-import  technology1  from "../assets/images/apple-img.webp"
-import  technology2  from "../assets/images/technology2.webp"
-import  wealth1  from "../assets/images/wealth1.webp"
-import  wealth2  from "../assets/images/wealth2.webp"
-import  event1  from "../assets/images/event1.webp"
-import  event2  from "../assets/images/event2.webp"
-import  crypto1  from "../assets/images/crypto1.webp"
-import  crypto2 from "../assets/images/crypto2.webp"
-
+import technology1 from "../assets/images/apple-img.webp";
+import event1 from "../assets/images/event1.webp";
+import event2 from "../assets/images/event2.webp";
+import market1 from "../assets/images/intel-mrket-img.webp";
+import market2 from "../assets/images/reddit-market-img.webp";
+import technology2 from "../assets/images/technology2.webp";
+import wealth1 from "../assets/images/wealth1.webp";
+import wealth2 from "../assets/images/wealth2.webp";
+import "../styles/secondnavbar.css";
 
 const Navbar = () => {
   return (
@@ -41,8 +38,8 @@ const Navbar = () => {
                       <div className="article-content">
                         <span className="article-category">Markets</span>
                         <h4 className="article-title">
-                          Hedge Funds Are Still Betting Big on the Market, Even if They Are Less Bullish Than Before,
-                          Morgan Says
+                          Hedge Funds Are Still Betting Big on the Market, Even
+                          if They Are Less Bullish Than Before, Morgan Says
                         </h4>
                       </div>
                     </div>
@@ -53,7 +50,8 @@ const Navbar = () => {
                       <div className="article-content">
                         <span className="article-category">Markets</span>
                         <h4 className="article-title">
-                          Stocks of Macy's Fall as It Cuts Guidance in Light of External Uncertainties
+                          Stocks of Macy's Fall as It Cuts Guidance in Light of
+                          External Uncertainties
                         </h4>
                       </div>
                     </div>
@@ -63,13 +61,18 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/market-details">View More Markets →</a>
+                    <a className="theme_btn" href="/market-details">
+                      View More Markets →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -101,7 +104,8 @@ const Navbar = () => {
                       <div className="article-content">
                         <span className="article-category">Technology</span>
                         <h4 className="article-title">
-                        How Apple Plans to Bring Generative Ai to All Its Devices
+                          How Apple Plans to Bring Generative Ai to All Its
+                          Devices
                         </h4>
                       </div>
                     </div>
@@ -111,7 +115,10 @@ const Navbar = () => {
                       </div>
                       <div className="article-content">
                         <span className="article-category">Technology</span>
-                        <h4 className="article-title">Meta Launches AI Coding Software in Competition With OpenAI</h4>
+                        <h4 className="article-title">
+                          Meta Launches AI Coding Software in Competition With
+                          OpenAI
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -120,13 +127,18 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="technology-details">View More Technology →</a>
+                    <a className="theme_btn" href="technology-details">
+                      View More Technology →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -157,7 +169,10 @@ const Navbar = () => {
                       </div>
                       <div className="article-content">
                         <span className="article-category">Wealth</span>
-                        <h4 className="article-title">New Tax Laws Could Impact High-Net-Worth Individuals in 2024</h4>
+                        <h4 className="article-title">
+                          New Tax Laws Could Impact High-Net-Worth Individuals
+                          in 2024
+                        </h4>
                       </div>
                     </div>
                     <div className="article">
@@ -167,7 +182,8 @@ const Navbar = () => {
                       <div className="article-content">
                         <span className="article-category">Wealth</span>
                         <h4 className="article-title">
-                          Alternative Investments Gain Popularity Among Millennial Investors
+                          Alternative Investments Gain Popularity Among
+                          Millennial Investors
                         </h4>
                       </div>
                     </div>
@@ -177,13 +193,18 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="wealth-details">View More Wealth →</a>
+                    <a className="theme_btn" href="wealth-details">
+                      View More Wealth →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -214,7 +235,10 @@ const Navbar = () => {
                       </div>
                       <div className="article-content">
                         <span className="article-category">Events</span>
-                        <h4 className="article-title">Annual Investment Summit to Feature Top Financial Experts</h4>
+                        <h4 className="article-title">
+                          Annual Investment Summit to Feature Top Financial
+                          Experts
+                        </h4>
                       </div>
                     </div>
                     <div className="article">
@@ -223,7 +247,10 @@ const Navbar = () => {
                       </div>
                       <div className="article-content">
                         <span className="article-category">Events</span>
-                        <h4 className="article-title">Tech Conference Announces Expanded Program for Next Quarter</h4>
+                        <h4 className="article-title">
+                          Tech Conference Announces Expanded Program for Next
+                          Quarter
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -232,73 +259,24 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/events-details">View More Events →</a>
+                    <a className="theme_btn" href="/events-details">
+                      View More Events →
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </li>
 
-          <li className="nav-item">
-            <a id="crypto" href="/crypto-details">
-              Crypto
-            </a>
-            <div className="dropdown-menu">
-              <div className="dropdown-content">
-                <div className="dropdown-left">
-                  <h3>Crypto</h3>
-                  <ul className="category-list">
-                    <li>1. Bitcoin</li>
-                    <li>2. Ethereum</li>
-                    <li>3. Altcoins</li>
-                    <li>4. All</li>
-                  </ul>
-                </div>
-                <div className="dropdown-center">
-                  <h3>Latest</h3>
-                  <div className="latest-articles">
-                    <div className="article">
-                      <div className="article-image">
-                        <img src={crypto1} alt="Bitcoin chart" />
-                      </div>
-                      <div className="article-content">
-                        <span className="article-category">Crypto</span>
-                        <h4 className="article-title">Bitcoin Reaches New High Amid Institutional Adoption</h4>
-                      </div>
-                    </div>
-                    <div className="article">
-                      <div className="article-image">
-                        <img src={crypto2} alt="Cryptocurrency regulations" />
-                      </div>
-                      <div className="article-content">
-                        <span className="article-category">Crypto</span>
-                        <h4 className="article-title">Regulatory Changes Impact Cryptocurrency Markets Worldwide</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="dropdown-right">
-                  <div className="follow-section">
-                    <h3>Follow ValourWealth</h3>
-                    <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="view-more">
-                    <a className="theme_btn" href="/crypto-details">View More Crypto →</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
           <li>
             <a id="products" href="/our-products">
               Products
@@ -319,8 +297,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;
