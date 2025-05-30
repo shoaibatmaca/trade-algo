@@ -642,7 +642,7 @@ h3 {
 }
 
 .recents .sec_heading h2 {
-  border-bottom: 2px solid #fff;
+  /* border-bottom: 2px solid #fff; */
   display: inline;
 }
 .main-header {

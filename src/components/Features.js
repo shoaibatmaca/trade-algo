@@ -3,56 +3,18 @@ function Features() {
     <section className="features pb-0">
       <div className="container">
         <div className="sec_heading  text-center">
-          <h2>Our Services</h2>
+          <h2>Valour Wealth Services</h2>
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-3">
             <div className="feature-card">
               <div className="feature-info">
-                <h2>Trade Alerts</h2>
+                <h2>AI-Powered Trade Journal</h2>
                 <p className="pt-2">
-                  Get paid as you learn with our trade alerts. Take full
-                  advantage of all markets ensuring you never miss a
-                  opportunity. Our trade ideas cover Stocks, Crypto and Forex
-                  markets also including commodities. We send trade alerts
-                  through out the week so be sure to look out for our
-                  notifications. With the use of Ai our accuracy is unmatched
-                </p>
-              </div>
-              <div className="contact-us-btn">
-                <a href="/contact">Contact for More</a>
-              </div>
-            </div>
-          </div>
-
-          {/* <div className="col-lg-3">
-            <div className="feature-card">
-              <div className="feature-info">
-                <h2>Crypto Group</h2>
-                <p className="pt-2">
-                  Delve deeper into the crypto rabbit hole with our crypto
-                  experts. Unlock new trading ideas within the crypto space like
-                  meme coins, liquidity providing, air drops and so on. learn
-                  from the best with information that is not accessible to the
-                  general public, our experts have extensive knowledge and track
-                  records giving testament to their abilities.
-                </p>
-              </div>
-              <div className="contact-us-btn">
-                <a href="/contact">Contact for More</a>
-              </div>
-            </div>
-          </div> */}
-
-          <div className="col-lg-3">
-            <div className="feature-card">
-              <div className="feature-info">
-                <h2>Coaching Education</h2>
-                <p className="pt-2">
-                  With Valour Wealth you get access to coaching and educational
-                  material, trade alerts across all types of markets (Crypto,
-                  Stocks, Forex), Dark pool data, live market data, access to a
-                  range of trading tools, Trade GPT and a lot more!
+                  • Log your Stock, Forex & Commodity trades with AI-driven
+                  reflections • Weekly performance summaries and strategy
+                  takeaways • Designed to help you refine your approach and
+                  build confidence
                 </p>
               </div>
               <div className="contact-us-btn">
@@ -64,15 +26,42 @@ function Features() {
           <div className="col-lg-3">
             <div className="feature-card">
               <div className="feature-info">
-                <h2>Dark pool data</h2>
+                <h2>Personalized Coaching & Resources</h2>
                 <p className="pt-2">
-                  Access to dark pool data is crucial for understanding market
-                  trends and price movements. This information is typically
-                  hidden from the public, leaving individual investors at a
-                  disadvantage. Through our unique relationship with a hedge
-                  fund, we can access this exclusive dark pool data and provide
-                  it to you, giving you insight into market sentiment that
-                  others don’t have access to.
+                  • Step-by-step video lessons on analysis techniques and risk
+                  management • Live group Q\&A sessions and one-on-one support •
+                  Access to up-to-date guides, webinars & community forum
+                </p>
+              </div>
+              <div className="contact-us-btn">
+                <a href="/contact">Contact for More</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="feature-card">
+              <div className="feature-info">
+                <h2>Exclusive Dark Pool Insights</h2>
+                <p className="pt-2">
+                  • Visibility into large-block transactions via our hedge-fund
+                  partnership • Track market sentiment and uncover hidden trends
+                  • Seamlessly integrate these insights into your plan
+                </p>
+              </div>
+              <div className="contact-us-btn">
+                <a href="/contact">Contact for More</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <div className="feature-card">
+              <div className="feature-info">
+                <h2>Comprehensive Toolkit</h2>
+                <p className="pt-2">
+                  • Real-time screeners and scanners • Sentiment & volume
+                  indicators • AI-powered research assistant for swift market
+                  analysis
                 </p>
               </div>
               <div className="contact-us-btn">
