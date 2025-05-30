@@ -1056,3 +1056,7 @@ video::-webkit-media-controls {
 .banner-video {
   pointer-events: none !important;
 }
+
+.feature-info p {
+  min-height: 200px !important;
+}
