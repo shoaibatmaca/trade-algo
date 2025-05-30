@@ -404,15 +404,21 @@ const TradingPlatform = () => {
                     <span className="level-tag">{webinar.level}</span>
                   </div>
                   <div className="registers-btn">
-                    <button className="register-button" disabled>
-                      {webinar.already_registered ? "Registered" : "Register"}
-                    </button>
-                    <button
-                      className="register-button unregister-btn ms-2"
-                      disabled
-                    >
-                      Unregistered
-                    </button>
+                    {webinar.already_registered ? (
+                      <button
+                        className="register-button unregister-btn ms-2"
+                        onClick={() => handleUnregister(webinar.id)}
+                      >
+                        Unregister
+                      </button>
+                    ) : (
+                      <button
+                        className="register-button"
+                        onClick={() => handleRegister(webinar.id)}
+                      >
+                        Register Now
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
