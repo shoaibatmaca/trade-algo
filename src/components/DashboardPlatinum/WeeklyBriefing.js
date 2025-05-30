@@ -393,25 +393,25 @@
 //           </div>
 
 //           {/* Previous Briefings */}
-//           <div style={styles.previousSection}>
-//             <div style={styles.previousTitle}>Previous Briefings</div>
+// <div style={styles.previousSection}>
+//   <div style={styles.previousTitle}>Previous Briefings</div>
 
-//             {previousBriefings.map((briefing, index) => (
-//               <div key={index} style={styles.previousCard}>
-//                 <div style={styles.previousCardTitle}>{briefing.title}</div>
-//                 <div style={styles.previousCardMeta}>
-//                   {briefing.date} · {briefing.duration}
-//                 </div>
-//                 <div style={styles.previousCardDesc}>
-//                   {briefing.description}
-//                 </div>
-//                 <button style={styles.watchBtn}>
-//                   <FontAwesomeIcon icon={faPlay} className="me-1" /> Watch
-//                   Briefing
-//                 </button>
-//               </div>
-//             ))}
-//           </div>
+//   {previousBriefings.map((briefing, index) => (
+//     <div key={index} style={styles.previousCard}>
+//       <div style={styles.previousCardTitle}>{briefing.title}</div>
+//       <div style={styles.previousCardMeta}>
+//         {briefing.date} · {briefing.duration}
+//       </div>
+//       <div style={styles.previousCardDesc}>
+//         {briefing.description}
+//       </div>
+//       <button style={styles.watchBtn}>
+//         <FontAwesomeIcon icon={faPlay} className="me-1" /> Watch
+//         Briefing
+//       </button>
+//     </div>
+//   ))}
+// </div>
 //         </div>
 //       </div>
 //     </div>
@@ -773,10 +773,6 @@ const PlatinumBriefing = () => {
                 </div>
               </div>
             ))}
-
-            <button style={styles.viewAnalysisBtn}>
-              View Detailed Analysis
-            </button>
           </div>
 
           <div style={styles.previousSection}>

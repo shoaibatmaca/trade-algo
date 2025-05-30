@@ -1464,3 +1464,7 @@ body .dark {
 .bg-light .sessions-container .mentorship-content p {
   color: #000 !important;
 }
+
+.sec_heading {
+  padding: 10px 40px;
+}

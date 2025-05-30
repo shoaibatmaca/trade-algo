@@ -58,9 +58,7 @@ function ReleaseNotes() {
       </div>
 
       <div className="releasenotes_section">
-        <h2 className="releasenotes_title">
-          Beginner Hub
-        </h2>
+        <h2 className="releasenotes_title">Beginner Hub</h2>
         <p className="releasenotes_meta">Feb 12, 2025 • v2.12.0</p>
         <h3 className="releasenotes_product">Beginner Hub</h3>
         <p>
