@@ -7654,3 +7654,16 @@ h4 {
     background-position: 150% 0;
   }
 }
+
+
+.chat-container-feature .message-bubble  {
+  background-color:#161515 !important ;
+}
+
+.chat-container-feature .message-text-feature {
+    padding: 10px 0px !important;
+    border-radius: 18px;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #fffdfd;
+}
