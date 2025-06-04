@@ -163,7 +163,7 @@ function DashboardData({ darkMode }) {
   }, [accessToken]);
 
   return (
-    <div className="container">
+    <div className="container p-0">
       <div className="dashboard-header">
         {/* Background Video */}
         <video
