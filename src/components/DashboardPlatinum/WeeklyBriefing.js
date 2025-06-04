@@ -684,7 +684,10 @@ const PlatinumBriefing = () => {
                   width="100%"
                   height="100%"
                 >
-                  <source src={current.video_url} type="video/mp4" />
+                  <source
+                    src={current.public_url || current.video_url}
+                    type="video/mp4"
+                  />
                 </video>
               ) : (
                 <div className="text-white">No video available</div>
