@@ -1095,8 +1095,8 @@ const ValourAcademy = () => {
                             }}
                             onMouseLeave={(e) => {
                               e.target.style.transform = "scale(1)";
-                              e.target.style.backgroundColor =
-                                "rgba(255,255,255,0.8)";
+                              // e.target.style.backgroundColor =
+                              //   "rgba(255,255,255,0.8)";
                             }}
                           >
                             ▶
