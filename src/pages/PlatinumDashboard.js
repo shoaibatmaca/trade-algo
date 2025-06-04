@@ -1305,18 +1305,17 @@ const PlatinumDashboard = () => {
                 </p>
                 <div className="d-flex flex-wrap align-items-center mt-3">
                   <div
-                    className="call-credits me-3 mb-2"
-                    onClick={() => setShowCreditPopup(true)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <i className="bi bi-clock me-1"></i>
-                    <span>
-                      Call Credits:{" "}
-                      {`callCredits !== null
-                        ? ${callCredits} hours remaining
-                        : "Loading..."`}
-                    </span>
-                  </div>
+  className="call-credits me-3 mb-2"
+  onClick={() => setShowCreditPopup(true)}
+  style={{ cursor: "pointer" }}
+>
+  <i className="bi bi-clock me-1"></i>
+  <span>
+    Call Credits:{" "}
+    {callCredits !== null ? `${callCredits} hours remaining` : "Loading..."}
+  </span>
+</div>
+
 
                   <a href="/benefits" className="benefits-link mb-2">
                     View Benefits <i className="bi bi-chevron-right"></i>

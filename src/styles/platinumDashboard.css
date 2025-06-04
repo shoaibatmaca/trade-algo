@@ -37,18 +37,29 @@ body::-webkit-scrollbar-thumb {
 
 /* Option 2: Floating Particles Animation */
 .header-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.1), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.1), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.1), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.1), transparent),
-    radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.1), transparent);
+  background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    ),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(
+      1px 1px at 130px 80px,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    ),
+    radial-gradient(
+      2px 2px at 160px 30px,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
   background-repeat: repeat;
   background-size: 200px 100px;
   animation: sparkle 20s linear infinite;
@@ -71,14 +82,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes textGlow {
-  from { text-shadow: 0 0 20px rgba(225, 215, 215, 0.1); }
-  to { text-shadow: 0 0 30px rgba(255,255,255,0.2); }
+  from {
+    text-shadow: 0 0 20px rgba(225, 215, 215, 0.1);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
 }
 
 .profile-avatar {
@@ -438,14 +459,13 @@ body::-webkit-scrollbar-thumb {
 .market-cell span {
   color: #fff;
 }
- .right-platinum-info {
-    display: flex;
-    align-items: center;
-  }
-  .navbar-nav {
-    /* overflow: hidden; */
-  }
-
+.right-platinum-info {
+  display: flex;
+  align-items: center;
+}
+.navbar-nav {
+  /* overflow: hidden; */
+}
 
 .market-cell.currency {
   flex-direction: row;
@@ -597,12 +617,12 @@ body::-webkit-scrollbar-thumb {
     padding: 0.75rem 0;
   }
   .dropdown-menu-dark {
-  height: 220px !important;
-  border: none !important;
-}
-.navbar-nav {
-  overflow: hidden;
-}
+    height: 220px !important;
+    border: none !important;
+  }
+  .navbar-nav {
+    overflow: hidden;
+  }
 
   .right-platinum-info {
     background: #070707;
@@ -5184,14 +5204,12 @@ h4 {
   background-color: #1a1a1a;
   border-radius: 6px;
 }
-.submission-form  button {
+.submission-form button {
   background-color: #ccc;
 }
-.submission-form  button:hover {
-    background-color: transparent;
-    border: 1px solid #ffff;
-
-
+.submission-form button:hover {
+  background-color: transparent;
+  border: 1px solid #ffff;
 }
 
 .submission-form h4 {
@@ -5211,8 +5229,6 @@ h4 {
 .challenge-form textarea.form-control:focus {
   border: 1px solid #fff;
   box-shadow: none;
-
-
 }
 .challenge-form textarea::placeholder {
   color: #fff !important;
@@ -5609,7 +5625,6 @@ h4 {
   height: 100%;
   transition: all 0.3s ease;
   border: 1px solid #374151;
-
 }
 
 .feature-card:hover {
@@ -7761,15 +7776,14 @@ h4 {
   }
 }
 
-
-.chat-container-feature .message-bubble  {
-  background-color:#161515 !important ;
+.chat-container-feature .message-bubble {
+  background-color: #161515 !important ;
 }
 
 .chat-container-feature .message-text-feature {
-    padding: 10px 0px !important;
-    border-radius: 18px;
-    font-size: 16px;
-    line-height: 1.2;
-    color: #fffdfd;
+  padding: 10px 0px !important;
+  border-radius: 18px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #fffdfd;
 }
