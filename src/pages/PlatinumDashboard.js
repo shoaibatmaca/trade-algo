@@ -915,12 +915,17 @@ const PlatinumDashboard = () => {
         const analystId = analystRes.data.id;
 
         // Step 2: Start 1-on-1 chat (create if not exists)
+        // await axios.post(
+        //   `${API_BASE_URL}api/analyst-chat/start/`,
+        //   { analyst_id: analystId },
+        //   {
+        //     headers: { Authorization: `Bearer ${accessToken}` },
+        //   }
+        // );
         await axios.post(
-          `${API_BASE_URL}api/analyst-chat/start/`,
-          { analyst_id: analystId },
-          {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          }
+          `${API_BASE_URL}api/analyst-chat/send/`,
+          { chat: conversationId, content: input },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
         );
 
         // Step 3: Fetch messages again after ensuring chat exists
@@ -1280,13 +1285,14 @@ const PlatinumDashboard = () => {
       {showEditProfile && (
         <div className="edit-profile-modal">
           <EditProfile />
-
-          <button
-            className="btn btn-danger"
-            onClick={() => setShowEditProfile(false)}
-          >
-            Close
-          </button>
+          <div className="text-center">
+            <button
+              className="btn btn-danger"
+              onClick={() => setShowEditProfile(false)}
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
 
@@ -1383,7 +1389,7 @@ const PlatinumDashboard = () => {
                   <div className="card chat-card">
                     <div className="card-body">
                       <h5 className="card-title mb-4 text-white">
-                        Platinum member Chat
+                        Chat with Analyst
                       </h5>
                       <div className="chat-container">
                         {messages.map((msg) => {
