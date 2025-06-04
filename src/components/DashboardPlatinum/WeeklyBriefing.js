@@ -664,28 +664,20 @@ const PlatinumBriefing = () => {
         <div className="col-md-8 pe-md-3">
           <div style={styles.mainCard} className="mb-4">
             <div style={styles.videoPlaceholder}>
-              <iframe
-                width="100%"
-                height="100%"
-                src={current.video_url}
-                title="Briefing Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            {/* <div style={styles.videoPlaceholder}>
               <video
                 width="100%"
                 height="100%"
                 controls
-                poster={current.thumbnail_url || ""}
-                style={{ borderRadius: "8px", backgroundColor: "#000" }}
+                style={{
+                  borderRadius: "8px",
+                  backgroundColor: "#000",
+                }}
+                onContextMenu={(e) => e.preventDefault()}
               >
                 <source src={current.video_url} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div> */}
+            </div>
 
             <div className="p-4">
               <h5 className="mb-2">{current.title}</h5>
