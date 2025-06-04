@@ -902,41 +902,59 @@ const PlatinumDashboard = () => {
     fetchUser();
   }, [accessToken]);
 
+  // useEffect(() => {
+  //   const startChatWithAnalyst = async () => {
+  //     try {
+  //       // Step 1: Get analyst ID
+  //       const analystRes = await axios.get(
+  //         `${API_BASE_URL}api/assigned-analyst/`,
+  //         {
+  //           headers: { Authorization: `Bearer ${accessToken}` },
+  //         }
+  //       );
+  //       const analystId = analystRes.data.id;
+
+  //       // Step 2: Start 1-on-1 chat (create if not exists)
+  //       // await axios.post(
+  //       //   `${API_BASE_URL}api/analyst-chat/start/`,
+  //       //   { analyst_id: analystId },
+  //       //   {
+  //       //     headers: { Authorization: `Bearer ${accessToken}` },
+  //       //   }
+  //       // );
+  //       await axios.post(
+  //         `${API_BASE_URL}api/analyst-chat/send/`,
+  //         { chat: conversationId, content: input },
+  //         { headers: { Authorization: `Bearer ${accessToken}` } }
+  //       );
+
+  //       // Step 3: Fetch messages again after ensuring chat exists
+  //       fetchMessages();
+  //     } catch (err) {
+  //       console.error("Error starting analyst chat:", err);
+  //     }
+  //   };
+
+  //   if (accessToken) startChatWithAnalyst();
+  // }, []);
   useEffect(() => {
-    const startChatWithAnalyst = async () => {
+    const ensureChatAndFetchMessages = async () => {
       try {
-        // Step 1: Get analyst ID
-        const analystRes = await axios.get(
-          `${API_BASE_URL}api/assigned-analyst/`,
-          {
-            headers: { Authorization: `Bearer ${accessToken}` },
-          }
-        );
-        const analystId = analystRes.data.id;
+        const res = await axios.get(`${API_BASE_URL}api/analyst-chat/ensure/`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
 
-        // Step 2: Start 1-on-1 chat (create if not exists)
-        // await axios.post(
-        //   `${API_BASE_URL}api/analyst-chat/start/`,
-        //   { analyst_id: analystId },
-        //   {
-        //     headers: { Authorization: `Bearer ${accessToken}` },
-        //   }
-        // );
-        await axios.post(
-          `${API_BASE_URL}api/analyst-chat/send/`,
-          { chat: conversationId, content: input },
-          { headers: { Authorization: `Bearer ${accessToken}` } }
-        );
-
-        // Step 3: Fetch messages again after ensuring chat exists
-        fetchMessages();
+        if (res.data && res.data.id) {
+          setConversationId(res.data.id); // 🔥 Chat is guaranteed to exist now
+          setMessages(res.data.messages || []);
+        }
       } catch (err) {
-        console.error("Error starting analyst chat:", err);
+        console.error("❌ Error ensuring chat:", err.response?.data || err);
       }
     };
 
-    if (accessToken) startChatWithAnalyst();
-  }, []);
+    if (accessToken) ensureChatAndFetchMessages();
+  }, [accessToken]);
 
   useEffect(() => {
     const fetchAdminPhoto = async () => {
@@ -1002,12 +1020,12 @@ const PlatinumDashboard = () => {
 
   const sendMessage = async () => {
     if (!input.trim()) {
-      console.warn("❌ Message is empty.");
+      console.warn("❌ Empty message");
       return;
     }
 
     if (!conversationId) {
-      console.warn("❌ Chat not initialized. conversationId is null.");
+      console.warn("❌ Chat not ready (conversationId is null)");
       return;
     }
 
