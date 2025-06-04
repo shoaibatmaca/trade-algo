@@ -968,11 +968,36 @@ const PlatinumDashboard = () => {
     }
   };
 
+  // const sendMessage = async () => {
+  //   if (!input.trim() || !conversationId) return;
+  //   try {
+  //     await axios.post(
+  //       `${API_BASE_URL}api/analyst-chat/start/`,
+  //       { chat: conversationId, content: input },
+  //       { headers: { Authorization: `Bearer ${accessToken}` } }
+  //     );
+
+  //     setInput("");
+  //     fetchMessages();
+  //   } catch (err) {
+  //     console.error("❌ Error sending message", err.response?.data || err);
+  //   }
+  // };
+
   const sendMessage = async () => {
-    if (!input.trim() || !conversationId) return;
+    if (!input.trim()) {
+      console.warn("❌ Message is empty.");
+      return;
+    }
+
+    if (!conversationId) {
+      console.warn("❌ Chat not initialized. conversationId is null.");
+      return;
+    }
+
     try {
       await axios.post(
-        `${API_BASE_URL}api/analyst-chat/start/`,
+        `${API_BASE_URL}api/analyst-chat/send/`,
         { chat: conversationId, content: input },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
