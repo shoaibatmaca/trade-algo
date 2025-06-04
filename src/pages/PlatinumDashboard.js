@@ -473,7 +473,7 @@
 //                 {showMessagesPopup && (
 //                   <div className="popup-box">
 //                     {" "}
-                    
+
 //                     <div>No new messages</div>
 //                   </div>
 //                 )}
@@ -840,7 +840,7 @@ const PlatinumDashboard = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-    
+
     setActiveSection(key);
     setIsNavOpen(false); // Close navbar when nav item is clicked
   };
@@ -901,7 +901,7 @@ const PlatinumDashboard = () => {
     };
     fetchUser();
   }, [accessToken]);
-  
+
   useEffect(() => {
     const startChatWithAnalyst = async () => {
       try {
@@ -999,297 +999,296 @@ const PlatinumDashboard = () => {
 
   return (
     <div className="platinum-dashboard">
-         <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
-              <div className="container-fluid">
-                <a className="navbar-brand fw-bold" href="#">
-                  PLATINUMTRADE
+      <nav className="navbar navbar-platinum navbar-expand-lg navbar-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand fw-bold" href="#">
+            PLATINUMTRADE
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={handleToggleClick}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+            id="navbarNav"
+            ref={collapseRef}
+          >
+            <ul className="navbar-nav me-auto">
+              {/* Always keep Dashboard */}
+              <button
+                className={`tab-button ${
+                  activeDashboardTab === "market" ? "active" : ""
+                }`}
+                onClick={(e) => {
+                  handleNavClick("dashboard", e);
+                  setActiveDashboardTab("market");
+                  setActiveSection("dashboard");
+                }}
+              >
+                Dashboard
+              </button>
+
+              {/* New Items */}
+              {[
+                // { key: "briefing", label: "Weekly Briefing" },
+                { key: "webinars", label: "Webinars" },
+                { key: "challenges", label: "Trading Challenges" },
+                { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
+                // { key: "leaderboard", label: "Leaderboard" },
+                // { key: "schedule-call", label: "Private Coaching" },
+                { key: "news", label: "News" },
+              ].map(({ key, label }) => (
+                <li className="nav-item" key={key}>
+                  <a
+                    className={`nav-link ${
+                      activeSection === key ? "active" : ""
+                    }`}
+                    href="#"
+                    onClick={(e) => handleNavClick(key, e)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+
+              {/*  Premium Features Dropdown */}
+              <ul className="navbar-nav">
+                <li className="nav-item dropdown premium-dropdown">
+                  <a
+                    className="nav-link dropdown-toggle text-white fw-bold"
+                    href="#"
+                    id="premiumDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Premium Features
+                  </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                    aria-labelledby="premiumDropdown"
+                  >
+                    <li className="dropdown-header">Platinum Exclusives</li>
+
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("briefing", e)}
+                      >
+                        <i className="bi bi-file-earmark-text me-2"></i> Weekly
+                        Briefing
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("webinars", e)}
+                      >
+                        <i className="bi bi-easel me-2"></i> Webinars
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("news", e)}
+                      >
+                        <i className="bi bi-newspaper me-2"></i> News
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("leaderboard", e)}
+                      >
+                        <i className="bi bi-trophy me-2"></i> Leaderboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("challenges", e)}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trading
+                        Challenges
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("schedule-call", e)}
+                      >
+                        <i className="bi bi-person-workspace me-2"></i> Private
+                        Coaching
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("feature-voting", e)}
+                      >
+                        <i className="bi bi-stars me-2"></i> Feature Voting
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("membership-nft", e)}
+                      >
+                        <i className="bi bi-gem me-2"></i> Membership NFT
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => handleNavClick("journal-page", e)}
+                      >
+                        <i className="bi bi-bar-chart-line me-2"></i> Trade
+                        Journal
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </ul>
+
+            <div className="right-platinum-info">
+              <div className="backtodashboardbtn">
+                <a href="/dashboard">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    style={{ marginRight: "8px", verticalAlign: "middle" }}
+                  >
+                    <path d="M8 3.293l6 6V15a1 1 0 0 1-1 1h-3v-4H6v4H3a1 1 0 0 1-1-1V9.293l6-6zm5 6.707V15h-2v-4H5v4H3v-5.707L8 4.586l5 5.414z" />
+                    <path d="M7.293 1.5a1 1 0 0 1 1.414 0l6 6-.707.707L8 2.207 1.293 8.207l-.707-.707 6-6z" />
+                  </svg>
                 </a>
-                <button
-                  className="navbar-toggler"
-                  type="button"
-                  onClick={handleToggleClick}
-                >
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-      
+              </div>
+
+              <div className="d-flex align-items-center position-relative">
                 <div
-                  className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}
-                  id="navbarNav"
-                  ref={collapseRef}
+                  className="position-relative me-3"
+                  onClick={handleNotificationsClick}
                 >
-                  <ul className="navbar-nav me-auto">
-                    {/* Always keep Dashboard */}
-                    <button
-                      className={`tab-button ${
-                        activeDashboardTab === "market" ? "active" : ""
-                      }`}
-                      onClick={(e) => {
-                        handleNavClick("dashboard", e);
-                        setActiveDashboardTab("market");
-                        setActiveSection("dashboard");
+                  <i className="bi bi-bell fs-5 text-light"></i>
+                  {unreadNotifications > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
+                      {unreadNotifications}
+                    </span>
+                  )}
+                  {showNotificationsPopup && (
+                    <div
+                      className="notification-popup position-absolute rounded shadow p-3"
+                      style={{
+                        display: showNotificationsPopup ? "block" : "none",
+                        top: "120%",
+                        right: 0,
+                        zIndex: 1000,
+                        width: "280px",
+                        backgroundColor: "#1b1a1a",
+                        color: "#f8f8f8",
+                        border: "1px solid #333",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
                       }}
                     >
-                      Dashboard
-                    </button>
-      
-                    {/* New Items */}
-                    {[
-                      // { key: "briefing", label: "Weekly Briefing" },
-                      { key: "webinars", label: "Webinars" },
-                      { key: "challenges", label: "Trading Challenges" },
-                      { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
-                      // { key: "leaderboard", label: "Leaderboard" },
-                      // { key: "schedule-call", label: "Private Coaching" },
-                      { key: "news", label: "News" },
-                    ].map(({ key, label }) => (
-                      <li className="nav-item" key={key}>
-                        <a
-                          className={`nav-link ${
-                            activeSection === key ? "active" : ""
-                          }`}
-                          href="#"
-                          onClick={(e) => handleNavClick(key, e)}
-                        >
-                          {label}
-                        </a>
-                      </li>
-                    ))}
-      
-                    {/*  Premium Features Dropdown */}
-                    <ul className="navbar-nav">
-                      <li className="nav-item dropdown premium-dropdown">
-                        <a
-                          className="nav-link dropdown-toggle text-white fw-bold"
-                          href="#"
-                          id="premiumDropdown"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Premium Features
-                        </a>
-                        <ul
-                          className="dropdown-menu dropdown-menu-dark dropdown-menu-end"
-                          aria-labelledby="premiumDropdown"
-                        >
-                          <li className="dropdown-header">Platinum Exclusives</li>
-      
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("briefing", e)}
-                            >
-                              <i className="bi bi-file-earmark-text me-2"></i> Weekly
-                              Briefing
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("webinars", e)}
-                            >
-                              <i className="bi bi-easel me-2"></i> Webinars
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("news", e)}
-                            >
-                              <i className="bi bi-newspaper me-2"></i> News
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("leaderboard", e)}
-                            >
-                              <i className="bi bi-trophy me-2"></i> Leaderboard
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("challenges", e)}
-                            >
-                              <i className="bi bi-bar-chart-line me-2"></i> Trading
-                              Challenges
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("schedule-call", e)}
-                            >
-                              <i className="bi bi-person-workspace me-2"></i> Private
-                              Coaching
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("feature-voting", e)}
-                            >
-                              <i className="bi bi-stars me-2"></i> Feature Voting
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("membership-nft", e)}
-                            >
-                              <i className="bi bi-gem me-2"></i> Membership NFT
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className="dropdown-item"
-                              href="#"
-                              onClick={(e) => handleNavClick("journal-page", e)}
-                            >
-                              <i className="bi bi-bar-chart-line me-2"></i> Trade
-                              Journal
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </ul>
-      
-                  <div className="right-platinum-info">
-                    <div className="backtodashboardbtn">
-                    <a href="/dashboard">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        style={{ marginRight: "8px", verticalAlign: "middle" }}
-                      >
-                        <path d="M8 3.293l6 6V15a1 1 0 0 1-1 1h-3v-4H6v4H3a1 1 0 0 1-1-1V9.293l6-6zm5 6.707V15h-2v-4H5v4H3v-5.707L8 4.586l5 5.414z" />
-                        <path d="M7.293 1.5a1 1 0 0 1 1.414 0l6 6-.707.707L8 2.207 1.293 8.207l-.707-.707 6-6z" />
-                      </svg>
-                    </a>
-                  </div>
-      
-                  <div className="d-flex align-items-center position-relative">
-  
-                    <div
-                      className="position-relative me-3"
-                      onClick={handleNotificationsClick}
-                    >
-                      <i className="bi bi-bell fs-5 text-light"></i>
-                      {unreadNotifications > 0 && (
-                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">
-                          {unreadNotifications}
-                        </span>
-                      )}
-                      {showNotificationsPopup && (
-                        <div
-                          className="notification-popup position-absolute rounded shadow p-3"
-                          style={{
-                            display: showNotificationsPopup ? "block" : "none",
-                            top: "120%",
-                            right: 0,
-                            zIndex: 1000,
-                            width: "280px",
-                            backgroundColor: "#1b1a1a",
-                            color: "#f8f8f8",
-                            border: "1px solid #333",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-                          }}
-                        >
-                          <div className="d-flex justify-content-between align-items-center mb-2">
-                            <strong>Notifications</strong>
-                            <small className="text-muted" style={{ color: "#aaa" }}>
-                              {unreadNotifications} new
-                            </small>
-                          </div>
-                          <hr className="my-2" style={{ borderColor: "#333" }} />
-                          <div className="notification-item py-2 px-1">
-                            You have a new message.
-                          </div>
-                          <div className="notification-item py-2 px-1">
-                            Your report is ready.
-                          </div>
-                          <div className="notification-item py-2 px-1">
-                            New login from device.
-                          </div>
-                        </div>
-                      )}
-                    </div>
-      
-                    {/* Profile Avatar */}
-                    <div className="position-relative profile-wrapper">
-                      <div
-                        className="profile-avatar"
-                        id="profileAvatar"
-                        onClick={handleAvatarClick}
-                      >
-                        {userData?.profile_photo_url ? (
-                          <img
-                            src={userData.profile_photo_url}
-                            alt="Profile"
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover",
-                              borderRadius: "50%",
-                            }}
-                          />
-                        ) : (
-                          <span>P</span>
-                        )}
+                      <div className="d-flex justify-content-between align-items-center mb-2">
+                        <strong>Notifications</strong>
+                        <small className="text-muted" style={{ color: "#aaa" }}>
+                          {unreadNotifications} new
+                        </small>
                       </div>
-      
-                      {showProfileDropdown && (
-                        <div className="profile-dropdown">
-                          <a
-                            href="#"
-                            className="dropdown-item"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setShowEditProfile(true);
-                            }}
-                          >
-                            Edit Profile
-                          </a>
-                          <a href="/dashboard" className="dropdown-item text-danger">
-                            Logout
-                          </a>
-                        </div>
-                      )}
+                      <hr className="my-2" style={{ borderColor: "#333" }} />
+                      <div className="notification-item py-2 px-1">
+                        You have a new message.
+                      </div>
+                      <div className="notification-item py-2 px-1">
+                        Your report is ready.
+                      </div>
+                      <div className="notification-item py-2 px-1">
+                        New login from device.
+                      </div>
                     </div>
-                  </div>
-                  </div>
+                  )}
                 </div>
-              </div>
-          </nav>
-      
-            {showEditProfile && (
-              <div className="edit-profile-modal">
-                <EditProfile />
-                <div className="text-center">
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => setShowEditProfile(false)}
+
+                {/* Profile Avatar */}
+                <div className="position-relative profile-wrapper">
+                  <div
+                    className="profile-avatar"
+                    id="profileAvatar"
+                    onClick={handleAvatarClick}
                   >
-                    Close
-                  </button>
+                    {userData?.profile_photo_url ? (
+                      <img
+                        src={userData.profile_photo_url}
+                        alt="Profile"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    ) : (
+                      <span>P</span>
+                    )}
+                  </div>
+
+                  {showProfileDropdown && (
+                    <div className="profile-dropdown">
+                      <a
+                        href="#"
+                        className="dropdown-item"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowEditProfile(true);
+                        }}
+                      >
+                        Edit Profile
+                      </a>
+                      <a
+                        href="/dashboard"
+                        className="dropdown-item text-danger"
+                      >
+                        Logout
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
-            )}
-      
-     
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {showEditProfile && (
+        <div className="edit-profile-modal">
+          <EditProfile />
+
+          <button
+            className="btn btn-danger"
+            onClick={() => setShowEditProfile(false)}
+          >
+            Close
+          </button>
+        </div>
+      )}
 
       {/* Main Content */}
       <div className="container-fluid p-4">
@@ -1305,17 +1304,18 @@ const PlatinumDashboard = () => {
                 </p>
                 <div className="d-flex flex-wrap align-items-center mt-3">
                   <div
-  className="call-credits me-3 mb-2"
-  onClick={() => setShowCreditPopup(true)}
-  style={{ cursor: "pointer" }}
->
-  <i className="bi bi-clock me-1"></i>
-  <span>
-    Call Credits:{" "}
-    {callCredits !== null ? `${callCredits} hours remaining` : "Loading..."}
-  </span>
-</div>
-
+                    className="call-credits me-3 mb-2"
+                    onClick={() => setShowCreditPopup(true)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <i className="bi bi-clock me-1"></i>
+                    <span>
+                      Call Credits:{" "}
+                      {callCredits !== null
+                        ? `${callCredits} hours remaining`
+                        : "Loading..."}
+                    </span>
+                  </div>
 
                   <a href="/benefits" className="benefits-link mb-2">
                     View Benefits <i className="bi bi-chevron-right"></i>
@@ -1336,7 +1336,7 @@ const PlatinumDashboard = () => {
                       }}
                     />
                   ) : (
-                    <span>P</span>
+                    <span>Loading..</span>
                   )}
                 </div>
               </div>
