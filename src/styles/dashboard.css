@@ -20,6 +20,16 @@ body .dark {
   -o-transition: width 0.2s ease-in-out;
 }
 
+.bg-light .tradegpt-container {
+  background-color: white;
+}
+.bg-light .tradegpt-container p {
+  color: #000 !important;
+}
+.bg-light .heroContainer {
+  background-color: #fff !important;
+}
+
 /* Navigation Link Styles */
 .nav-link {
   color: inherit;
@@ -652,7 +662,7 @@ body .dark {
     align-items: center;
   }
   .search-bar {
-    /* width: auto !important; */
+    margin-left: 12px !important;
   }
   .search-button {
     display: none;
@@ -1468,15 +1478,6 @@ body .dark {
   color: #000;
 }
 
-.bg-light .tradegpt-container {
-  background-color: white;
-}
-.bg-light .tradegpt-container p {
-  color: #000 !important;
-}
-.bg-light .heroContainer {
-  background-color: #fff !important;
-}
 .bg-light .webinar-car-img .presenter-name {
   color: #000 !important;
 }

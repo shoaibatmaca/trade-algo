@@ -645,8 +645,8 @@ const PlatinumBriefing = () => {
         },
       })
       .then((res) => {
-        setBriefings([res.data]); // wrap single object in array
-        setCurrent(res.data); // it's a single object, not res.data[0]
+        setBriefings(res.data);
+        setCurrent(res.data[0]);
       })
       .catch((err) => console.error("Error fetching briefings", err));
   }, []);
@@ -774,7 +774,7 @@ const PlatinumBriefing = () => {
             ))}
           </div>
 
-          {/* <div style={styles.previousSection}>
+          <div style={styles.previousSection}>
             <div style={styles.previousTitle}>Previous Briefings</div>
 
             {otherBriefings.map((b, index) => (
@@ -792,7 +792,7 @@ const PlatinumBriefing = () => {
                 </button>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
