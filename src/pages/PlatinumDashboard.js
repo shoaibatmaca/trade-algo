@@ -952,21 +952,21 @@ const PlatinumDashboard = () => {
     fetchAdminPhoto();
   }, []);
 
-  const fetchMessages = async () => {
-    try {
-      const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
+  // const fetchMessages = async () => {
+  //   try {
+  //     const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
+  //       headers: { Authorization: `Bearer ${accessToken}` },
+  //     });
 
-      if (res.data.length > 0) {
-        const convo = res.data[0];
-        setConversationId(convo.id);
-        setMessages(convo.messages);
-      }
-    } catch (err) {
-      console.error("❌ Error fetching analyst chat", err);
-    }
-  };
+  //     if (res.data.length > 0) {
+  //       const convo = res.data[0];
+  //       setConversationId(convo.id);
+  //       setMessages(convo.messages);
+  //     }
+  //   } catch (err) {
+  //     console.error("❌ Error fetching analyst chat", err);
+  //   }
+  // };
 
   // const sendMessage = async () => {
   //   if (!input.trim() || !conversationId) return;
@@ -983,6 +983,22 @@ const PlatinumDashboard = () => {
   //     console.error("❌ Error sending message", err.response?.data || err);
   //   }
   // };
+  const fetchMessages = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
+      if (res.data && res.data.id) {
+        setConversationId(res.data.id); // ✅ CORRECT
+        setMessages(res.data.messages);
+      } else {
+        console.warn("No active analyst chat found.");
+      }
+    } catch (err) {
+      console.error("❌ Error fetching analyst chat", err);
+    }
+  };
 
   const sendMessage = async () => {
     if (!input.trim()) {
