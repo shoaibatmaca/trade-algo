@@ -1642,7 +1642,7 @@ const PlatinumDashboard = () => {
                   <div className="card chat-card">
                     <div className="card-body">
                       <h5 className="card-title mb-4 text-white">
-                        Platinum member Chat
+                        Chat with Analyst
                       </h5>
                       <div className="chat-container">
                         {messages.map((msg) => {

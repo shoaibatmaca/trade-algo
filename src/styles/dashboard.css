@@ -635,6 +635,9 @@ body .dark {
   .nav-link .d-flex span {
     font-size: 14px;
   }
+  .feature-item {
+    flex-direction: column;
+  }
 
   .username_data h5 {
     font-size: 14px;
@@ -648,19 +651,28 @@ body .dark {
     display: flex !important;
     align-items: center;
   }
+  .search-bar {
+    /* width: auto !important; */
+  }
+  .search-button {
+    display: none;
+  }
   .wealth-card {
     padding: 20px;
   }
   .left-toggle {
     justify-content: center !important;
   }
+  .sec_heading h2 {
+    font-size: 32px !important;
+    color: #fff;
+  }
   .search_bar {
     max-width: 300px !important;
   }
   .user_info {
     text-align: left;
-    margin-top: 8px !important;
-    width: 100% !important;
+    width: fit-content !important;
   }
   .user_info .user-dropdown {
     width: 70%;
@@ -704,7 +716,6 @@ body .dark {
     padding: 2px 33px 6px 10px;
   }
   .dashboard-head {
-    flex-direction: column;
     margin-bottom: 0 !important;
     padding: 12px 6px !important;
   }
@@ -733,6 +744,48 @@ body .dark {
   }
   .dashboard_row .offset-1 {
     margin-left: 10.333333% !important;
+  }
+  .user_info {
+    cursor: pointer;
+    padding-right: 22px !important;
+  }
+  .video-container {
+    padding: 0 !important;
+  }
+  .playlist-header {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+  .search-container {
+    margin-left: 0 !important;
+  }
+  .search-main {
+    padding: 0 !important;
+  }
+  .stock-details {
+    margin-left: 0 !important;
+  }
+  .card-features .feature-item {
+    width: auto !important;
+  }
+  .search-bar {
+    height: 38px !important;
+  }
+  .session-card {
+    padding: 8px !important;
+    border-radius: 8px !important;
+  }
+  .progress-level-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .webinar-car-img img {
+    height: 300px !important;
+  }
+  .progress_container button {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .nav.flex-column span {
@@ -774,6 +827,7 @@ body .dark {
   .dashboard-header {
     height: 290px !important;
   }
+
   .buttons .primary_btn {
     font-size: 12px;
   }
@@ -1373,6 +1427,7 @@ body .dark {
   justify-content: space-between;
   width: -webkit-fill-available !important;
   padding: 4px 12px !important;
+  background-color: #1c1e20 !important;
 }
 .dark-mode-content {
   margin-top: 70px !important;
@@ -1413,6 +1468,15 @@ body .dark {
   color: #000;
 }
 
+.bg-light .tradegpt-container {
+  background-color: white;
+}
+.bg-light .tradegpt-container p {
+  color: #000 !important;
+}
+.bg-light .heroContainer {
+  background-color: #fff !important;
+}
 .bg-light .webinar-car-img .presenter-name {
   color: #000 !important;
 }
@@ -1466,5 +1530,5 @@ body .dark {
 }
 
 .sec_heading {
-  padding: 10px 40px;
+  padding: 10px 20px !important;
 }

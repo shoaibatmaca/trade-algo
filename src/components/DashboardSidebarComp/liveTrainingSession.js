@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import "../DashboardSidebarComp/styles/live-training-session.css";
+import { useEffect, useRef, useState } from "react";
 import sessionImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
+import "../DashboardSidebarComp/styles/live-training-session.css";
+
 import LiveSessionChat from "./LiveSessionChat";
 
 function LiveTrainingSession() {
@@ -55,7 +56,7 @@ function LiveTrainingSession() {
                   {playingIndex !== index ? (
                     <div className="thumbnail-container">
                       <img
-                        src={sessionImg}
+                        src={webinar.thumbnail_public_url}
                         alt="Video thumbnail"
                         className="session-img"
                       />
@@ -101,7 +102,6 @@ function LiveTrainingSession() {
 }
 
 export default LiveTrainingSession;
-
 
 // import React, { useState, useEffect, useRef } from "react";
 // import axios from "axios";
