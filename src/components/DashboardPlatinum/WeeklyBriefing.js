@@ -665,21 +665,16 @@ const PlatinumBriefing = () => {
           <div style={styles.mainCard} className="mb-4">
             <div style={styles.videoPlaceholder}>
               <video
-                key={current.video_url}
+                key={current.public_url}
                 controls
                 width="100%"
                 height="100%"
                 controlsList="nodownload"
                 style={{ borderRadius: "8px", backgroundColor: "#000" }}
-                onError={(e) => {
-                  e.target.parentNode.innerHTML =
-                    "<p style='color: white'>Unable to load video. Please check the link.</p>";
-                }}
+                onContextMenu={(e) => e.preventDefault()}
               >
-                <source
-                  src={current.public_url || current.video_url}
-                  type="video/mp4"
-                />
+                <source src={current.public_url} type="video/mp4" />
+                Your browser does not support the video tag.
               </video>
             </div>
 
