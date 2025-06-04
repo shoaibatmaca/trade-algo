@@ -664,7 +664,7 @@ const PlatinumBriefing = () => {
         <div className="col-md-8 pe-md-3">
           <div style={styles.mainCard} className="mb-4">
             <div style={styles.videoPlaceholder}>
-              <video
+              {/* <video
                 width="100%"
                 height="100%"
                 controls
@@ -676,7 +676,19 @@ const PlatinumBriefing = () => {
               >
                 <source src={current.video_url} type="video/mp4" />
                 Your browser does not support the video tag.
-              </video>
+              </video> */}
+              {current.video_url ? (
+                <video
+                  key={current.video_url}
+                  controls
+                  width="100%"
+                  height="100%"
+                >
+                  <source src={current.video_url} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="text-white">No video available</div>
+              )}
             </div>
 
             <div className="p-4">
