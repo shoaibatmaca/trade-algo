@@ -3,9 +3,82 @@
 body::-webkit-scrollbar-thumb {
   background-color: #282d36;
 }
+.navbar-toggler-icon {
+  background-color: transparent !important;
+}
 
 .profile-wrapper {
   position: relative;
+}
+
+/* Option 1: Animated Gradient Background */
+.header-section {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Option 2: Floating Particles Animation */
+.header-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.1), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.1), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.1), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(200px);
+  }
+}
+
+/* Glow effect for text */
+.header-section h1 {
+  text-shadow: 0 0 20px rgba(211, 207, 207, 0.1);
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 20px rgba(225, 215, 215, 0.1); }
+  to { text-shadow: 0 0 30px rgba(255,255,255,0.2); }
 }
 
 .profile-avatar {
@@ -365,6 +438,14 @@ body::-webkit-scrollbar-thumb {
 .market-cell span {
   color: #fff;
 }
+ .right-platinum-info {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-nav {
+    /* overflow: hidden; */
+  }
+
 
 .market-cell.currency {
   flex-direction: row;
@@ -515,9 +596,34 @@ body::-webkit-scrollbar-thumb {
   .market-row {
     padding: 0.75rem 0;
   }
+  .dropdown-menu-dark {
+  height: 220px !important;
+  border: none !important;
+}
+.navbar-nav {
+  overflow: hidden;
+}
+
+  .right-platinum-info {
+    background: #070707;
+    /* display: flex; */
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+  }
+  .platinum-dashboard .dropdown-menu-dark {
+    width: 100%;
+  }
 
   .chat-container {
     height: 320px;
+  }
+  .tab-button.active {
+    border-bottom: 1px solid #474040;
+    background-color: transparent !important;
+    width: 100%;
+    text-align: left;
+    color: #a1a1aa;
   }
 }
 
