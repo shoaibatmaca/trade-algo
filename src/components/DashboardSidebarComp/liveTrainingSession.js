@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import sessionImg from "../DashboardSidebarComp/images/live-trading-session-img.jpg";
+
 import "../DashboardSidebarComp/styles/live-training-session.css";
 
 import LiveSessionChat from "./LiveSessionChat";
@@ -99,7 +99,7 @@ function LiveTrainingSession() {
                         // muted
                         // loop
                         // playsInline
-                        poster={sessionImg}
+                        poster={webinar.thumbnail_public_url}
                       >
                         <source src={webinar.recording_link} type="video/mp4" />
                         Your browser does not support the video tag.
