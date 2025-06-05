@@ -810,6 +810,7 @@ const PlatinumDashboard = () => {
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
   const [userData, setUserData] = useState(null);
   const [isAnalyst, setIsAnalyst] = useState(false);
+  const [analystChats, setAnalystChats] = useState([]); // For analyst: all user chats
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -926,33 +927,32 @@ const PlatinumDashboard = () => {
   // }, [accessToken]);
 
   useEffect(() => {
-    const ensureChatAndFetchMessages = async () => {
-      try {
-        const res = await axios.get(`${API_BASE_URL}api/analyst-chat/ensure/`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
+  const ensureChatAndFetchMessages = async () => {
+    try {
+      const res = await axios.get(`${API_BASE_URL}api/analyst-chat/ensure/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
 
-        if (isAnalyst) {
-          // Analyst: multiple chats
-          if (Array.isArray(res.data) && res.data.length > 0) {
-            setAnalystChats(res.data); // new state to store multiple chats
-            setConversationId(res.data[0].id); // show first chat
-            setMessages(res.data[0].messages || []);
-          }
-        } else {
-          // Platinum user: single chat object
-          if (res.data && res.data.id) {
-            setConversationId(res.data.id);
-            setMessages(res.data.messages || []);
-          }
+      if (isAnalyst) {
+        if (Array.isArray(res.data) && res.data.length > 0) {
+          setAnalystChats(res.data);
+          setConversationId(res.data[0].id); // default: show first chat
+          setMessages(res.data[0].messages || []);
         }
-      } catch (err) {
-        console.error("❌ Error ensuring chat:", err.response?.data || err);
+      } else {
+        if (res.data && res.data.id) {
+          setConversationId(res.data.id);
+          setMessages(res.data.messages || []);
+        }
       }
-    };
+    } catch (err) {
+      console.error("❌ Error ensuring chat:", err.response?.data || err);
+    }
+  };
 
-    if (accessToken) ensureChatAndFetchMessages();
-  }, [accessToken, isAnalyst]);
+  if (accessToken) ensureChatAndFetchMessages();
+}, [accessToken, isAnalyst]);
+
 
   useEffect(() => {
     const fetchAdminPhoto = async () => {
@@ -1449,7 +1449,132 @@ const PlatinumDashboard = () => {
                         Chat with Analyst
                       </h5>
                       <div className="chat-container">
-                        {messages.map((msg) => {
+                        {isAnalyst ? (
+  analystChats.map((chat) => (
+    <div key={chat.id}>
+      <div className="fw-bold text-white mb-2">
+        Chat with {chat.user_username}
+      </div>
+      {chat.messages.map((msg) => {
+        const isCurrentUser = msg.sender_name === userData?.username;
+        const profilePhoto = isCurrentUser
+          ? userData?.profile_photo_url
+          : msg.sender_profile_photo_url;
+
+        return (
+          <div
+            key={msg.id}
+            className={`chat-message d-flex flex-column ${
+              isCurrentUser ? "align-items-end" : "align-items-start"
+            } mb-3`}
+          >
+            <div className="d-flex align-items-end">
+              {!isCurrentUser && (
+                <img
+                  src={profilePhoto || "/default-user.png"}
+                  className="chat-avatar me-2"
+                  alt="Sender"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+              <div className="message-bubble text-white">
+                <div className="sender-name text-white fw-bold mb-1">
+                  {isCurrentUser ? "You" : msg.sender_name}
+                </div>
+                <div className="message-text">{msg.content}</div>
+                <div className="message-time text-end mt-1 small">
+                  {new Date(msg.timestamp).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true,
+                  })}
+                </div>
+              </div>
+              {isCurrentUser && (
+                <img
+                  src={profilePhoto || "/default-user.png"}
+                  className="chat-avatar ms-2"
+                  alt="Me"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ))
+) : (
+  messages.map((msg) => {
+    const isCurrentUser = msg.sender_name === userData?.username;
+    const profilePhoto = isCurrentUser
+      ? userData?.profile_photo_url
+      : msg.sender_profile_photo_url;
+
+    return (
+      <div
+        key={msg.id}
+        className={`chat-message d-flex flex-column ${
+          isCurrentUser ? "align-items-end" : "align-items-start"
+        } mb-3`}
+      >
+        <div className="d-flex align-items-end">
+          {!isCurrentUser && (
+            <img
+              src={profilePhoto || "/default-user.png"}
+              className="chat-avatar me-2"
+              alt="Sender"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
+          )}
+          <div className="message-bubble text-white">
+            <div className="sender-name text-white fw-bold mb-1">
+              {isCurrentUser ? "You" : msg.sender_name}
+            </div>
+            <div className="message-text">{msg.content}</div>
+            <div className="message-time text-end mt-1 small">
+              {new Date(msg.timestamp).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+            </div>
+          </div>
+          {isCurrentUser && (
+            <img
+              src={profilePhoto || "/default-user.png"}
+              className="chat-avatar ms-2"
+              alt="Me"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </div>
+      </div>
+    );
+  })
+)}
+
+                        {/* {messages.map((msg) => {
                           const isCurrentUser = isAnalyst
                             ? msg.sender_name === userData?.username // analyst replying
                             : msg.sender_name === userData?.username; // user chatting
@@ -1521,7 +1646,7 @@ const PlatinumDashboard = () => {
                               </div>
                             </div>
                           );
-                        })}
+                        })} */}
                         <div className="chat-input-container mt-2">
                           <input
                             type="text"
