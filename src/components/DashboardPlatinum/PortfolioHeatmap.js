@@ -216,6 +216,9 @@ import PortfolioDetails from "./portfolioDetails/PortfolioDetail";
 function PortfolioComponent() {
   const [portfolio, setPortfolio] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showAllMarketWatch, setShowAllMarketWatch] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
 
   useEffect(() => {
     fetchPortfolio();
@@ -237,15 +240,14 @@ function PortfolioComponent() {
 
       const formatted = {
         total_value: data.portfolio_value || 0,
-        total_gain_loss: 0, // 🔄 You can compute this later if needed
+        total_gain_loss: 0,
         total_gain_loss_percent: 0,
         assets: (data.assets || []).map((asset, index) => ({
           id: index + 1,
           asset_type: asset.asset_type || "",
           percentage: asset.percentage || 0,
-          value: asset.value || 0, // optional if backend returns it
+          value: asset.value || 0,
         })),
-
         balance: data.account?.balance || 0,
         equity: data.account?.equity || 0,
         margin: data.account?.margin || 0,
@@ -263,7 +265,18 @@ function PortfolioComponent() {
     }
   };
 
-  if (loading) return <div>Loading portfolio...</div>;
+  if (loading) {
+    return (
+      <div className="portfolio-loading  p-4">
+          <div className="pie-chart-container">
+                  <div className="pie-chart">
+                    <div className="pie-chart-inner"></div>
+                  </div>
+                </div>
+      </div>
+    );
+  }
+
   if (!portfolio) return <div>No portfolio data available.</div>;
 
   return (
@@ -290,16 +303,8 @@ function PortfolioComponent() {
                 <h5 className="card-title">Portfolio Summary</h5>
                 <div className="total-value-section">
                   <div>
-                    <div className="small">Total Portfolio Value</div>
                     <div className="total-value">
                       ${parseFloat(portfolio.total_value).toLocaleString()}
-                      {/* <span className="value-change">
-                        <i className="bi bi-arrow-up"></i> +$
-                        {parseFloat(
-                          portfolio.total_gain_loss
-                        ).toLocaleString()}{" "}
-                        ({portfolio.total_gain_loss_percent}%)
-                      </span> */}
                     </div>
                   </div>
                 </div>
@@ -310,7 +315,7 @@ function PortfolioComponent() {
                       <h5>Account Summary</h5>
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                          Balance: ${portfolio.balance.toLocaleString()}
+                         Current Balance: ${portfolio.balance.toLocaleString()}
                         </li>
                         <li className="list-group-item">
                           Equity: ${portfolio.equity.toLocaleString()}
@@ -328,21 +333,24 @@ function PortfolioComponent() {
                     </div>
                   </div>
 
-                  <div className="col-md-6">
-                    <div className="card heatmap-card">
-                      <h5>Recent Trades</h5>
-                      <table className="table table-sm">
-                        <thead>
-                          <tr>
-                            <th>Symbol</th>
-                            <th>Type</th>
-                            <th>Volume</th>
-                            <th>Price</th>
-                            <th>Profit</th>
-                          </tr>
-                        </thead>
+              <div className="col-md-6">
+              <div className="card heatmap-card">
+                <h5>Recent Trades</h5>
+                <table className="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Symbol</th>
+                      <th>Type</th>
+                      <th>Volume</th>
+                      <th>Price</th>
+                      <th>Profit</th>
+                    </tr>
+                  </thead>
                         <tbody>
-                          {portfolio.recent_trades.map((trade, idx) => (
+                          {(showAll
+                            ? portfolio.recent_trades
+                            : portfolio.recent_trades.slice(0, 5)
+                          ).map((trade, idx) => (
                             <tr key={idx}>
                               <td>{trade.symbol || "-"}</td>
                               <td>{trade.type}</td>
@@ -353,11 +361,23 @@ function PortfolioComponent() {
                           ))}
                         </tbody>
                       </table>
+
+                      {/* Show All / Show Less Button */}
+                      {portfolio.recent_trades.length > 5 && (
+                        <div className="text-center mt-2">
+                          <button
+                            className="btn btn-outline-light btn-sm"
+                            onClick={() => setShowAll(!showAll)}
+                          >
+                            {showAll ? "Show Less" : "Show All"}
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  </div>
+              </div>
                 </div>
 
-                <div className="card heatmap-card mt-4">
+              <div className="card heatmap-card mt-4">
                   <h5>Market Watch</h5>
                   <table className="table table-striped table-sm">
                     <thead>
@@ -369,7 +389,10 @@ function PortfolioComponent() {
                       </tr>
                     </thead>
                     <tbody>
-                      {portfolio.market_watch.map((item, index) => (
+                      {(showAllMarketWatch
+                        ? portfolio.market_watch
+                        : portfolio.market_watch.slice(0, 5)
+                      ).map((item, index) => (
                         <tr key={index}>
                           <td>{item.symbol}</td>
                           <td>{item.bid}</td>
@@ -379,6 +402,18 @@ function PortfolioComponent() {
                       ))}
                     </tbody>
                   </table>
+
+                  {/* Show More / Show Less button */}
+                  {portfolio.market_watch.length > 5 && (
+                    <div className="text-center mt-2">
+                      <button
+                        className="btn btn-outline-light btn-sm"
+                        onClick={() => setShowAllMarketWatch(!showAllMarketWatch)}
+                      >
+                        {showAllMarketWatch ? "Show Less" : "Show More"}
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

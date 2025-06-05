@@ -158,9 +158,9 @@ const TraderLeaderboard = () => {
         }
       );
       setTraders(response.data);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching leaderboard:", error);
+    } finally {
       setLoading(false);
     }
   };
@@ -168,10 +168,6 @@ const TraderLeaderboard = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
-
-  if (loading) {
-    return <div>Loading leaderboard...</div>;
-  }
 
   return (
     <div className="leaderboard-container">
@@ -214,50 +210,67 @@ const TraderLeaderboard = () => {
         </div>
 
         <div className="leaderboard-list">
-          {traders.map((trader, index) => (
-            <div key={index} className="trader-row">
-              <div className="trader-info">
-                <div className="rank-circle">{index + 1}</div>
-                <div className="avatar-circle">
-                  {trader.profile_photo_url ? (
-                    <img
-                      src={trader.profile_photo_url}
-                      alt="Profile"
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        objectFit: "cover",
-                      }}
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        backgroundColor: "#6c757d",
-                      }}
-                    ></div>
-                  )}
+          {loading ? (
+            Array.from({ length: 5 }).map((_, idx) => (
+              <div className="trader-row shimmer-card" key={idx}>
+                <div className="trader-info">
+                  <div className=" rank-circle"></div>
+                  <div className=" avatar-circle"></div>
+                  <div className="trader-details">
+                    <div className="  mb-2"></div>
+                    <div className=""></div>
+                  </div>
                 </div>
-
-                <div className="trader-details">
-                  <div className="trader-name">{trader.username}</div>
-                  <div className="trader-type">Platinum Trader</div>
+                <div className="trader-stats">
+                  <div className="  mb-2"></div>
                 </div>
               </div>
-              <div className="trader-stats">
-                <span className={`trader-status ${trader.badge.toLowerCase()}`}>
-                  {trader.badge}
-                </span>
-                <span className="trader-performance">
-                  <i className="bi bi-graph-up-arrow"></i> +
-                  {parseFloat(trader.total_gain_loss_percent).toFixed(2)}%
-                </span>
+            ))
+          ) : (
+            traders.map((trader, index) => (
+              <div key={index} className="trader-row">
+                <div className="trader-info">
+                  <div className="rank-circle">{index + 1}</div>
+                  <div className="avatar-circle">
+                    {trader.profile_photo_url ? (
+                      <img
+                        src={trader.profile_photo_url}
+                        alt="Profile"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                          backgroundColor: "#6c757d",
+                        }}
+                      ></div>
+                    )}
+                  </div>
+                  <div className="trader-details">
+                    <div className="trader-name">{trader.username}</div>
+                    <div className="trader-type">Platinum Trader</div>
+                  </div>
+                </div>
+                <div className="trader-stats">
+                  <span className={`trader-status ${trader.badge.toLowerCase()}`}>
+                    {trader.badge}
+                  </span>
+                  <span className="trader-performance">
+                    <i className="bi bi-graph-up-arrow"></i> +
+                    {parseFloat(trader.total_gain_loss_percent).toFixed(2)}%
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

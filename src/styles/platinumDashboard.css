@@ -2184,6 +2184,11 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   min-height: 100vh;
 }
+.benefits-container .feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Header styling */
 .portfolio-header {
@@ -2200,8 +2205,9 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 10px;
 }
 .heatmap-card .list-group-item {
-  background-color: #666666;
+  background-color: #1a1a1a;
   color: #fff;
+  padding: 10px;
 }
 .heatmap-card .table thead tr th {
   background-color: #000000;
@@ -2212,12 +2218,28 @@ body::-webkit-scrollbar-thumb {
 .heatmap-card .table tbody tr td {
   background-color: #222;
   color: #fff;
+  padding: 10px;
 }
 /* .progress-bar {
   max-width: 100px;
     margin: 0;
 
 } */
+
+.pie-chart {
+  animation: rotatePieChart 1.5s linear infinite;
+}
+
+@keyframes rotatePieChart {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 .allocation-progress {
   width: 10%;
   margin: 0;
@@ -3594,6 +3616,8 @@ body::-webkit-scrollbar-thumb {
   color: #888;
 }
 
+
+
 .progress {
   height: 6px;
   background-color: #333;
@@ -3602,7 +3626,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .progress-bar {
-  background-color: #ffff !important;
+  background-color: transparent !important;
   transition: width 0.3s ease;
 }
 
@@ -4620,7 +4644,7 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   border-bottom: 1px solid #333;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   position: sticky;
   top: 0;
@@ -4641,6 +4665,9 @@ body::-webkit-scrollbar-thumb {
   font-size: 20px;
   cursor: pointer;
   padding: 5px;
+}
+.form-header .close-button {
+  margin-left: 20px;
 }
 
 .close-button:hover {
@@ -7787,3 +7814,46 @@ h4 {
   line-height: 1.2;
   color: #fffdfd;
 }
+
+
+
+
+/* platinum shimmer */
+/* Base shimmer container */
+.platinum-shimmer {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 120px; /* You can adjust height */
+  margin-bottom: 1rem;
+}
+
+/* The shimmering animation overlay */
+.platinum-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(34, 139, 34, 0.05) 0%,
+    rgba(34, 139, 34, 0.2) 40%,
+    rgba(34, 139, 34, 0.05) 80%
+  );
+  animation: platinumShimmerAnim 1.8s infinite;
+}
+
+/* Shimmer Keyframes */
+@keyframes platinumShimmerAnim {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+

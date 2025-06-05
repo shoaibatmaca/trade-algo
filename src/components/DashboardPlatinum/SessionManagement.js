@@ -517,9 +517,10 @@
 
 // export default SessionManagement;
 
+
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../../styles/sessionManagementModal.css";
+import "../DashboardSidebarComp/styles/platinum.css";
 
 const SessionManagement = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
@@ -529,6 +530,7 @@ const SessionManagement = () => {
   const [profilePhotoUrl, setProfilePhotoUrl] = useState(null);
   const [notes, setNotes] = useState("");
   const [showNotesModal, setShowNotesModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const accessToken = localStorage.getItem("accessToken");
   const API_URL = process.env.REACT_APP_API_URL;
 
@@ -546,8 +548,11 @@ const SessionManagement = () => {
       setPastSessions(resPast.data);
     } catch (error) {
       console.error("Error fetching sessions:", error);
+    } finally {
+      setLoading(false);
     }
   };
+
   const fetchUserProfile = async () => {
     try {
       const res = await axios.get(`${API_URL}api/user/profile/`, {
@@ -620,7 +625,7 @@ const SessionManagement = () => {
       <div className="session-header">
         <div className="session-avatar">
           <img
-            src={profilePhotoUrl || "/api/placeholder/50/50"} // Use real photo or fallback
+            src={profilePhotoUrl || "/api/placeholder/50/50"}
             alt="Avatar"
             style={{
               borderRadius: "50%",
@@ -715,28 +720,58 @@ const SessionManagement = () => {
         </div>
 
         <div className="tab-content-platinum mt-4">
-          {activeTab === "upcoming" && (
-            <div className="tab-pane show active">
-              {upcomingSessions.length === 0 ? (
-                <p>No upcoming sessions found.</p>
-              ) : (
-                upcomingSessions.map((session) => renderSessionCard(session))
-              )}
+          {loading ? (
+            <div className="shimmer-card p-4">
+              <div
+                className=" mb-3"
+                style={{ width: "50%" }}
+              ></div>
+              <div
+                className="shimmer-block shimmer-subtitle mb-2"
+                style={{ width: "70%" }}
+              ></div>
+              <div
+                className=" mb-2"
+                style={{ width: "90%" }}
+              ></div>
+              <div
+                className=" mb-2"
+                style={{ width: "60%" }}
+              ></div>
+              <div
+                className=""
+                style={{ width: "40%" }}
+              ></div>
             </div>
-          )}
+          ) : (
+            <>
+              {activeTab === "upcoming" && (
+                <div className="tab-pane show active">
+                  {upcomingSessions.length === 0 ? (
+                    <p>No upcoming sessions found.</p>
+                  ) : (
+                    upcomingSessions.map((session) =>
+                      renderSessionCard(session)
+                    )
+                  )}
+                </div>
+              )}
 
-          {activeTab === "past" && (
-            <div className="tab-pane show active">
-              {pastSessions.length === 0 ? (
-                <p>No past sessions found.</p>
-              ) : (
-                pastSessions.map((session) => renderSessionCard(session, true))
+              {activeTab === "past" && (
+                <div className="tab-pane show active">
+                  {pastSessions.length === 0 ? (
+                    <p>No past sessions found.</p>
+                  ) : (
+                    pastSessions.map((session) =>
+                      renderSessionCard(session, true)
+                    )
+                  )}
+                </div>
               )}
-            </div>
+            </>
           )}
         </div>
 
-        {/* Notes Modal */}
         {showNotesModal && (
           <div className="modal-backdrop">
             <div className="notes-modal">

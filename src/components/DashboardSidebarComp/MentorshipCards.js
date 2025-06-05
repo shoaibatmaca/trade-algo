@@ -154,7 +154,7 @@ const PricingCard = ({
   };
 
   return (
-    <div className="pricing-card p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+    <div className="pricing-cards p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
       <div className="card-header text-center mb-3">
         {renderIcon()}
         <h2 className="card-type h5 fw-bold">{type}</h2>

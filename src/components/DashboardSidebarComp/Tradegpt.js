@@ -185,7 +185,7 @@ const TradeGPT = () => {
   const styles = {
     body: {
       fontFamily: "'Inter', sans-serif",
-      background: "#1c1e20",
+      // background: "#1c1e20",
       minHeight: "100vh",
       margin: 0,
       overflowX: "hidden",
@@ -548,7 +548,7 @@ const TradeGPT = () => {
               <div style={styles.heroContainerBefore}></div>
               <div style={styles.pulseRing}></div>
 
-              <div className="text-center p-5">
+              <div className="text-center p-5 tradegpt-main-card">
                 <h1 className="display-3 title-main" style={styles.titleMain}>
                   TradeGPT
                 </h1>

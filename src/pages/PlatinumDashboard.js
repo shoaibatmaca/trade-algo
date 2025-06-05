@@ -1098,7 +1098,7 @@ const PlatinumDashboard = () => {
                 // { key: "briefing", label: "Weekly Briefing" },
                 { key: "webinars", label: "Webinars" },
                 { key: "challenges", label: "Trading Challenges" },
-                { key: "portfolio-heatmap", label: "Portfolio Heatmap" },
+                { key: "portfolio-heatmap", label: "Portfolio" },
                 // { key: "leaderboard", label: "Leaderboard" },
                 // { key: "schedule-call", label: "Private Coaching" },
                 { key: "news", label: "News" },

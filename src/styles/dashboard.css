@@ -1517,9 +1517,10 @@ body .dark {
 .bg-light .manage-btn .active {
   color: #fff !important;
 }
-.bg-light .sessions-container .pricing-card {
+.bg-light .sessions-container .pricing-cards {
   background-color: #fff !important;
   color: #000 !important;
+  border: 2px solid #000;
 }
 .bg-light .sessions-container .mentorship-panel {
   background-color: #fff !important;
@@ -1529,7 +1530,18 @@ body .dark {
 .bg-light .sessions-container .mentorship-content p {
   color: #000 !important;
 }
+.bg-light .tradegpt-main-card {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+.bg-light .tradegpt-main-card p {
+    color: #000 !important;
+}
 
 .sec_heading {
   padding: 10px 20px !important;
+}
+
+.bg-dark .pricing-cards  {
+  border: 2px solid #fff !important;
 }

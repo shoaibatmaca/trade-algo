@@ -106,11 +106,7 @@ function Products({ darkMode, setActiveTab }) {
               className="valour-products-theme-card"
               onClick={() => {
                 navigate("/contact?product=TradeSignal");
-                window.open(
-                  "https://t.me/+nO3GSU_Jvts5MGE0",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
+        
               }}
             >
               <img

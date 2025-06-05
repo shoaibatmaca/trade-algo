@@ -488,17 +488,17 @@ const TradingChallenges = () => {
           <div className="challenges-header">
             <div className="trophy-icon-container">
               <div
-                className="shimmer-block"
+                className=""
                 style={{ height: "30px", width: "30px", borderRadius: "50%" }}
               ></div>
             </div>
             <div>
               <div
-                className="shimmer-block mb-2"
+                className=" mb-2"
                 style={{ height: "32px", width: "300px", borderRadius: "4px" }}
               ></div>
               <div
-                className="shimmer-block"
+                className=""
                 style={{ height: "16px", width: "400px", borderRadius: "4px" }}
               ></div>
             </div>
@@ -508,7 +508,7 @@ const TradingChallenges = () => {
           <div className="tabs-container">
             <div className="nav-tabs">
               <div
-                className="shimmer-block"
+                className=""
                 style={{
                   height: "40px",
                   width: "150px",
@@ -517,7 +517,7 @@ const TradingChallenges = () => {
                 }}
               ></div>
               <div
-                className="shimmer-block"
+                className=""
                 style={{ height: "40px", width: "130px", borderRadius: "6px" }}
               ></div>
             </div>
@@ -532,7 +532,7 @@ const TradingChallenges = () => {
                   <div className="challenge-header">
                     <div className="challenge-icon">
                       <div
-                        className="shimmer-block"
+                        className=""
                         style={{
                           height: "30px",
                           width: "30px",
@@ -542,7 +542,7 @@ const TradingChallenges = () => {
                     </div>
                     <div className="challenge-title-section">
                       <div
-                        className="shimmer-block mb-2"
+                        className=" mb-2"
                         style={{
                           height: "24px",
                           width: "250px",
@@ -550,7 +550,7 @@ const TradingChallenges = () => {
                         }}
                       ></div>
                       <div
-                        className="shimmer-block mb-1"
+                        className=" mb-1"
                         style={{
                           height: "16px",
                           width: "350px",
@@ -558,7 +558,7 @@ const TradingChallenges = () => {
                         }}
                       ></div>
                       <div
-                        className="shimmer-block"
+                        className=""
                         style={{
                           height: "16px",
                           width: "280px",
@@ -573,7 +573,7 @@ const TradingChallenges = () => {
                     {[...Array(3)].map((_, i) => (
                       <div key={i} className="detail-item">
                         <div
-                          className="shimmer-block"
+                          className=""
                           style={{
                             height: "20px",
                             width: "20px",
@@ -582,7 +582,7 @@ const TradingChallenges = () => {
                         ></div>
                         <div className="detail-content">
                           <div
-                            className="shimmer-block mb-1"
+                            className=" mb-1"
                             style={{
                               height: "14px",
                               width: "80px",
@@ -590,7 +590,7 @@ const TradingChallenges = () => {
                             }}
                           ></div>
                           <div
-                            className="shimmer-block"
+                            className=""
                             style={{
                               height: "16px",
                               width: "120px",
@@ -606,7 +606,7 @@ const TradingChallenges = () => {
                 {/* Challenge Actions Shimmer */}
                 <div className="challenge-actions">
                   <div
-                    className="shimmer-block mb-2"
+                    className=" mb-2"
                     style={{
                       height: "40px",
                       width: "180px",
@@ -614,7 +614,7 @@ const TradingChallenges = () => {
                     }}
                   ></div>
                   <div
-                    className="shimmer-block"
+                    className=""
                     style={{
                       height: "40px",
                       width: "130px",
@@ -627,7 +627,7 @@ const TradingChallenges = () => {
                 <div className="challenge-leaderboard">
                   <div className="leaderboard-header">
                     <div
-                      className="shimmer-block mb-3"
+                      className=" mb-3"
                       style={{
                         height: "20px",
                         width: "150px",
@@ -640,7 +640,7 @@ const TradingChallenges = () => {
                     {[...Array(3)].map((_, i) => (
                       <div key={i} className="leaderboard-entry">
                         <div
-                          className="shimmer-block"
+                          className=""
                           style={{
                             height: "20px",
                             width: "20px",
@@ -648,7 +648,7 @@ const TradingChallenges = () => {
                           }}
                         ></div>
                         <div
-                          className="shimmer-block"
+                          className=""
                           style={{
                             height: "30px",
                             width: "30px",
@@ -656,7 +656,7 @@ const TradingChallenges = () => {
                           }}
                         ></div>
                         <div
-                          className="shimmer-block"
+                          className=""
                           style={{
                             height: "16px",
                             width: "100px",
@@ -664,7 +664,7 @@ const TradingChallenges = () => {
                           }}
                         ></div>
                         <div
-                          className="shimmer-block"
+                          className=""
                           style={{
                             height: "16px",
                             width: "60px",

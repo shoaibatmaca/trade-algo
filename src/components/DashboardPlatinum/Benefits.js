@@ -1,3 +1,5 @@
+import heroImg from '../DashboardSidebarComp/images/benefit.png'
+
 const Benefits = () => {
   return (
     <div className="benefits-container">
@@ -8,13 +10,12 @@ const Benefits = () => {
             <div className="col-lg-6">
               <h1 className="hero-title">
                 Unlock <span className="text-benefits">Premium Benefits</span>{" "}
-                with Valour Wealth
+                with Valour Wealth Platinum Dashboard
               </h1>
               <p className="hero-description">
-                Experience exclusive financial services designed for
-                sophisticated investors. Our platinum dashboard offers
-                comprehensive wealth management tools and personalized
-                investment strategies to maximize your financial potential.
+                Step into the future of intelligent investing with Valour Wealth. 
+The Platinum Dashboard offers high-performance tools, exclusive content, and advanced AI 
+analytics—built for sophisticated investors ready to take control of their financial future.
               </p>
               <div className="hero-stats">
                 <div className="stat-item">
@@ -27,35 +28,14 @@ const Benefits = () => {
                 </div>
                 <div className="stat-item">
                   <h3>25+</h3>
-                  <p>Years Experience</p>
+                  <p>Industry Experience</p>
                 </div>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="hero-image">
-                <div className="dashboard-preview">
-                  <div className="preview-header">
-                    <div className="preview-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div className="preview-content">
-                    <div className="chart-placeholder"></div>
-                    <div className="stats-row">
-                      <div className="stat-card">
-                        <h3>Wealth Preservation</h3>
-                      </div>
-                      <div className="stat-card">
-                        <h3>Wealth Preservation</h3>
-                      </div>
-                      <div className="stat-card">
-                        <h3>Wealth Preservation</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img className="obj_fit" src={heroImg} alt=""  />
+
               </div>
             </div>
           </div>
@@ -66,10 +46,9 @@ const Benefits = () => {
       <section className="features-section">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="section-title">Premium Features & Benefits</h2>
+            <h2 className="section-title">Exclusive Platinum Features</h2>
             <p className="section-subtitle">
-              Discover the exclusive advantages that set Valour Wealth apart
-              from traditional investment platforms
+              A full ecosystem of tools and services curated for elite investors. 
             </p>
           </div>
           <div className="row g-4">
@@ -78,17 +57,15 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-chart-line"></i>
                 </div>
-                <h4>Advanced Analytics</h4>
+                <h4>AI-Powered Portfolio Analysis</h4>
                 <p>
-                  Real-time portfolio analysis with AI-powered insights, risk
-                  assessment tools, and predictive modeling to optimize your
-                  investment decisions.
+                  Deep portfolio intelligence through cutting-edge AI. 
                 </p>
                 <ul className="feature-list">
-                  <li>Real-time market data</li>
-                  <li>Custom risk metrics</li>
-                  <li>Performance attribution</li>
-                  <li>Scenario analysis</li>
+                  <li>Correlation & diversification risk </li>
+                  <li>Asset clustering and exposure insights </li>
+                  <li>Sentiment and predictive analysis </li>
+                  <li>Smart alerts and optimization strategies </li>
                 </ul>
               </div>
             </div>
@@ -97,17 +74,14 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-shield-alt"></i>
                 </div>
-                <h4>Bank-Grade Security</h4>
+                <h4>Latest News & Sentiment Scoring</h4>
                 <p>
-                  Military-grade encryption, multi-factor authentication, and
-                  regulatory compliance ensure your investments and data remain
-                  completely secure.
+                  Stay ahead with real-time financial news and AI-generated sentiment summaries. 
                 </p>
                 <ul className="feature-list">
-                  <li>256-bit SSL encryption</li>
-                  <li>Multi-factor authentication</li>
-                  <li>SIPC protection</li>
-                  <li>Regular security audits</li>
+                  <li>News filtered by your portfolio </li>
+                  <li>Bullish/bearish scoring</li>
+                  <li>Event-driven insights</li>
                 </ul>
               </div>
             </div>
@@ -116,17 +90,14 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-user-tie"></i>
                 </div>
-                <h4>Dedicated Advisor</h4>
+                <h4>Portfolio Heatmaps & Visuals </h4>
                 <p>
-                  Personal wealth advisor available 24/7 to provide expert
-                  guidance, investment strategies, and comprehensive financial
-                  planning services.
+                  Intuitive visualizations to help you see what matters.
                 </p>
                 <ul className="feature-list">
-                  <li>Personal relationship manager</li>
-                  <li>Quarterly strategy reviews</li>
-                  <li>Tax optimization planning</li>
-                  <li>Estate planning assistance</li>
+                  <li>Sector & asset allocation heatmaps</li>
+                  <li>Performance breakdown by region, asset class, and risk </li>
+                  <li>Historical trend overlays</li>
                 </ul>
               </div>
             </div>
@@ -135,17 +106,14 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-globe"></i>
                 </div>
-                <h4>Global Market Access</h4>
+                <h4>Trading Challenges & Badges </h4>
                 <p>
-                  Trade across international markets with access to stocks,
-                  bonds, commodities, and alternative investments from around
-                  the world.
+                 Compete, learn, and earn.
                 </p>
                 <ul className="feature-list">
-                  <li>50+ global exchanges</li>
-                  <li>Multi-currency support</li>
-                  <li>Alternative investments</li>
-                  <li>Pre-market trading</li>
+                  <li>Join interactive challenges </li>
+                  <li>Unlock achievement badges </li>
+                  <li>Benchmark your performance</li>
                 </ul>
               </div>
             </div>
@@ -154,17 +122,14 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-mobile-alt"></i>
                 </div>
-                <h4>Mobile Excellence</h4>
+                <h4>Webinars & Weekly Briefings</h4>
                 <p>
-                  Award-winning mobile app with full trading capabilities,
-                  portfolio monitoring, and instant notifications for market
-                  opportunities.
+                  Stay educated and empowered.
                 </p>
                 <ul className="feature-list">
-                  <li>iOS & Android apps</li>
-                  <li>Biometric login</li>
-                  <li>Real-time alerts</li>
-                  <li>Offline data access</li>
+                  <li>Weekly market briefings with expert analysis</li>
+                  <li>Exclusive educational webinars and replays</li>
+                  <li>Timely market outlooks from professionals </li>
                 </ul>
               </div>
             </div>
@@ -173,17 +138,65 @@ const Benefits = () => {
                 <div className="feature-icon">
                   <i className="fas fa-cogs"></i>
                 </div>
-                <h4>Automated Tools</h4>
+                <h4>Private Coaching & Strategy Reviews</h4>
                 <p>
-                  Smart automation features including rebalancing, tax-loss
-                  harvesting, and systematic investment plans to optimize your
-                  wealth growth.
+                  Work 1-on-1 with elite financial experts.
                 </p>
                 <ul className="feature-list">
-                  <li>Auto-rebalancing</li>
-                  <li>Tax-loss harvesting</li>
-                  <li>Dollar-cost averaging</li>
-                  <li>Smart notifications</li>
+                  <li>Personalized guidance</li>
+                  <li>Quarterly portfolio reviews</li>
+                  <li>Strategy refinement & planning</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <h4>Feature Voting & Platform Influence </h4>
+                <p>
+                  Have a say in what gets built next.
+                </p>
+                <ul className="feature-list">
+                  <li>Vote on upcoming features </li>
+                  <li>Influence dashboard upgrades </li>
+                  <li>Shape the roadmap</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <h4>Advanced Trade Journal</h4>
+                <p>
+                  Track, reflect, and grow from your trades. 
+                </p>
+                <ul className="feature-list">
+                  <li>Tag strategies, setups, outcomes </li>
+                  <li>Auto-log trades from connected brokers</li>
+                  <li>Learn from performance over time </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="feature-card">
+                <div className="feature-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <h4>Membership NFT Badges</h4>
+                <p>
+                  Prove your tier and unlock perks
+                </p>
+                <ul className="feature-list">
+                  <li>Unique, on-chain Platinum member NFTs </li>
+                  <li>Tier-based recognition</li>
+                  <li>Access gated features and events</li>
                 </ul>
               </div>
             </div>
@@ -197,43 +210,35 @@ const Benefits = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h2 className="section-title">
-                Comprehensive Investment Solutions
+                Built for Serious Investors
               </h2>
               <p className="section-description">
-                Our platform offers a complete suite of investment solutions
-                tailored to your unique financial goals and risk tolerance. From
-                conservative income strategies to aggressive growth portfolios,
-                we have the tools and expertise to help you succeed.
+               Whether you're protecting wealth or scaling aggressively, the Platinum Dashboard adapts to 
+               your style. 
               </p>
               <div className="solution-cards">
                 <div className="solution-card">
                   <div className="solution-header">
-                    <h5>Wealth Preservation</h5>
-                    <span className="solution-badge">Conservative</span>
+                    <h5>Wealth Preservation </h5>
                   </div>
                   <p>
-                    Capital protection with steady income generation through
-                    bonds, dividends, and low-risk securities.
+                    Stable income via bonds, dividend assets, and defensive positioning. 
                   </p>
                 </div>
                 <div className="solution-card">
                   <div className="solution-header">
                     <h5>Balanced Growth</h5>
-                    <span className="solution-badge">Moderate</span>
                   </div>
                   <p>
-                    Diversified portfolio balancing growth potential with risk
-                    management for long-term wealth building.
+                   Diversified portfolios for long-term performance with managed risk.
                   </p>
                 </div>
                 <div className="solution-card">
                   <div className="solution-header">
                     <h5>Aggressive Growth</h5>
-                    <span className="solution-badge">Growth</span>
                   </div>
                   <p>
-                    High-growth potential investments including emerging
-                    markets, technology, and alternative assets.
+                 High-conviction strategies, including emerging markets, tech, and alternatives. 
                   </p>
                 </div>
               </div>
@@ -242,7 +247,7 @@ const Benefits = () => {
               <div className="solutions-visual">
                 <div className="chart-container">
                   <div className="chart-header">
-                    <h6>Portfolio Performance Comparison</h6>
+                    <h6>Premium Member Services</h6>
                     <div className="chart-legend">
                       <span className="legend-item conservative">
                         Conservative
@@ -317,10 +322,9 @@ const Benefits = () => {
       <section className="services-section">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="section-title">Exclusive Services</h2>
+            <h2 className="section-title">Premium Member Services</h2>
             <p className="section-subtitle">
-              Premium services available exclusively to Valour Wealth platinum
-              members
+             Available exclusively to Valour Wealth Platinum members: 
             </p>
           </div>
           <div className="row g-4">
@@ -329,7 +333,7 @@ const Benefits = () => {
                 <div className="service-icon">
                   <i className="fas fa-handshake"></i>
                 </div>
-                <h5>Concierge Banking</h5>
+                <h5>Concierge Financial Support </h5>
                 <p>
                   White-glove banking services with priority support and
                   exclusive rates.
@@ -341,7 +345,7 @@ const Benefits = () => {
                 <div className="service-icon">
                   <i className="fas fa-plane"></i>
                 </div>
-                <h5>Travel Benefits</h5>
+                <h5>Priority Access to Events </h5>
                 <p>
                   Exclusive travel perks, airport lounge access, and luxury
                   hotel partnerships.
@@ -353,7 +357,7 @@ const Benefits = () => {
                 <div className="service-icon">
                   <i className="fas fa-graduation-cap"></i>
                 </div>
-                <h5>Investment Education</h5>
+                <h5>Tailored Investment Workshops </h5>
                 <p>
                   Personalized workshops, market insights, and exclusive
                   research reports.
@@ -365,7 +369,7 @@ const Benefits = () => {
                 <div className="service-icon">
                   <i className="fas fa-calendar-alt"></i>
                 </div>
-                <h5>VIP Events</h5>
+                <h5>Exclusive Market Reports & Insights </h5>
                 <p>
                   Exclusive networking events, market outlook sessions, and
                   expert panels.
@@ -386,33 +390,31 @@ const Benefits = () => {
         <div className="container">
           <div className="row justify-content-center text-center">
             <div className="col-lg-8">
-              <h2 className="cta-title">Ready to Transform Your Wealth?</h2>
+              <h2 className="cta-title">Ready to Elevate Your Wealth Strategy?</h2>
               <p className="cta-description">
-                Join thousands of successful investors who trust Valour Wealth
-                with their financial future. Start your journey to financial
-                freedom today with our platinum dashboard and exclusive
-                benefits.
+                Join thousands of successful investors already optimizing their portfolios with Valour Wealth. 
+                Unlock the Platinum Dashboard—your gateway to elite investing.
               </p>
               <div className="cta-buttons">
                 <button className="btn btn-primary btn-lg me-3">
-                  Start Free Trial
+                  AI-Powered Analysis
                 </button>
                 <button className="btn btn-outline-light btn-lg">
-                  Schedule Consultation
+                  Weekly Market Briefings
                 </button>
               </div>
               <div className="cta-features mt-4">
                 <span className="cta-feature">
                   <i className="fas fa-shield-alt"></i>
-                  Bank-grade security
+                  Private Coaching Access 
                 </span>
                 <span className="cta-feature">
                   <i className="fas fa-clock"></i>
-                  24/7 support
+                  Institutional-Grade Insights 
                 </span>
                 <span className="cta-feature">
                   <i className="fas fa-medal"></i>
-                  Award-winning platform
+                  Request Access or Book a Demo 
                 </span>
               </div>
             </div>

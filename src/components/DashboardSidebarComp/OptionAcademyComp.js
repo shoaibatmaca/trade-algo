@@ -728,6 +728,8 @@
 
 // export default OptionsAcademy;
 
+
+
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import thumbnail from "../DashboardSidebarComp/images/video_card-overlay.png";
@@ -778,7 +780,6 @@ const OptionsAcademy = () => {
       setLoading(false); // ✅ end shimmer
     }
   };
-
   const fetchVideos = async (courseId) => {
     try {
       const res = await axios.get(
@@ -915,11 +916,11 @@ const OptionsAcademy = () => {
               </div>
 
               <div className="col-md-5">
-                <div className="playlist-section">
+                <div className="playlist-section shimmer-block">
                   {/* Playlist Header Shimmer */}
                   <div className="playlist-header">
                     <div
-                      className="shimmer-block mb-3"
+                      className=" mb-3"
                       style={{
                         height: "24px",
                         width: "150px",
@@ -938,7 +939,7 @@ const OptionsAcademy = () => {
 
                   {/* Playlist Items Shimmer */}
                   <div className="playlist-items">
-                    {[...Array(4)].map((_, index) => (
+                    {[...Array(1)].map((_, index) => (
                       <div key={index} className="playlist-item">
                         <div className="playlist-thumbnail">
                           <div
@@ -952,12 +953,7 @@ const OptionsAcademy = () => {
                         </div>
                         <div className="playlist-info">
                           <div
-                            className="shimmer-block"
-                            style={{
-                              height: "18px",
-                              width: "90%",
-                              borderRadius: "4px",
-                            }}
+                            
                           ></div>
                         </div>
                       </div>

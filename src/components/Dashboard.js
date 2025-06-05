@@ -180,7 +180,7 @@ const Dashboard = () => {
       icon: <Building size={20} />,
     },
     // { id: "trading-tools", label: "Trading Tools", icon: <Wrench size={20} /> },
-    { id: "resources", label: "Resources", icon: <Book size={20} /> },
+    { id: "resources", label: "Platform walkthrough", icon: <Book size={20} /> },
     {
       id: "Trade-products",
       label: "ValourWealth Products",
@@ -636,7 +636,6 @@ const Dashboard = () => {
               {!sidebarCollapsed && (
                 <span style={darkMode ? { color: "white" } : {}}>
                   {darkMode ? "Light Mode" : "Dark Mode"}{" "}
-                  <sup style={{ fontSize: "0.7rem", color: "red" }}>Beta</sup>
                 </span>
               )}
             </button>

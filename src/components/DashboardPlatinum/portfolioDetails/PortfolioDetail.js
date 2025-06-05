@@ -324,9 +324,7 @@ function PortfolioDetailsBootstrap() {
                     <th scope="col">Current Price</th>
                     <th scope="col">Value</th>
                     <th scope="col">P&L</th>
-                    <th scope="col" className="text-center">
-                      Actions
-                    </th>
+  
                   </tr>
                 </thead>
                 <tbody>
@@ -351,9 +349,7 @@ function PortfolioDetailsBootstrap() {
                         {position.pl >= 0 ? "+" : "-"}
                         {Math.abs(position.plPercentage).toFixed(2)}%)
                       </td>
-                      <td className="text-center">
-                        <button className="btn action-btn">...</button>
-                      </td>
+                   
                     </tr>
                   ))}
                 </tbody>
@@ -373,9 +369,7 @@ function PortfolioDetailsBootstrap() {
                     <th scope="col">Price</th>
                     <th scope="col">Total</th>
                     <th scope="col">Status</th>
-                    <th scope="col" className="text-center">
-                      Actions
-                    </th>
+              
                   </tr>
                 </thead>
                 <tbody>
@@ -394,9 +388,7 @@ function PortfolioDetailsBootstrap() {
                       <td>${transaction.price.toFixed(2)}</td>
                       <td>${transaction.total.toFixed(2)}</td>
                       <td className="status-cell">{transaction.status}</td>
-                      <td className="text-center">
-                        <button className="btn action-btn">...</button>
-                      </td>
+                   
                     </tr>
                   ))}
                 </tbody>

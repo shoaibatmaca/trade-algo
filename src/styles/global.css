@@ -117,6 +117,9 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
 }
+.login-container .login-img img {
+  border-radius: 0;
+}
 
 /* Centering the login box */
 .login-box {
@@ -1056,6 +1059,27 @@ video::-webkit-media-controls {
 .banner-video {
   pointer-events: none !important;
 }
+.contact-us-btn a {
+  display: inline-block;
+  background-color: #228B22; /* Forest Green */
+  color: #fff;
+  padding: 12px 24px;
+  border: 1px solid #228B22;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.contact-us-btn {
+  margin-top: 30px;
+}
+
+.contact-us-btn a:hover {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
 
 /* features-service card */
 .feature-card-service {

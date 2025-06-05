@@ -275,7 +275,7 @@ function PostEditor() {
             <div className="row">
               <div className="col-lg-12">
                 <div className="sec_heading">
-                  <h2 className="pb-4">Cryto</h2>
+                  <h2 className="pb-4">Crypto</h2>
                 </div>
               </div>
             </div>

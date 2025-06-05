@@ -111,7 +111,7 @@ function Technology() {
     <section className="section_latest">
       <div className="container">
         <div className="sec_heading mb-4">
-          <h2>Technologies</h2>
+          <h2>Technology</h2>
         </div>
 
         <div className="row">
