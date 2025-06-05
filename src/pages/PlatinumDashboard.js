@@ -809,6 +809,8 @@ const PlatinumDashboard = () => {
   const collapseRef = useRef(null);
   const [adminProfilePhotoUrl, setAdminProfilePhotoUrl] = useState("");
   const [userData, setUserData] = useState(null);
+  const [isAnalyst, setIsAnalyst] = useState(false);
+
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [conversationId, setConversationId] = useState(null);
@@ -892,13 +894,15 @@ const PlatinumDashboard = () => {
       if (!accessToken) return;
       try {
         const res = await axios.get(USER_API_URL, {
-          headers: { Authorization: `Bearer ${accessToken}` },
+          headers: { Authorization: `Bearer ${accessToken}` },s
         });
         setUserData(res.data);
+        setIsAnalyst(res.data.role === "analyst"); // ✅ move inside try after res
       } catch (err) {
         console.error("Failed to fetch user", err);
       }
     };
+
     fetchUser();
   }, [accessToken]);
 
@@ -1452,8 +1456,12 @@ const PlatinumDashboard = () => {
                       </h5>
                       <div className="chat-container">
                         {messages.map((msg) => {
-                          const isCurrentUser =
-                            msg.sender_name === userData?.username;
+                          const isCurrentUser = isAnalyst
+                            ? msg.sender_name === userData?.username // analyst replying
+                            : msg.sender_name === userData?.username; // user chatting
+
+                          // const isCurrentUser =
+                          //   msg.sender_name === userData?.username;
                           const profilePhoto = isCurrentUser
                             ? userData?.profile_photo_url
                             : msg.sender_profile_photo_url;
