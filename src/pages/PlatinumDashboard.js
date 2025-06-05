@@ -894,7 +894,7 @@ const PlatinumDashboard = () => {
       if (!accessToken) return;
       try {
         const res = await axios.get(USER_API_URL, {
-          headers: { Authorization: `Bearer ${accessToken}` },s
+          headers: { Authorization: `Bearer ${accessToken}` },
         });
         setUserData(res.data);
         setIsAnalyst(res.data.role === "analyst"); // ✅ move inside try after res
