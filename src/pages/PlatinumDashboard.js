@@ -907,40 +907,24 @@ const PlatinumDashboard = () => {
   }, [accessToken]);
 
   // useEffect(() => {
-  //   const startChatWithAnalyst = async () => {
+  //   const ensureChatAndFetchMessages = async () => {
   //     try {
-  //       // Step 1: Get analyst ID
-  //       const analystRes = await axios.get(
-  //         `${API_BASE_URL}api/assigned-analyst/`,
-  //         {
-  //           headers: { Authorization: `Bearer ${accessToken}` },
-  //         }
-  //       );
-  //       const analystId = analystRes.data.id;
+  //       const res = await axios.get(`${API_BASE_URL}api/analyst-chat/ensure/`, {
+  //         headers: { Authorization: `Bearer ${accessToken}` },
+  //       });
 
-  //       // Step 2: Start 1-on-1 chat (create if not exists)
-  //       // await axios.post(
-  //       //   `${API_BASE_URL}api/analyst-chat/start/`,
-  //       //   { analyst_id: analystId },
-  //       //   {
-  //       //     headers: { Authorization: `Bearer ${accessToken}` },
-  //       //   }
-  //       // );
-  //       await axios.post(
-  //         `${API_BASE_URL}api/analyst-chat/send/`,
-  //         { chat: conversationId, content: input },
-  //         { headers: { Authorization: `Bearer ${accessToken}` } }
-  //       );
-
-  //       // Step 3: Fetch messages again after ensuring chat exists
-  //       fetchMessages();
+  //       if (res.data && res.data.id) {
+  //         setConversationId(res.data.id); // 🔥 Chat is guaranteed to exist now
+  //         setMessages(res.data.messages || []);
+  //       }
   //     } catch (err) {
-  //       console.error("Error starting analyst chat:", err);
+  //       console.error("❌ Error ensuring chat:", err.response?.data || err);
   //     }
   //   };
 
-  //   if (accessToken) startChatWithAnalyst();
-  // }, []);
+  //   if (accessToken) ensureChatAndFetchMessages();
+  // }, [accessToken]);
+
   useEffect(() => {
     const ensureChatAndFetchMessages = async () => {
       try {
@@ -948,9 +932,19 @@ const PlatinumDashboard = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
-        if (res.data && res.data.id) {
-          setConversationId(res.data.id); // 🔥 Chat is guaranteed to exist now
-          setMessages(res.data.messages || []);
+        if (isAnalyst) {
+          // Analyst: multiple chats
+          if (Array.isArray(res.data) && res.data.length > 0) {
+            setAnalystChats(res.data); // new state to store multiple chats
+            setConversationId(res.data[0].id); // show first chat
+            setMessages(res.data[0].messages || []);
+          }
+        } else {
+          // Platinum user: single chat object
+          if (res.data && res.data.id) {
+            setConversationId(res.data.id);
+            setMessages(res.data.messages || []);
+          }
         }
       } catch (err) {
         console.error("❌ Error ensuring chat:", err.response?.data || err);
@@ -958,7 +952,7 @@ const PlatinumDashboard = () => {
     };
 
     if (accessToken) ensureChatAndFetchMessages();
-  }, [accessToken]);
+  }, [accessToken, isAnalyst]);
 
   useEffect(() => {
     const fetchAdminPhoto = async () => {
