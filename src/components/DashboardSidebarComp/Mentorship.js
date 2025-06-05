@@ -109,8 +109,6 @@
 
 // export default SessionsComponent;
 
-
-
 import { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/mentorship.css";
 import MentorshipPlans from "./MentorshipCards";
@@ -157,14 +155,14 @@ const Mentorship = () => {
     <div className="sessions-container">
       {/* Top Buttons */}
       <div className="buttons-container">
-        <button
+        {/* <button
           className={`btn ${
             activeTab === "pricing" ? "btn-secondary" : "btn-outline-light"
           } manage-btn`}
           onClick={() => setActiveTab("pricing")}
         >
           View All Price Plans
-        </button>
+        </button> */}
       </div>
 
       {loading ? (
@@ -315,7 +313,6 @@ const Mentorship = () => {
       ) : (
         // Actual Content
         <>
-     
           {/* Pricing Plans */}
           {activeTab === "pricing" && <MentorshipPlans />}
         </>

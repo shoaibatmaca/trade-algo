@@ -63,7 +63,10 @@ function LiveTrainingSession() {
                     <div className="session-content">
                       <div className=" mb-2" style={{ width: "80%" }}></div>
                       <div className=" mb-2" style={{ width: "60%" }}></div>
-                      <div className="shimmer-block shimmer-subtitle" style={{ width: "50%" }}></div>
+                      <div
+                        className="shimmer-block shimmer-subtitle"
+                        style={{ width: "50%" }}
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -92,10 +95,10 @@ function LiveTrainingSession() {
                       <video
                         ref={(el) => (videoRefs.current[index] = el)}
                         className="session-img"
-                        controls
-                        muted
-                        loop
-                        playsInline
+                        // controls
+                        // muted
+                        // loop
+                        // playsInline
                         poster={sessionImg}
                       >
                         <source src={webinar.recording_link} type="video/mp4" />
@@ -121,8 +124,6 @@ function LiveTrainingSession() {
 }
 
 export default LiveTrainingSession;
-
-
 
 // import React, { useState, useEffect, useRef } from "react";
 // import axios from "axios";
@@ -163,12 +164,12 @@ export default LiveTrainingSession;
 //     fetchPastWebinars();
 //   }, []);
 
-//   const handlePlay = (index) => {
-//     setPlayingIndex(index);
-//     setTimeout(() => {
-//       videoRefs.current[index]?.play();
-//     }, 100); // video ko delay se play karwana
-//   };
+// const handlePlay = (index) => {
+//   setPlayingIndex(index);
+//   setTimeout(() => {
+//     videoRefs.current[index]?.play();
+//   }, 100); // video ko delay se play karwana
+// };
 
 //   return (
 //     <section className="live-trading-sessions pt-0">
