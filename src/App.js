@@ -199,6 +199,8 @@
 
 import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import logo from "./assets/images/Valour_Wealth.png";
 import Dashboard from "./components/Dashboard";
 import Benefits from "./components/DashboardPlatinum/Benefits";
 import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
@@ -206,6 +208,7 @@ import ReleaseNotes from "./components/DashboardSidebarComp/ReleaseNotes";
 import Layout from "./components/layout";
 import News from "./components/News";
 import AboutUs from "./pages/AboutUs";
+import BlogDetail from "./pages/BlogDetail";
 import ContactPage from "./pages/ContactPage";
 import CourseDetails from "./pages/CourseDetails";
 import CryptoDetails from "./pages/CryptoDetails";
@@ -225,9 +228,6 @@ import TechnologyDetail from "./pages/TechnologyDetail";
 import TermsService from "./pages/TermsService";
 import UsePolicy from "./pages/UsePolicy";
 import WealthDetails from "./pages/WealthDetails";
-
-import "./App.css";
-import logo from "./assets/images/Valour_Wealth.png";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -255,6 +255,14 @@ function App() {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog-details"
+          element={
+            <Layout>
+              <BlogDetail />
             </Layout>
           }
         />

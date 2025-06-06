@@ -32,8 +32,10 @@ function EditorChoice() {
                     />
                   </div>
                   <div className="editor_desc">
-                    <h3>{post.category}</h3>
-                    <p>{post.description}</p>
+                    <a href="/blog-details">
+                      <h3>{post.category}</h3>
+                      <p>{post.description}</p>
+                    </a>
                   </div>
                 </a>
               </div>
