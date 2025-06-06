@@ -1428,9 +1428,20 @@ body .dark {
   /* margin-top: 66px !important; */
 }
 
-.dashboard-head {
+/* .dashboard-head {
   position: absolute;
   top: -68px !important;
+  background-color: transparent !important;
+  z-index: 10;
+  top: 0px;
+  justify-content: space-between;
+  width: -webkit-fill-available !important;
+  padding: 4px 12px !important;
+  background-color: #1c1e20 !important;
+} */
+.dashboard-head {
+  position: fixed;
+  /* top: -68px !important; */
   background-color: transparent !important;
   z-index: 10;
   top: 0px;
@@ -1535,13 +1546,27 @@ body .dark {
   color: #000 !important;
 }
 .bg-light .tradegpt-main-card p {
-    color: #000 !important;
+  color: #000 !important;
 }
 
+.stock-ticker {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  color: white;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.stock-ticker.expanded {
+  height: 100vh;
+  overflow: auto;
+  max-width: 100%;
+}
 .sec_heading {
   padding: 10px 20px !important;
 }
 
-.bg-dark .pricing-cards  {
+.bg-dark .pricing-cards {
   border: 2px solid #fff !important;
 }
