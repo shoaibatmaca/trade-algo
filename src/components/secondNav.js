@@ -15,6 +15,7 @@ const Navbar = () => {
   const [techNews, setTechNews] = useState([]);
   const [eventNews, setEventNews] = useState([]);
   const [wealthNews, setWealthNews] = useState([]);
+  const [marketNews, setMarketNews] = useState([]); // Added this line
 
   useEffect(() => {
     const fetchNews = async (topic, setter) => {
@@ -25,26 +26,43 @@ const Navbar = () => {
         const data = await res.json();
         if (data?.feed) setter(data.feed.slice(0, 2));
       } catch (err) {
-        console.error(`Error fetching ${topic} news`, err);
+        console.error(`Error fetching ${topic} news, err`);
       }
     };
 
     fetchNews("technology", setTechNews);
     fetchNews("finance", setEventNews);
     fetchNews("financial_markets", setWealthNews);
+    fetchNews("markets", setMarketNews); // Added this line
   }, []);
 
-  const renderArticles = (items, fallback1, fallback2, category, fallbackTitles) => (
+  const renderArticles = (
+    items,
+    fallback1,
+    fallback2,
+    category,
+    fallbackTitles
+  ) =>
     items.length > 0 ? (
       items.map((article, index) => (
         <div className="article" key={index}>
-          <div className="article-image">
-            <img src={article.banner_image || fallback1} alt={article.title} />
-          </div>
-          <div className="article-content">
-            <span className="article-category">{category}</span>
-            <h4 className="article-title">{article.title}</h4>
-          </div>
+          <a
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="article-image">
+              <img
+                src={article.banner_image || fallback1}
+                alt={article.title}
+              />
+            </div>
+            <div className="article-content">
+              <span className="article-category">{category}</span>
+              <h4 className="article-title">{article.title}</h4>
+            </div>
+          </a>
         </div>
       ))
     ) : (
@@ -68,8 +86,7 @@ const Navbar = () => {
           </div>
         </div>
       </>
-    )
-  );
+    );
 
   return (
     <nav className="second-navbar">
@@ -77,55 +94,62 @@ const Navbar = () => {
         <ul className="nav-links second-nav-links">
           {/* Markets */}
           <li className="nav-item">
-            <a className="ps-0" id="markets" href="/market-details">
+            <a id="markets" href="/market-details">
               Markets
             </a>
             <div className="dropdown-menu">
               <div className="dropdown-content">
+                {/* Left section with market categories */}
                 <div className="dropdown-left">
                   <h3>Markets</h3>
                   <ul className="category-list">
-                    <li>1. New</li><li>2. Popular</li><li>3. Shared</li><li>4. All</li>
+                    <li>
+                      <a href="/market-details?category=upcoming">
+                        1. Upcoming
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/market-details?category=featured">
+                        2. Featured
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/market-details?category=virtual">3. Virtual</a>
+                    </li>
+                    <li>
+                      <a href="/market-details?category=all">4. All</a>
+                    </li>
                   </ul>
                 </div>
+
+                {/* Center section with latest market articles */}
                 <div className="dropdown-center">
                   <h3>Latest</h3>
                   <div className="latest-articles">
-                    <div className="article">
-                      <div className="article-image">
-                        <img src={market1} alt="Stock market traders" />
-                      </div>
-                      <div className="article-content">
-                        <span className="article-category">Markets</span>
-                        <h4 className="article-title">
-                          Hedge Funds Are Still Betting Big on the Market
-                        </h4>
-                      </div>
-                    </div>
-                    <div className="article">
-                      <div className="article-image">
-                        <img src={market2} alt="Reddit market image" />
-                      </div>
-                      <div className="article-content">
-                        <span className="article-category">Markets</span>
-                        <h4 className="article-title">
-                          Macy's Stock Falls as Guidance Cut Amid Uncertainty
-                        </h4>
-                      </div>
-                    </div>
+                    {renderArticles(marketNews, market1, market2, "Markets", [
+                      "Stock Markets Rally Amid Economic Recovery",
+                      "Global Indices Post Gains as Inflation Cools",
+                    ])}
                   </div>
                 </div>
+
+                {/* Right section with social + view more */}
                 <div className="dropdown-right">
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/market-details">View More Markets →</a>
+                    <a className="theme_btn" href="/market-details">
+                      View More Markets →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -134,35 +158,63 @@ const Navbar = () => {
 
           {/* Technology */}
           <li className="nav-item">
-            <a id="technology" href="/technology-details">Technology</a>
+            <a id="technology" href="/technology-details">
+              Technology
+            </a>
             <div className="dropdown-menu">
               <div className="dropdown-content">
                 <div className="dropdown-left">
                   <h3>Technology</h3>
                   <ul className="category-list">
-                    <li>1. AI</li><li>2. Software</li><li>3. Hardware</li><li>4. All</li>
+                    <li>
+                      <a href="/technology-details?category=ai">1. AI</a>
+                    </li>
+                    <li>
+                      <a href="/technology-details?category=software">
+                        2. Software
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/technology-details?category=hardware">
+                        3. Hardware
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/technology-details?category=all">4. All</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="dropdown-center">
                   <h3>Latest</h3>
                   <div className="latest-articles">
-                    {renderArticles(techNews, technology1, technology2, "Technology", [
-                      "How Apple Plans to Bring Generative Ai to All Its Devices",
-                      "Meta Launches AI Coding Software in Competition With OpenAI"
-                    ])}
+                    {renderArticles(
+                      techNews,
+                      technology1,
+                      technology2,
+                      "Technology",
+                      [
+                        "How Apple Plans to Bring Generative Ai to All Its Devices",
+                        "Meta Launches AI Coding Software in Competition With OpenAI",
+                      ]
+                    )}
                   </div>
                 </div>
                 <div className="dropdown-right">
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/technology-details">View More Technology →</a>
+                    <a className="theme_btn" href="/technology-details">
+                      View More Technology →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -171,13 +223,32 @@ const Navbar = () => {
 
           {/* Wealth */}
           <li className="nav-item">
-            <a id="wealth" href="/wealth-details">Wealth</a>
+            <a id="wealth" href="/wealth-details">
+              Wealth
+            </a>
             <div className="dropdown-menu">
               <div className="dropdown-content">
                 <div className="dropdown-left">
                   <h3>Wealth</h3>
                   <ul className="category-list">
-                    <li>1. Investing</li><li>2. Real Estate</li><li>3. Retirement</li><li>4. All</li>
+                    <li>
+                      <a href="/wealth-details?category=investing">
+                        1. Investing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/wealth-details?category=real-estate">
+                        2. Real Estate
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/wealth-details?category=retirement">
+                        3. Retirement
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/wealth-details?category=all">4. All</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="dropdown-center">
@@ -185,7 +256,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     {renderArticles(wealthNews, wealth1, wealth2, "Wealth", [
                       "New Tax Laws Could Impact High-Net-Worth Individuals in 2024",
-                      "Alternative Investments Gain Popularity Among Millennials"
+                      "Alternative Investments Gain Popularity Among Millennials",
                     ])}
                   </div>
                 </div>
@@ -193,13 +264,18 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/wealth-details">View More Wealth →</a>
+                    <a className="theme_btn" href="/wealth-details">
+                      View More Wealth →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -208,13 +284,30 @@ const Navbar = () => {
 
           {/* Events */}
           <li className="nav-item">
-            <a id="events" href="/events-details">Events</a>
+            <a id="events" href="/events-details">
+              Events
+            </a>
             <div className="dropdown-menu">
               <div className="dropdown-content">
                 <div className="dropdown-left">
                   <h3>Events</h3>
                   <ul className="category-list">
-                    <li>1. Upcoming</li><li>2. Featured</li><li>3. Virtual</li><li>4. All</li>
+                    <li>
+                      <a href="/events-details?category=upcoming">
+                        1. Upcoming
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/events-details?category=featured">
+                        2. Featured
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/events-details?category=virtual">3. Virtual</a>
+                    </li>
+                    <li>
+                      <a href="/events-details?category=all">4. All</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="dropdown-center">
@@ -222,7 +315,7 @@ const Navbar = () => {
                   <div className="latest-articles">
                     {renderArticles(eventNews, event1, event2, "Events", [
                       "Annual Investment Summit to Feature Top Financial Experts",
-                      "Tech Conference Announces Expanded Program for Next Quarter"
+                      "Tech Conference Announces Expanded Program for Next Quarter",
                     ])}
                   </div>
                 </div>
@@ -230,13 +323,18 @@ const Navbar = () => {
                   <div className="follow-section">
                     <h3>Follow ValourWealth</h3>
                     <div className="social-icon">
-                      <a href="https://x.com/valourwealthltd?s=11" target="blank">
+                      <a
+                        href="https://x.com/valourwealthltd?s=11"
+                        target="blank"
+                      >
                         <i className="fab fa-twitter"></i>
                       </a>
                     </div>
                   </div>
                   <div className="view-more">
-                    <a className="theme_btn" href="/events-details">View More Events →</a>
+                    <a className="theme_btn" href="/events-details">
+                      View More Events →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -245,7 +343,9 @@ const Navbar = () => {
 
           {/* Products */}
           <li>
-            <a id="products" href="/our-products">Products</a>
+            <a id="products" href="/our-products">
+              Products
+            </a>
           </li>
         </ul>
 
