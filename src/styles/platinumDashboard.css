@@ -7861,3 +7861,9 @@ h4 {
     left: 100%;
   }
 }
+
+
+.section-title-heatmap::after {
+  display:none;
+
+}

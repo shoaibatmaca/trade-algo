@@ -360,7 +360,9 @@ const PortfolioAnalysis = () => {
 
   const renderAISuggestions = () => (
     <div className="ai-suggestion-box mt-4">
-      <h2 className="section-title">AI-Powered Portfolio Suggestions</h2>
+      <h2 className="section-title-heatmap">
+        AI-Powered Portfolio Suggestions
+      </h2>
       {aiSuggestions.map((block, i) => {
         const [titleLine, impactLine, ...desc] = block
           .split("  \n")
@@ -396,7 +398,7 @@ const PortfolioAnalysis = () => {
         return (
           <>
             <div className="d-flex align-items-center mb-3">
-              <h2 className="section-title">Sector Exposure</h2>
+              <h2 className="section-title-heatmap">Sector Exposure</h2>
               <div className="info-icon ms-2">
                 <i className="bi bi-info-circle"></i>
               </div>
