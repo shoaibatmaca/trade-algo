@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Newsletter from "../components/newsletter";
 import PostEditor from "../components/postEditor";
 import Posts from "../components/posts";
@@ -13,8 +13,25 @@ import EditorChoice from "../components/editorChoice";
 import MarketDetails from "../components/marketDetails";
 
 function Home() {
+  const videoRef = useRef(null);
+
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); // Initialize AOS
+    AOS.init({ duration: 1000, once: true });
+
+    const video = videoRef.current;
+    if (video) {
+      video.controls = false;
+      video.removeAttribute("controls");
+      video.muted = true;
+      video.setAttribute("muted", "");
+
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn("Autoplay failed:", error);
+        });
+      }
+    }
   }, []);
 
   return (
@@ -31,19 +48,15 @@ function Home() {
               preload="auto"
               disablePictureInPicture
               controlsList="nodownload nofullscreen noremoteplayback"
-              onContextMenu={(e) => e.preventDefault()} // Right-click block
-              ref={(video) => {
-                if (video) {
-                  video.removeAttribute("controls"); // Completely remove controls
-                  video.controls = false; // Ensure controls are off
-                }
-              }}
+              onContextMenu={(e) => e.preventDefault()}
+              ref={videoRef}
             >
               <source src={backgroundVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
-            <div className="banner-text" data-aos="fade-up">
+           <div class="container">
+             <div className="banner-text" data-aos="fade-up">
               <h5>Introducing</h5>
               <h1>TradeGPT</h1>
               <p>
@@ -51,21 +64,17 @@ function Home() {
                 you elevate your trading to the next level
               </p>
               <button className="theme_btn">Try It For Free</button>
-
-              {/*  */}
             </div>
+           </div>
           </div>
         </div>
       </div>
-
-      {/* posts components */}
 
       <MarketDetails />
       <Posts />
       <EditorChoice />
       <Technology />
       <Stocks />
-      {/* <Products /> */}
       <PostEditor />
       <Newsletter />
     </div>

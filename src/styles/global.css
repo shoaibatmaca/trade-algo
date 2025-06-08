@@ -1362,6 +1362,113 @@ video::-webkit-media-controls {
   transform: translateX(4px);
 }
 
+/*------------------ banner fixed issues text---------------- */
+.home-banner .container {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    top: 60px;
+    padding: 0 20px;
+  }
+}
+
+.banner-text {
+  color: white;
+  max-width: 600px;
+  position: absolute;
+  top: 26%;
+  left: 0;
+  text-align: left;
+}
+
+/* end */
+/* saerch navbar */
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 30px;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 18px;
+  padding: 4px 8px;
+  transition: color 0.3s;
+}
+
+.search-icon:hover {
+  color: #333;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  margin-top: 4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 240px;
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  color: #333;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f4ff;
+}
+
+.suggestion-icon {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.no-suggestions {
+  padding: 12px 14px;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* end */
+
 /* Responsive Design */
 @media (max-width: 1199.98px) {
   .blog-card-content {
