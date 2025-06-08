@@ -547,7 +547,7 @@ function PortfolioComponent() {
                       {portfolio.recent_trades.length > 5 && (
                         <div className="text-center mt-2">
                           <button
-                            className="btn btn-outline-light btn-sm"
+                            className="btn btn-outline-light btn-sm w-100 p-2"
                             onClick={() => setShowAll(!showAll)}
                           >
                             {showAll ? "Show Less" : "Show All"}
@@ -588,7 +588,7 @@ function PortfolioComponent() {
                   {portfolio.market_watch.length > 5 && (
                     <div className="text-center mt-2">
                       <button
-                        className="btn btn-outline-light btn-sm"
+                        className="btn btn-outline-light btn-sm w-100 p-2"
                         onClick={() =>
                           setShowAllMarketWatch(!showAllMarketWatch)
                         }
@@ -601,30 +601,6 @@ function PortfolioComponent() {
               </div>
             </div>
           </div>
-
-          {/* <div className="col-lg-4 ps-lg-2">
-            <div className="card allocation-card p-0">
-              <div className="card-body">
-                <h5 className="card-title">Asset Allocation</h5>
-                <div className="pie-chart-container">
-                  <div className="pie-chart">
-                    <div className="pie-chart-inner"></div>
-                  </div>
-                </div>
-                <div className="allocation-breakdown">
-                  {portfolio.assets.map((asset) => (
-                    <div key={asset.id} className="allocation-item">
-                      <div>
-                        {asset.asset_type.charAt(0).toUpperCase() +
-                          asset.asset_type.slice(1)}
-                      </div>
-                      <div>{asset.percentage}%</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div> */}
 
           <div className="col-lg-4 ps-lg-2">
             <div className="card allocation-card p-0">

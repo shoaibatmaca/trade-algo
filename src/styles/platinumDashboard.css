@@ -212,17 +212,29 @@ body::-webkit-scrollbar-thumb {
 .platinum-dashboard .navbar-nav .nav-item .active::before {
   content: "";
   position: absolute;
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+}
+/* .platinum-dashboard .navbar-nav .nav-item .active::before {
+  content: "";
+  position: absolute;
   left: 7px;
   bottom: 0;
   width: 86%;
   height: 2px;
   background-color: #ccc;
-}
+} */
 
 .platinum-dashboard .navbar-nav .nav-item .nav-link {
   font-size: 14px;
-  padding: 8px 12px !important;
   background-color: transparent;
+  padding: 0 !important;
+  margin-bottom: 0px;
+  line-height: 40px;
+  margin-left: 12px;
 }
 .platinum-dashboard .navbar-brand {
   position: relative;
@@ -2239,7 +2251,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-
 .allocation-progress {
   width: 10%;
   margin: 0;
@@ -3615,8 +3626,6 @@ body::-webkit-scrollbar-thumb {
   font-size: 13px;
   color: #888;
 }
-
-
 
 .progress {
   height: 6px;
@@ -7815,9 +7824,6 @@ h4 {
   color: #fffdfd;
 }
 
-
-
-
 /* platinum shimmer */
 /* Base shimmer container */
 .platinum-shimmer {
@@ -7855,5 +7861,3 @@ h4 {
     left: 100%;
   }
 }
-
-
