@@ -8,7 +8,7 @@ import technology2 from "../assets/images/technology2.webp";
 import wealth1 from "../assets/images/wealth1.webp";
 import wealth2 from "../assets/images/wealth2.webp";
 import "../styles/secondnavbar.css";
-
+import NavbarSearch from "./NavSearch";
 const API_KEY = "04RGF1U9PAJ49VYI";
 
 const Navbar = () => {
