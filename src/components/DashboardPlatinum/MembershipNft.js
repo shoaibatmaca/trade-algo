@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import NFTCollection from './NftCollection';
-import MarketPlace from './MarketPlace';
+import { useState } from "react";
+import MarketPlace from "./MarketPlace";
+import NFTCollection from "./NftCollection";
 
 const PlatinumMembershipNFT = () => {
-  const [activeTab, setActiveTab] = useState('membership-badge');
+  const [activeTab, setActiveTab] = useState("membership-badge");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -25,21 +25,27 @@ const PlatinumMembershipNFT = () => {
       <div className="nav-tabs-container">
         <div className="tabs-container">
           <div className="nav-tabs">
-            <button 
-              className={`tab-button ${activeTab === 'membership-badge' ? 'active' : ''}`} 
-              onClick={() => handleTabChange('membership-badge')}
+            <button
+              className={`tab-button ${
+                activeTab === "membership-badge" ? "active" : ""
+              }`}
+              onClick={() => handleTabChange("membership-badge")}
             >
               Membership Badge
             </button>
-            <button 
-              className={`tab-button ${activeTab === 'nft-collection' ? 'active' : ''}`} 
-              onClick={() => handleTabChange('nft-collection')}
+            <button
+              className={`tab-button ${
+                activeTab === "nft-collection" ? "active" : ""
+              }`}
+              onClick={() => handleTabChange("nft-collection")}
             >
               NFT Collection
             </button>
-            <button 
-              className={`tab-button ${activeTab === 'marketplace' ? 'active' : ''}`} 
-              onClick={() => handleTabChange('marketplace')}
+            <button
+              className={`tab-button ${
+                activeTab === "marketplace" ? "active" : ""
+              }`}
+              onClick={() => handleTabChange("marketplace")}
             >
               Marketplace
             </button>
@@ -48,7 +54,7 @@ const PlatinumMembershipNFT = () => {
       </div>
 
       {/* Membership Badge Tab Content */}
-      {activeTab === 'membership-badge' && (
+      {activeTab === "membership-badge" && (
         <div className="membership-content">
           <div className="row">
             {/* Left Column - Membership NFT */}
@@ -57,10 +63,32 @@ const PlatinumMembershipNFT = () => {
                 <h2>Your Platinum Membership NFT</h2>
                 <div className="nft-display">
                   <div className="nft-badge">
-                    <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="100" cy="100" r="90" stroke="white" strokeWidth="4"/>
-                      <path d="M100 140C100 140 130 120 130 90C130 73.4315 116.569 60 100 60C83.4315 60 70 73.4315 70 90C70 120 100 140 100 140Z" stroke="white" strokeWidth="4"/>
-                      <circle cx="100" cy="90" r="15" stroke="white" strokeWidth="4"/>
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 200 200"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="100"
+                        cy="100"
+                        r="90"
+                        stroke="white"
+                        strokeWidth="4"
+                      />
+                      <path
+                        d="M100 140C100 140 130 120 130 90C130 73.4315 116.569 60 100 60C83.4315 60 70 73.4315 70 90C70 120 100 140 100 140Z"
+                        stroke="white"
+                        strokeWidth="4"
+                      />
+                      <circle
+                        cx="100"
+                        cy="90"
+                        r="15"
+                        stroke="white"
+                        strokeWidth="4"
+                      />
                     </svg>
                   </div>
                   <div className="member-info">
@@ -118,12 +146,30 @@ const PlatinumMembershipNFT = () => {
                     <h3>Platinum Perks</h3>
                   </div>
                   <ul className="benefits-list">
-                    <li><i className="bi bi-check-circle-fill"></i> Exclusive access to premium trading tools</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Priority customer support</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Early access to new features</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Voting rights on platform development</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Private coaching sessions</li>
-                    <li><i className="bi bi-check-circle-fill"></i> Trading challenges with rewards</li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Exclusive
+                      access to premium trading tools
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Priority
+                      customer support
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Early access
+                      to new features
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Voting rights
+                      on platform development
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Private
+                      coaching sessions
+                    </li>
+                    <li>
+                      <i className="bi bi-check-circle-fill"></i> Trading
+                      challenges with rewards
+                    </li>
                   </ul>
                 </div>
 
@@ -155,8 +201,10 @@ const PlatinumMembershipNFT = () => {
                     <h3>About NFT Badges</h3>
                   </div>
                   <p className="about-nft">
-                    Your membership badge is a unique digital asset stored on the blockchain. It verifies your platinum 
-                    status and provides exclusive benefits across our platform and partner services.
+                    Your membership badge is a unique digital asset stored on
+                    the blockchain. It verifies your platinum status and
+                    provides exclusive benefits across our platform and partner
+                    services.
                   </p>
                 </div>
               </div>
@@ -166,14 +214,10 @@ const PlatinumMembershipNFT = () => {
       )}
 
       {/* NFT Collection Tab Content */}
-      {activeTab === 'nft-collection' && (
-        <NFTCollection />
-      )}
+      {activeTab === "nft-collection" && <NFTCollection />}
 
       {/* Marketplace Tab Content */}
-      {activeTab === 'marketplace' && (
-      <MarketPlace/>
-      )}
+      {activeTab === "marketplace" && <MarketPlace />}
     </div>
   );
 };
