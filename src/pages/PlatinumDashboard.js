@@ -785,6 +785,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import ChatFeature from "../components/DashboardPlatinum/ChatFeature";
+import ChatWithAnalyst from "../components/DashboardPlatinum/ChatWithAnalyst";
 import CreditRequestPopup from "../components/DashboardPlatinum/CreditRequestPopup";
 import ExtraContent from "../components/DashboardPlatinum/ExtraContent";
 import FeatureVoting from "../components/DashboardPlatinum/FeatureVoting";
@@ -907,25 +908,6 @@ const PlatinumDashboard = () => {
     fetchUser();
   }, [accessToken]);
 
-  // useEffect(() => {
-  //   const ensureChatAndFetchMessages = async () => {
-  //     try {
-  //       const res = await axios.get(`${API_BASE_URL}api/analyst-chat/ensure/`, {
-  //         headers: { Authorization: `Bearer ${accessToken}` },
-  //       });
-
-  //       if (res.data && res.data.id) {
-  //         setConversationId(res.data.id); // 🔥 Chat is guaranteed to exist now
-  //         setMessages(res.data.messages || []);
-  //       }
-  //     } catch (err) {
-  //       console.error("❌ Error ensuring chat:", err.response?.data || err);
-  //     }
-  //   };
-
-  //   if (accessToken) ensureChatAndFetchMessages();
-  // }, [accessToken]);
-
   useEffect(() => {
     const ensureChatAndFetchMessages = async () => {
       try {
@@ -967,37 +949,6 @@ const PlatinumDashboard = () => {
     fetchAdminPhoto();
   }, []);
 
-  // const fetchMessages = async () => {
-  //   try {
-  //     const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
-  //       headers: { Authorization: `Bearer ${accessToken}` },
-  //     });
-
-  //     if (res.data.length > 0) {
-  //       const convo = res.data[0];
-  //       setConversationId(convo.id);
-  //       setMessages(convo.messages);
-  //     }
-  //   } catch (err) {
-  //     console.error("❌ Error fetching analyst chat", err);
-  //   }
-  // };
-
-  // const sendMessage = async () => {
-  //   if (!input.trim() || !conversationId) return;
-  //   try {
-  //     await axios.post(
-  //       `${API_BASE_URL}api/analyst-chat/start/`,
-  //       { chat: conversationId, content: input },
-  //       { headers: { Authorization: `Bearer ${accessToken}` } }
-  //     );
-
-  //     setInput("");
-  //     fetchMessages();
-  //   } catch (err) {
-  //     console.error("❌ Error sending message", err.response?.data || err);
-  //   }
-  // };
   const fetchMessages = async () => {
     try {
       const res = await axios.get(`${API_BASE_URL}api/analyst-chat/`, {
@@ -1435,7 +1386,7 @@ const PlatinumDashboard = () => {
             </div>
 
             {/* Dashboard Tab Content */}
-            {activeDashboardTab === "market" && (
+            {/* {activeDashboardTab === "market" && (
               <div className="row">
                 <div className="col-lg-7 mb-4">
                   <MarketInsights />
@@ -1625,7 +1576,151 @@ const PlatinumDashboard = () => {
                 <RealtimeQuotes />
                 <ExtraContent />
               </div>
+            )} */}
+            {activeDashboardTab === "market" && (
+              <div className="row">
+                <div className="col-lg-7 mb-4">
+                  <MarketInsights />
+                </div>
+
+                {userData?.role === "analyst" ? (
+                  <div className="col-12 mb-4">
+                    <ChatWithAnalyst />
+                  </div>
+                ) : (
+                  <div className="col-lg-5 mb-4">
+                    <div className="card chat-card">
+                      <div className="card-body">
+                        <h5 className="card-title mb-4 text-white">
+                          Chat with Analyst
+                        </h5>
+                        <div className="chat-container">
+                          {(isAnalyst ? analystChats : messages).map(
+                            (chatOrMsg) => {
+                              const chat = isAnalyst ? chatOrMsg : { messages };
+                              const chatId = isAnalyst
+                                ? chatOrMsg.id
+                                : "user-chat";
+                              const userLabel = isAnalyst
+                                ? `Chat with ${chat.user_username}`
+                                : null;
+
+                              return (
+                                <div key={chatId}>
+                                  {userLabel && (
+                                    <div className="fw-bold text-white mb-2">
+                                      {userLabel}
+                                    </div>
+                                  )}
+                                  {chat.messages.map((msg) => {
+                                    const isCurrentUser =
+                                      msg.sender_name === userData?.username;
+                                    const profilePhoto = isCurrentUser
+                                      ? userData?.profile_photo_url
+                                      : msg.sender_profile_photo_url;
+
+                                    return (
+                                      <div
+                                        key={msg.id}
+                                        className={`chat-message d-flex flex-column ${
+                                          isCurrentUser
+                                            ? "align-items-end"
+                                            : "align-items-start"
+                                        } mb-3`}
+                                      >
+                                        <div className="d-flex align-items-end">
+                                          {!isCurrentUser && (
+                                            <img
+                                              src={
+                                                profilePhoto ||
+                                                "/default-user.png"
+                                              }
+                                              className="chat-avatar me-2"
+                                              alt="Sender"
+                                              style={{
+                                                width: "40px",
+                                                height: "40px",
+                                                borderRadius: "50%",
+                                                objectFit: "cover",
+                                              }}
+                                            />
+                                          )}
+                                          <div className="message-bubble text-white">
+                                            <div className="sender-name text-white fw-bold mb-1">
+                                              {isCurrentUser
+                                                ? "You"
+                                                : msg.sender_name}
+                                            </div>
+                                            <div className="message-text">
+                                              {msg.content}
+                                            </div>
+                                            <div className="message-time text-end mt-1 small">
+                                              {new Date(
+                                                msg.timestamp
+                                              ).toLocaleTimeString([], {
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                                hour12: true,
+                                              })}
+                                            </div>
+                                          </div>
+                                          {isCurrentUser && (
+                                            <img
+                                              src={
+                                                profilePhoto ||
+                                                "/default-user.png"
+                                              }
+                                              className="chat-avatar ms-2"
+                                              alt="Me"
+                                              style={{
+                                                width: "40px",
+                                                height: "40px",
+                                                borderRadius: "50%",
+                                                objectFit: "cover",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              );
+                            }
+                          )}
+
+                          <div className="chat-input-container mt-2">
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Type your message..."
+                              value={input}
+                              onChange={(e) => setInput(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                  e.preventDefault();
+                                  sendMessage();
+                                }
+                              }}
+                            />
+                            <button
+                              className="send-button"
+                              onClick={sendMessage}
+                            >
+                              <i className="bi bi-send-fill"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <RealtimeQuotes />
+                <ExtraContent />
+              </div>
             )}
+
             {activeDashboardTab === "schedule-Calls" && <ScheduleCall />}
             {activeDashboardTab === "webinars" && <Wabinars />}
             {activeDashboardTab === "leaderboard" && <Leaderboard />}
