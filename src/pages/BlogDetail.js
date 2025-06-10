@@ -68,7 +68,7 @@ function BlogDetail() {
         </div>
       </div>
 
-      {/* Blog Cards Section */}
+      {/* Blog Cards Section
       <section className="blog-cards-section">
         <div className="container">
           <div className="section-header">
@@ -136,7 +136,7 @@ function BlogDetail() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

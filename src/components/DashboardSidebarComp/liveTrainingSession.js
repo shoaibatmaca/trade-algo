@@ -103,7 +103,7 @@ function LiveTrainingSession() {
                           ref={(el) => (videoRefs.current[index] = el)}
                           className="session-img"
                           controls
-                          controlsList="nodownload nofullscreen noremoteplayback"
+                          controlsList="nodownload noremoteplayback"
                           preload="metadata"
                           playsInline
                           style={{
