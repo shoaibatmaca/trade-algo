@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MarketPlace from "./MarketPlace";
+import Marketplace from "./MarketPlace";
 import NFTCollection from "./NftCollection";
 
 const PlatinumMembershipNFT = () => {
@@ -217,7 +217,7 @@ const PlatinumMembershipNFT = () => {
       {activeTab === "nft-collection" && <NFTCollection />}
 
       {/* Marketplace Tab Content */}
-      {activeTab === "marketplace" && <MarketPlace />}
+      {activeTab === "marketplace" && <Marketplace />}
     </div>
   );
 };
