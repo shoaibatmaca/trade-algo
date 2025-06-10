@@ -796,7 +796,7 @@ const PlatinumBriefing = () => {
               {!isPlaying ? (
                 <div style={styles.thumbnailContainer} onClick={handlePlay}>
                   <img
-                    src={current.thumbnail || "/api/placeholder/800/400"}
+                    src={current.thumbnail_public_url || "error"}
                     alt="Video thumbnail"
                     style={styles.thumbnailImage}
                     onError={(e) => {
@@ -836,7 +836,7 @@ const PlatinumBriefing = () => {
                     }}
                     preload="metadata"
                     playsInline
-                    poster={current.thumbnail}
+                    poster={current.thumbnail_public_url}
                   >
                     <source src={current.public_url} type="video/mp4" />
                     <source src={current.public_url} type="video/webm" />
@@ -1033,4 +1033,3 @@ const PlatinumBriefing = () => {
 };
 
 export default PlatinumBriefing;
-
