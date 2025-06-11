@@ -8238,8 +8238,8 @@ h4 {
 
 .market-nav-tabs {
   border: none;
-  /* background: #2d2d2d; */
-  background: #0b0b0d;
+  background: #2d2d2d;
+  /* background: #0b0b0d; */
   border-radius: 12px;
   padding: 4px;
   display: inline-flex;
