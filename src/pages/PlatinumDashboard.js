@@ -801,6 +801,7 @@ import TradingChallenges from "../components/DashboardPlatinum/TradingChallenge"
 import Wabinars from "../components/DashboardPlatinum/Wabinars";
 import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 
+import MarketOverview from "../components/DashboardPlatinum/MarketOverview";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
 
@@ -818,6 +819,19 @@ const PlatinumDashboard = () => {
   const [conversationId, setConversationId] = useState(null);
   const [activeDashboardTab, setActiveDashboardTab] = useState("market");
   const [showEditProfile, setShowEditProfile] = useState(false);
+
+  const getUKGreeting = () => {
+    const now = new Date().toLocaleString("en-GB", {
+      timeZone: "Europe/London",
+      hour: "numeric",
+      hour12: false,
+    });
+
+    const hour = parseInt(now);
+    if (hour < 12) return "Good Morning";
+    if (hour < 17) return "Good Afternoon";
+    return "Good Evening";
+  };
 
   const [unreadMessages, setUnreadMessages] = useState(0);
   const [unreadNotifications, setUnreadNotifications] = useState(0);
@@ -1309,7 +1323,8 @@ const PlatinumDashboard = () => {
           <>
             <div className="row header-section mb-4">
               <div className="col-md-8">
-                <h1>Good Afternoon, Platinum Member</h1>
+                <h1>{getUKGreeting()}, Platinum Member</h1>
+
                 <p className="text-white">
                   Welcome to your exclusive platinum dashboard. Access premium
                   features, connect with analysts, and elevate your trading
@@ -1715,7 +1730,7 @@ const PlatinumDashboard = () => {
                     </div>
                   </div>
                 )}
-
+                <MarketOverview />
                 <RealtimeQuotes />
                 <ExtraContent />
               </div>
