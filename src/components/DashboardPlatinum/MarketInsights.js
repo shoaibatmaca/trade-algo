@@ -1,11 +1,44 @@
 import { useEffect, useState } from "react";
 
 const API_KEY = "04RGF1U9PAJ49VYI";
+// const PAIRS = [
+//   { from: "EUR", to: "USD" },
+//   { from: "GBP", to: "USD" },
+//   { from: "USD", to: "JPY" },
+//   { from: "BTC", to: "USD" },
+// ];
+
 const PAIRS = [
   { from: "EUR", to: "USD" },
   { from: "GBP", to: "USD" },
   { from: "USD", to: "JPY" },
   { from: "BTC", to: "USD" },
+  { from: "AUD", to: "USD" },
+  { from: "USD", to: "CAD" },
+  { from: "USD", to: "CHF" },
+  { from: "NZD", to: "USD" },
+  { from: "USD", to: "INR" },
+  { from: "USD", to: "CNY" },
+  { from: "USD", to: "HKD" },
+  { from: "USD", to: "SGD" },
+  { from: "USD", to: "KRW" },
+  { from: "USD", to: "ZAR" },
+  { from: "USD", to: "THB" },
+  { from: "USD", to: "MXN" },
+  { from: "USD", to: "BRL" },
+  { from: "USD", to: "SEK" },
+  { from: "USD", to: "NOK" },
+  { from: "USD", to: "DKK" },
+  { from: "USD", to: "PLN" },
+  { from: "USD", to: "TWD" },
+  { from: "USD", to: "PHP" },
+  { from: "USD", to: "MYR" },
+  { from: "USD", to: "IDR" },
+  { from: "USD", to: "TRY" },
+  { from: "USD", to: "RUB" },
+  { from: "USD", to: "EGP" },
+  { from: "USD", to: "PKR" },
+  { from: "USD", to: "SAR" },
 ];
 
 const MarketInsights = () => {
