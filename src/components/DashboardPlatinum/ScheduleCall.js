@@ -463,8 +463,6 @@
 
 // export default ScheduleCall;
 
-
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../DashboardSidebarComp/styles/platinum.css";
@@ -660,7 +658,7 @@ const ScheduleCall = () => {
 
           <div className="time-analyst-section">
             <div className="time-slot-section">
-              <h4>Select Time Slot</h4>
+              <h4>Select available Time Slot</h4>
               <div className="time-slots">
                 {timeSlots.map((slot, index) =>
                   index % 2 === 0 ? (
