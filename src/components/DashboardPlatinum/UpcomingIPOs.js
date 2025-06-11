@@ -45,9 +45,9 @@ const UpcomingIPOs = () => {
 
   return (
     <div className="ipo-full">
-      <div className="card ipo-card shadow">
+      <div className="ipo-card shadow p-2">
         <div className="card-body text-white">
-          <h5 className="card-title mb-4">📅 Upcoming IPOs</h5>
+          <h5 className="card-title mb-4 p-3"> Upcoming IPOs</h5>
 
           {loading ? (
             // Shimmer Effect

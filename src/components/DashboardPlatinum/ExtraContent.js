@@ -541,6 +541,7 @@
 // export default ExtraContent;
 
 import { useEffect, useState } from "react";
+import TopGainersLosers from "./TopGainersLosers";
 
 const ExtraContent = () => {
   const [stockData, setStockData] = useState({});
@@ -1085,7 +1086,7 @@ const ExtraContent = () => {
                   <i className="fas fa-exchange-alt me-2"></i>
                   Forex Exchange Rates
                 </h5>
-                <div className="d-flex">
+                <div className="d-flex mt-2">
                   <select
                     className="form-select me-2"
                     value={selectedFrom}
@@ -1174,53 +1175,7 @@ const ExtraContent = () => {
 
         {/* Top Gainers/Losers Section */}
         <div className="row mb-4">
-          <div className="col-md-6 mb-3">
-            <div className="card market-card">
-              <div className="card-body">
-                {topGainersLosers.top_gainers
-                  ?.slice(0, 5)
-                  .map((stock, index) => (
-                    <div key={index} className="gainer-item mb-2">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <span className="stock-symbol">{stock.ticker}</span>
-                        <div className="text-end">
-                          <div className="stock-price">
-                            ${formatPrice(stock.price)}
-                          </div>
-                          <div className="text-success small">
-                            +{stock.change_percentage}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-6 mb-3">
-            <div className="card market-card">
-              <div className="card-body">
-                {topGainersLosers.top_losers
-                  ?.slice(0, 5)
-                  .map((stock, index) => (
-                    <div key={index} className="loser-item mb-2">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <span className="stock-symbol">{stock.ticker}</span>
-                        <div className="text-end">
-                          <div className="stock-price">
-                            ${formatPrice(stock.price)}
-                          </div>
-                          <div className="text-danger small">
-                            {stock.change_percentage}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
+          <TopGainersLosers />
         </div>
       </div>
     </div>

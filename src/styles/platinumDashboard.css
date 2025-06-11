@@ -8305,7 +8305,8 @@ h4 {
 /* .market-symbol-info {
   flex: 1;
 } */
-market-symbol-info {
+
+.market-symbol-info {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -8651,4 +8652,8 @@ market-symbol-info {
     font-size: 11px;
     padding: 3px 6px;
   }
+}
+
+.insight-card {
+  min-height: 670px !important;
 }

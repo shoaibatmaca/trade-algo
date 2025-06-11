@@ -803,6 +803,7 @@ import WeeklyBriefing from "../components/DashboardPlatinum/WeeklyBriefing";
 
 import MarketOverview from "../components/DashboardPlatinum/MarketOverview";
 import LatestNews from "../components/DashboardPlatinum/NewsLatest";
+import StockDashboard from "../components/DashboardPlatinum/StockDashboard";
 import EditProfile from "../components/DashboardSidebarComp/EditProfile";
 import "../styles/platinumDashboard.css";
 
@@ -1731,8 +1732,9 @@ const PlatinumDashboard = () => {
                     </div>
                   </div>
                 )}
+                <StockDashboard />
                 <MarketOverview />
-                <LatestNews/>
+                <LatestNews />
                 <RealtimeQuotes />
                 <ExtraContent />
               </div>
