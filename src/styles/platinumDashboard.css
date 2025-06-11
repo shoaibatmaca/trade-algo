@@ -8657,3 +8657,8 @@ h4 {
 .insight-card {
   min-height: 670px !important;
 }
+
+.insight-card .card-body {
+  max-height: 670px !important;
+  padding: 20px;
+}
