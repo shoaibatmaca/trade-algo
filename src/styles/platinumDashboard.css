@@ -3635,7 +3635,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .progress-bar {
-  background-color: transparent !important;
+  background-color: transparent;
   transition: width 0.3s ease;
 }
 
@@ -8020,5 +8020,152 @@ h4 {
 
   .nft-card .card-title {
     font-size: 1.2rem;
+  }
+}
+
+/* trade journal animation */
+
+/* Spinner Box Styles */
+.spinner-box {
+  width: 200px; /* Set size of spinner */
+  height: 200px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  margin: auto;
+}
+
+/* Spinning Squares */
+.configure-border-1,
+.configure-border-2 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+}
+
+/* First Spinning Square */
+.configure-border-1 {
+  background: #fb5b53;
+  animation: configure-clockwise 3s ease-in-out infinite alternate;
+}
+
+/* Second Spinning Square */
+.configure-border-2 {
+  background: rgb(63, 249, 220);
+  transform: rotate(45deg);
+  animation: configure-xclockwise 3s ease-in-out infinite alternate;
+}
+
+/* Core of the Spinning Squares */
+.configure-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+}
+
+/* Keyframes for Rotation Animations */
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+
+
+
+/* feature voting animation */
+
+/* Spinner Overlay (covers the page while loading) */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure the spinner appears above other content */
+}
+
+/* Spinner Box Styles */
+.spinner-box {
+  width: 150px; /* Set size of spinner */
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+}
+
+/* Spinning Circle */
+.circle-border {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+  animation: spin 1s linear infinite;
+}
+
+/* Circle Core (Center of the Spinner) */
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+  border-radius: 50%;
+}
+
+/* Spinner Keyframe Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
