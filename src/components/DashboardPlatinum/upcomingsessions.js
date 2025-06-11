@@ -89,7 +89,7 @@ const TradingPlatform = () => {
     <div className="container-fluid p-0">
       <div className="row g-0">
         <div className="sec_heading">
-          <h2 className="live-session-title">Exclusive Webinars</h2>
+          <h2 className="live-session-titleds">Exclusive Webinars</h2>
         </div>
 
         <div className="col-lg-12">
@@ -239,7 +239,10 @@ const TradingPlatform = () => {
           ) : webinars.length > 0 ? (
             // Actual Webinars
             webinars.slice(0, 2).map((webinar) => (
-              <div key={webinar.id} className="webinar-card webinar-car-img">
+              <div
+                key={webinar.id}
+                className="webinar-card webinar-car-img mb-2"
+              >
                 <div className="webinar-header">
                   <h4 className="webinar-title">{webinar.title}</h4>
                   <span className="status-badge">{webinar.status}</span>
