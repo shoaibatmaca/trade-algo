@@ -475,7 +475,7 @@ const PlatinumBriefing = () => {
                   </video>
 
                   {!isLatest && (
-                    <div className="text-end mb-2">
+                    <div className="d-flex justify-content-end">
                       <button
                         onClick={() => handleBriefingChange(briefings[0])}
                         className="btn btn-sm d-flex align-items-center"
@@ -489,6 +489,9 @@ const PlatinumBriefing = () => {
                         <FontAwesomeIcon
                           icon={faChevronRight}
                           className="me-2"
+                          style={{
+                            transform: "rotate(176deg)",
+                          }}
                         />
                         Back to Latest Briefing
                       </button>

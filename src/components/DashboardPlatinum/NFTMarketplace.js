@@ -1,593 +1,951 @@
-const NFTBadgesComponent = () => {
-  const badgeCategories = [
-    {
-      categoryTitle: "6 Month Anniversary",
-      badges: [
-        {
-          title: "SUSTAINED STRATEGIST",
-          subtitle: "6 Month Milestone",
-          tokenId: "0x1234...5678",
-          mintDate: "Mar 15, 2024",
-          image: "🏆",
-        },
-        {
-          title: "PERSISTENT PLANNER",
-          subtitle: "6 Month Achievement",
-          tokenId: "0x1235...5679",
-          mintDate: "Mar 16, 2024",
-          image: "📊",
-        },
-        {
-          title: "DEDICATED DEVELOPER",
-          subtitle: "6 Month Journey",
-          tokenId: "0x1236...5680",
-          mintDate: "Mar 17, 2024",
-          image: "💻",
-        },
-        {
-          title: "LOYAL MEMBER",
-          subtitle: "6 Month Commitment",
-          tokenId: "0x1237...5681",
-          mintDate: "Mar 18, 2024",
-          image: "🎖",
-        },
-        {
-          title: "GROWTH CHAMPION",
-          subtitle: "6 Month Progress",
-          tokenId: "0x1238...5682",
-          mintDate: "Mar 19, 2024",
-          image: "📈",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Epic",
-      badges: [
-        {
-          title: "EPIC WARRIOR",
-          subtitle: "Legendary Fighter",
-          tokenId: "0x2234...6678",
-          mintDate: "Apr 15, 2024",
-          image: "⚔",
-        },
-        {
-          title: "EPIC EXPLORER",
-          subtitle: "Adventure Master",
-          tokenId: "0x2235...6679",
-          mintDate: "Apr 16, 2024",
-          image: "🗺",
-        },
-        {
-          title: "EPIC BUILDER",
-          subtitle: "Creation Legend",
-          tokenId: "0x2236...6680",
-          mintDate: "Apr 17, 2024",
-          image: "🏗",
-        },
-        {
-          title: "EPIC TRADER",
-          subtitle: "Market Master",
-          tokenId: "0x2237...6681",
-          mintDate: "Apr 18, 2024",
-          image: "💰",
-        },
-        {
-          title: "EPIC MENTOR",
-          subtitle: "Wisdom Guide",
-          tokenId: "0x2238...6682",
-          mintDate: "Apr 19, 2024",
-          image: "🎓",
-        },
-        {
-          title: "EPIC INNOVATOR",
-          subtitle: "Future Creator",
-          tokenId: "0x2239...6683",
-          mintDate: "Apr 20, 2024",
-          image: "🚀",
-        },
-      ],
-    },
-    {
-      categoryTitle: "First Place",
-      badges: [
-        {
-          title: "CHAMPION WINNER",
-          subtitle: "Tournament Victor",
-          tokenId: "0x3234...7678",
-          mintDate: "May 15, 2024",
-          image: "🥇",
-        },
-        {
-          title: "SPEED CHAMPION",
-          subtitle: "Fastest Performer",
-          tokenId: "0x3235...7679",
-          mintDate: "May 16, 2024",
-          image: "⚡",
-        },
-        {
-          title: "SKILL MASTER",
-          subtitle: "Technical Excellence",
-          tokenId: "0x3236...7680",
-          mintDate: "May 17, 2024",
-          image: "🎯",
-        },
-        {
-          title: "STRATEGY KING",
-          subtitle: "Tactical Genius",
-          tokenId: "0x3237...7681",
-          mintDate: "May 18, 2024",
-          image: "♟",
-        },
-        {
-          title: "LEADER SUPREME",
-          subtitle: "Ultimate Guide",
-          tokenId: "0x3238...7682",
-          mintDate: "May 19, 2024",
-          image: "👑",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Founder",
-      badges: [
-        {
-          title: "ORIGINAL FOUNDER",
-          subtitle: "Platform Creator",
-          tokenId: "0x4234...8678",
-          mintDate: "Jun 15, 2024",
-          image: "🏛",
-        },
-        {
-          title: "VISION FOUNDER",
-          subtitle: "Dream Builder",
-          tokenId: "0x4235...8679",
-          mintDate: "Jun 16, 2024",
-          image: "👁",
-        },
-        {
-          title: "TECH FOUNDER",
-          subtitle: "Innovation Pioneer",
-          tokenId: "0x4236...8680",
-          mintDate: "Jun 17, 2024",
-          image: "⚙",
-        },
-        {
-          title: "COMMUNITY FOUNDER",
-          subtitle: "People Builder",
-          tokenId: "0x4237...8681",
-          mintDate: "Jun 18, 2024",
-          image: "🤝",
-        },
-        {
-          title: "LEGACY FOUNDER",
-          subtitle: "History Maker",
-          tokenId: "0x4238...8682",
-          mintDate: "Jun 19, 2024",
-          image: "📜",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Legendary",
-      badges: [
-        {
-          title: "LEGENDARY HERO",
-          subtitle: "Mythical Status",
-          tokenId: "0x5234...9678",
-          mintDate: "Jul 15, 2024",
-          image: "🦸",
-        },
-        {
-          title: "LEGENDARY SAGE",
-          subtitle: "Ancient Wisdom",
-          tokenId: "0x5235...9679",
-          mintDate: "Jul 16, 2024",
-          image: "🧙",
-        },
-        {
-          title: "LEGENDARY DIAMOND",
-          subtitle: "Precious Rarity",
-          tokenId: "0x5236...9680",
-          mintDate: "Jul 17, 2024",
-          image: "💎",
-        },
-        {
-          title: "LEGENDARY PHOENIX",
-          subtitle: "Eternal Spirit",
-          tokenId: "0x5237...9681",
-          mintDate: "Jul 18, 2024",
-          image: "🔥",
-        },
-        {
-          title: "LEGENDARY DRAGON",
-          subtitle: "Ultimate Power",
-          tokenId: "0x5238...9682",
-          mintDate: "Jul 19, 2024",
-          image: "🐉",
-        },
-        {
-          title: "LEGENDARY CROWN",
-          subtitle: "Royal Authority",
-          tokenId: "0x5239...9683",
-          mintDate: "Jul 20, 2024",
-          image: "👑",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Rare",
-      badges: [
-        {
-          title: "RARE GEM",
-          subtitle: "Precious Stone",
-          tokenId: "0x6234...0678",
-          mintDate: "Aug 15, 2024",
-          image: "💍",
-        },
-        {
-          title: "RARE COLLECTOR",
-          subtitle: "Special Hunter",
-          tokenId: "0x6235...0679",
-          mintDate: "Aug 16, 2024",
-          image: "🔍",
-        },
-        {
-          title: "RARE ARTIST",
-          subtitle: "Creative Master",
-          tokenId: "0x6236...0680",
-          mintDate: "Aug 17, 2024",
-          image: "🎨",
-        },
-        {
-          title: "RARE SCHOLAR",
-          subtitle: "Knowledge Keeper",
-          tokenId: "0x6237...0681",
-          mintDate: "Aug 18, 2024",
-          image: "📚",
-        },
-        {
-          title: "RARE GUARDIAN",
-          subtitle: "Elite Protector",
-          tokenId: "0x6238...0682",
-          mintDate: "Aug 19, 2024",
-          image: "🛡",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Second Place",
-      badges: [
-        {
-          title: "SILVER MEDALIST",
-          subtitle: "Runner-up Champion",
-          tokenId: "0x7234...1678",
-          mintDate: "Sep 15, 2024",
-          image: "🥈",
-        },
-        {
-          title: "SILVER STAR",
-          subtitle: "Excellence Award",
-          tokenId: "0x7235...1679",
-          mintDate: "Sep 16, 2024",
-          image: "⭐",
-        },
-        {
-          title: "SILVER KNIGHT",
-          subtitle: "Noble Warrior",
-          tokenId: "0x7236...1680",
-          mintDate: "Sep 17, 2024",
-          image: "🗡",
-        },
-        {
-          title: "SILVER CROWN",
-          subtitle: "Royal Honor",
-          tokenId: "0x7237...1681",
-          mintDate: "Sep 18, 2024",
-          image: "👑",
-        },
-        {
-          title: "SILVER SHIELD",
-          subtitle: "Defense Master",
-          tokenId: "0x7238...1682",
-          mintDate: "Sep 19, 2024",
-          image: "🛡",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Third Place",
-      badges: [
-        {
-          title: "BRONZE CHAMPION",
-          subtitle: "Third Place Winner",
-          tokenId: "0x8234...2678",
-          mintDate: "Oct 15, 2024",
-          image: "🥉",
-        },
-        {
-          title: "BRONZE FIGHTER",
-          subtitle: "Determined Warrior",
-          tokenId: "0x8235...2679",
-          mintDate: "Oct 16, 2024",
-          image: "🤺",
-        },
-        {
-          title: "BRONZE EXPLORER",
-          subtitle: "Adventure Seeker",
-          tokenId: "0x8236...2680",
-          mintDate: "Oct 17, 2024",
-          image: "🧭",
-        },
-        {
-          title: "BRONZE SCHOLAR",
-          subtitle: "Learning Champion",
-          tokenId: "0x8237...2681",
-          mintDate: "Oct 18, 2024",
-          image: "📖",
-        },
-        {
-          title: "BRONZE TRADER",
-          subtitle: "Market Participant",
-          tokenId: "0x8238...2682",
-          mintDate: "Oct 19, 2024",
-          image: "📊",
-        },
-      ],
-    },
-    {
-      categoryTitle: "Uncommon",
-      badges: [
-        {
-          title: "UNCOMMON HUNTER",
-          subtitle: "Special Tracker",
-          tokenId: "0x9234...3678",
-          mintDate: "Nov 15, 2024",
-          image: "🏹",
-        },
-        {
-          title: "UNCOMMON MINER",
-          subtitle: "Resource Gatherer",
-          tokenId: "0x9235...3679",
-          mintDate: "Nov 16, 2024",
-          image: "⛏",
-        },
-        {
-          title: "UNCOMMON RANGER",
-          subtitle: "Wild Explorer",
-          tokenId: "0x9236...3680",
-          mintDate: "Nov 17, 2024",
-          image: "🌲",
-        },
-        {
-          title: "UNCOMMON CRAFTER",
-          subtitle: "Skill Artisan",
-          tokenId: "0x9237...3681",
-          mintDate: "Nov 18, 2024",
-          image: "🔨",
-        },
-        {
-          title: "UNCOMMON MYSTIC",
-          subtitle: "Magic Wielder",
-          tokenId: "0x9238...3682",
-          mintDate: "Nov 19, 2024",
-          image: "🔮",
-        },
-        {
-          title: "UNCOMMON PILOT",
-          subtitle: "Sky Navigator",
-          tokenId: "0x9239...3683",
-          mintDate: "Nov 20, 2024",
-          image: "✈",
-        },
-      ],
-    },
-  ];
+// annimversary
 
+import ann1 from "../DashboardSidebarComp/images/NFT-BADGES/6 Month Anniversary - Final/6-Month Platinum Elite.png";
+import diamond from "../DashboardSidebarComp/images/NFT-BADGES/6 Month Anniversary - Final/Diamond Hands.png";
+import HalfYear from "../DashboardSidebarComp/images/NFT-BADGES/6 Month Anniversary - Final/Half-Year Hero.png";
+import LoyalMember from "../DashboardSidebarComp/images/NFT-BADGES/6 Month Anniversary - Final/Loyal Leader.png";
+import Sustained from "../DashboardSidebarComp/images/NFT-BADGES/6 Month Anniversary - Final/Sustained Strategist.png";
+
+// epic
+import Enhanced from "../DashboardSidebarComp/images/NFT-BADGES/Epic - Final/AI-Enhanced Analyst.png";
+import Divergence from "../DashboardSidebarComp/images/NFT-BADGES/Epic - Final/Divergence Hunter.png";
+import MultiAsset from "../DashboardSidebarComp/images/NFT-BADGES/Epic - Final/Multi-Asset Commander.png";
+import King from "../DashboardSidebarComp/images/NFT-BADGES/Epic - Final/The Swing King.png";
+import Whispere from "../DashboardSidebarComp/images/NFT-BADGES/Epic - Final/Volume Whisperer.png";
+
+// first place
+import Crown from "../DashboardSidebarComp/images/NFT-BADGES/First Place - Final/Crown Trader.png";
+import Masters from "../DashboardSidebarComp/images/NFT-BADGES/First Place - Final/Master of Markets.png";
+import Number from "../DashboardSidebarComp/images/NFT-BADGES/First Place - Final/Number One Strategist.png";
+import Top from "../DashboardSidebarComp/images/NFT-BADGES/First Place - Final/Top Gun of the Week.png";
+import Valour from "../DashboardSidebarComp/images/NFT-BADGES/First Place - Final/Valour Champion.png";
+
+// Legendary Category
+
+import Portfolio from "../DashboardSidebarComp/images/NFT-BADGES/Legendary - Final/10x Portfolio Master.png";
+import Legend from "../DashboardSidebarComp/images/NFT-BADGES/Legendary - Final/Legend of Valour.png";
+import Shadow from "../DashboardSidebarComp/images/NFT-BADGES/Legendary - Final/Shadow Trader.png";
+import Ultimate from "../DashboardSidebarComp/images/NFT-BADGES/Legendary - Final/Ultimate Strategist.png";
+import Zero from "../DashboardSidebarComp/images/NFT-BADGES/Legendary - Final/Zero-to-Hero Badge.png";
+
+// founder
+import Beta from "../DashboardSidebarComp/images/NFT-BADGES/Founder - Final/Beta Pioneer.png";
+import Charter from "../DashboardSidebarComp/images/NFT-BADGES/Founder - Final/Charter Member.png";
+import First from "../DashboardSidebarComp/images/NFT-BADGES/Founder - Final/First 100.png";
+import Genesis from "../DashboardSidebarComp/images/NFT-BADGES/Founder - Final/Genesis Founder.png";
+import Platinum from "../DashboardSidebarComp/images/NFT-BADGES/Founder - Final/Platinum Genesis.png";
+
+// Rare
+import Limited from "../DashboardSidebarComp/images/NFT-BADGES/Rare - Final/Limited Drop Winner.png";
+import Market from "../DashboardSidebarComp/images/NFT-BADGES/Rare - Final/Market Monk.png";
+import Referral from "../DashboardSidebarComp/images/NFT-BADGES/Rare - Final/Referral Champion.png";
+import Sentiment from "../DashboardSidebarComp/images/NFT-BADGES/Rare - Final/Sentiment Sniper.png";
+import Volatility from "../DashboardSidebarComp/images/NFT-BADGES/Rare - Final/Volatility Beast.png";
+
+// second place
+
+import Runner from "../DashboardSidebarComp/images/NFT-BADGES/Second Place - Final/Runner-Up Risk Tactician.png";
+import Second from "../DashboardSidebarComp/images/NFT-BADGES/Second Place - Final/Second Seat Specialist.png";
+import Silver from "../DashboardSidebarComp/images/NFT-BADGES/Second Place - Final/Silver Strategist.png";
+import Ace from "../DashboardSidebarComp/images/NFT-BADGES/Second Place - Final/Trade Ace.png";
+import Medalist from "../DashboardSidebarComp/images/NFT-BADGES/Second Place - Final/Valour Silver Medalist.png";
+
+// third place
+import Bronze from "../DashboardSidebarComp/images/NFT-BADGES/Third Place - Final/Bronze Market Conqueror.png";
+import Podium from "../DashboardSidebarComp/images/NFT-BADGES/Third Place - Final/Platinum Podium.png";
+import Wealth from "../DashboardSidebarComp/images/NFT-BADGES/Third Place - Final/Tier-3 Wealth Winner.png";
+import Titan from "../DashboardSidebarComp/images/NFT-BADGES/Third Place - Final/Top 3 Titan.png";
+import Badge from "../DashboardSidebarComp/images/NFT-BADGES/Third Place - Final/Trade Bronze Badge.png";
+
+// uncommon
+
+import Break from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Break-Even Surfer.png";
+import Candle from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Candle Reader.png";
+import Early from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Early Bird Analyst.png";
+import Earnings from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Earnings Seeker.png";
+import Sector from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Sector Explorer.png";
+import Smart from "../DashboardSidebarComp/images/NFT-BADGES/Uncommon - Final/Smart Trader.png";
+
+function NFTMarketplace() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#222222",
-        padding: "40px 20px",
-      }}
-    >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Main Header */}
-        <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <h1
-            style={{
-              fontSize: "3rem",
-              fontWeight: "bold",
-              background: "linear-gradient(135deg, #fbbf24, #f59e0b, #d97706)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-              marginBottom: "20px",
-            }}
-          >
-            NFT Badge Collection
-          </h1>
-          <p
-            style={{
-              color: "#9ca3af",
-              fontSize: "1.1rem",
-              maxWidth: "600px",
-              margin: "0 auto",
-              lineHeight: "1.6",
-            }}
-          >
+    <div className="main-container">
+      <div className="container">
+        <div className="text-center mb-5">
+          <h1 className="main-title">NFT Badge Collection</h1>
+          <p className="main-description">
             Discover and collect exclusive digital badges. Trade special edition
             badges, achievement trophies, and limited-time collectibles with
             other platinum members.
           </p>
         </div>
 
-        {/* Categories */}
-        {badgeCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} style={{ marginBottom: "80px" }}>
-            {/* Category Title */}
-            <div style={{ marginBottom: "40px" }}>
-              <h2
-                style={{
-                  fontSize: "2rem",
-                  color: "#ffffff",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                }}
-              >
-                {category.categoryTitle}
-              </h2>
-              <div
-                style={{
-                  width: "80px",
-                  height: "3px",
-                  background: "linear-gradient(90deg, #fbbf24, #f59e0b)",
-                  borderRadius: "2px",
-                }}
-              ></div>
+        {/* <!-- 6 Month Anniversary Category --> */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>6 Month Anniversary</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={ann1} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">SUSTAINED STRATEGIST</h5>
+                  <p className="card-subtitle">6 Month Milestone</p>
+                  <p className="token-id">0x1234...5678</p>
+                  <p className="mint-date">Minted on Mar 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={diamond} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Diamond Hands</h5>
+                  <p className="card-subtitle">6 Month Achievement</p>
+                  <p className="token-id">0x1235...5679</p>
+                  <p className="mint-date">Minted on Mar 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Cards Grid for this category */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "30px",
-              }}
-            >
-              {category.badges.map((badge, badgeIndex) => (
-                <div
-                  key={badgeIndex}
-                  style={{
-                    background:
-                      "linear-gradient(145deg, #1f2937 0%, #111827 100%)",
-                    borderRadius: "16px",
-                    border: "1px solid #374151",
-                    overflow: "hidden",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 20px 40px rgba(251, 191, 36, 0.2)";
-                    e.currentTarget.style.border = "1px solid #fbbf24";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 6px rgba(0, 0, 0, 0.3)";
-                    e.currentTarget.style.border = "1px solid #374151";
-                  }}
-                >
-                  {/* Image Section */}
-                  <div
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
-                      padding: "40px",
-                      textAlign: "center",
-                      borderBottom: "1px solid #374151",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: "4rem",
-                        marginBottom: "20px",
-                        filter: "drop-shadow(0 0 20px rgba(251, 191, 36, 0.5))",
-                      }}
-                    >
-                      {badge.image}
-                    </div>
-                  </div>
-
-                  {/* Content Section */}
-                  <div style={{ padding: "24px", textAlign: "center" }}>
-                    {/* Main Title */}
-                    <h3
-                      style={{
-                        fontSize: "1.4rem",
-                        fontWeight: "bold",
-                        color: "#ffffff",
-                        marginBottom: "8px",
-                        letterSpacing: "0.5px",
-                      }}
-                    >
-                      {badge.title}
-                    </h3>
-
-                    {/* Subtitle */}
-                    <p
-                      style={{
-                        color: "#fbbf24",
-                        fontSize: "0.95rem",
-                        marginBottom: "20px",
-                        fontWeight: "500",
-                      }}
-                    >
-                      {badge.subtitle}
-                    </p>
-
-                    {/* Token ID */}
-                    <p
-                      style={{
-                        color: "#6b7280",
-                        fontSize: "0.85rem",
-                        marginBottom: "8px",
-                        fontFamily: "monospace",
-                      }}
-                    >
-                      {badge.tokenId}
-                    </p>
-
-                    {/* Mint Date */}
-                    <p
-                      style={{
-                        color: "#6b7280",
-                        fontSize: "0.85rem",
-                        marginBottom: "24px",
-                      }}
-                    >
-                      Minted on {badge.mintDate}
-                    </p>
-
-                    {/* Action Button */}
-                    <button
-                      style={{
-                        background: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
-                        color: "white",
-                        border: "none",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        fontSize: "0.9rem",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                        width: "100%",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.background =
-                          "linear-gradient(135deg, #2563eb, #1e40af)";
-                        e.target.style.transform = "scale(1.02)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.background =
-                          "linear-gradient(135deg, #3b82f6, #1d4ed8)";
-                        e.target.style.transform = "scale(1)";
-                      }}
-                    >
-                      View details
-                    </button>
-                  </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={HalfYear} alt="" />
                 </div>
-              ))}
+                <div className="card-body text-center">
+                  <h5 className="card-title">Half-Year Hero</h5>
+                  <p className="card-subtitle">6 Month Journey</p>
+                  <p className="token-id">0x1236...5680</p>
+                  <p className="mint-date">Minted on Mar 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={LoyalMember} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">LOYAL MEMBER</h5>
+                  <p className="card-subtitle">6 Month Commitment</p>
+                  <p className="token-id">0x1237...5681</p>
+                  <p className="mint-date">Minted on Mar 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Sustained} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Sustained Strategist</h5>
+                  <p className="card-subtitle">6 Month Progress</p>
+                  <p className="token-id">0x1238...5682</p>
+                  <p className="mint-date">Minted on Mar 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* <!-- Epic Category --> */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Epic</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Enhanced} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">AI-Enhanced Analyst</h5>
+                  <p className="card-subtitle">Legendary Fighter</p>
+                  <p className="token-id">0x2234...6678</p>
+                  <p className="mint-date">Minted on Apr 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Divergence} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Divergence Hunter</h5>
+                  <p className="card-subtitle">Adventure Master</p>
+                  <p className="token-id">0x2235...6679</p>
+                  <p className="mint-date">Minted on Apr 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={MultiAsset} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Multi-Asset Commander</h5>
+                  <p className="card-subtitle">Creation Legend</p>
+                  <p className="token-id">0x2236...6680</p>
+                  <p className="mint-date">Minted on Apr 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={King} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">The Swing King</h5>
+                  <p className="card-subtitle">Market Master</p>
+                  <p className="token-id">0x2237...6681</p>
+                  <p className="mint-date">Minted on Apr 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Whispere} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Volume Whisperer</h5>
+                  <p className="card-subtitle">Wisdom Guide</p>
+                  <p className="token-id">0x2238...6682</p>
+                  <p className="mint-date">Minted on Apr 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- First Place Category --> */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>First Place</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Crown} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Crown Trader</h5>
+                  <p className="card-subtitle">Tournament Victor</p>
+                  <p className="token-id">0x3234...7678</p>
+                  <p className="mint-date">Minted on May 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Masters} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Master of Markets</h5>
+                  <p className="card-subtitle">Fastest Performer</p>
+                  <p className="token-id">0x3235...7679</p>
+                  <p className="mint-date">Minted on May 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Number} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Number One Strategist</h5>
+                  <p className="card-subtitle">Technical Excellence</p>
+                  <p className="token-id">0x3236...7680</p>
+                  <p className="mint-date">Minted on May 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Top} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Top Gun of the Week</h5>
+                  <p className="card-subtitle">Tactical Genius</p>
+                  <p className="token-id">0x3237...7681</p>
+                  <p className="mint-date">Minted on May 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Valour} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Valour Champion</h5>
+                  <p className="card-subtitle">Ultimate Guide</p>
+                  <p className="token-id">0x3238...7682</p>
+                  <p className="mint-date">Minted on May 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- Legendary Category --> */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Legendary</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Portfolio} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">10x Portfolio Master</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Legend} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">LEGENDARY SAGE</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Shadow} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Shadow Trader</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Ultimate} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Ultimate Strategist</h5>
+                  <p className="card-subtitle">Eternal Spirit</p>
+                  <p className="token-id">0x5237...9681</p>
+                  <p className="mint-date">Minted on Jul 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Zero} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Zero-to-Hero</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* founder */}
+
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Founder</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Beta} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Beta Pioneer</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Charter} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Charter Member</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={First} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">First 100</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Genesis} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Genesis Founder</h5>
+                  <p className="card-subtitle">Eternal Spirit</p>
+                  <p className="token-id">0x5237...9681</p>
+                  <p className="mint-date">Minted on Jul 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Platinum} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Platinum Genesis</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Rare */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Rare</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Limited} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Limited Drop Winner</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Market} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Market Monk</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Referral} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Referral Champion</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Sentiment} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Sentiment Sniper</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Volatility} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Volatility Beast</h5>
+                  <p className="card-subtitle">Royal Authority</p>
+                  <p className="token-id">0x5239...9683</p>
+                  <p className="mint-date">Minted on Jul 20, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* second place */}
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Second Place</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Runner} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Runner-Up Risk Tactician</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Second} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Second Seat Specialist</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Silver} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Silver Strategist</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Ace} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Trade Ace</h5>
+                  <p className="card-subtitle">Eternal Spirit</p>
+                  <p className="token-id">0x5237...9681</p>
+                  <p className="mint-date">Minted on Jul 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Medalist} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Silver Medalist</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* third place */}
+
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Third Place</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Bronze} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Bronze Market Conqueror</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Podium} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Platinum Podium</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Wealth} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Tier-3 Wealth Winner</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Titan} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Top 3 Titan</h5>
+                  <p className="card-subtitle">Eternal Spirit</p>
+                  <p className="token-id">0x5237...9681</p>
+                  <p className="mint-date">Minted on Jul 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Badge} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Trade Bronze Badge</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* uncommon */}
+
+        <div className="category-section">
+          <div className="category-header">
+            <h2>Uncommon</h2>
+            <div className="category-line"></div>
+          </div>
+          <div className="row g-4">
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Break} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Break-Even Surfer</h5>
+                  <p className="card-subtitle">Mythical Status</p>
+                  <p className="token-id">0x5234...9678</p>
+                  <p className="mint-date">Minted on Jul 15, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Candle} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Candle Reader</h5>
+                  <p className="card-subtitle">Ancient Wisdom</p>
+                  <p className="token-id">0x5235...9679</p>
+                  <p className="mint-date">Minted on Jul 16, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Early} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Early Bird Analyst</h5>
+                  <p className="card-subtitle">Precious Rarity</p>
+                  <p className="token-id">0x5236...9680</p>
+                  <p className="mint-date">Minted on Jul 17, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Earnings} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Earnings Seeker</h5>
+                  <p className="card-subtitle">Eternal Spirit</p>
+                  <p className="token-id">0x5237...9681</p>
+                  <p className="mint-date">Minted on Jul 18, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Sector} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Sector Explorer</h5>
+                  <p className="card-subtitle">Ultimate Power</p>
+                  <p className="token-id">0x5238...9682</p>
+                  <p className="mint-date">Minted on Jul 19, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="card nft-card">
+                <div className="card-image">
+                  <img className="obj_contain" src={Smart} alt="" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="card-title">Smart Trader</h5>
+                  <p className="card-subtitle">Royal Authority</p>
+                  <p className="token-id">0x5239...9683</p>
+                  <p className="mint-date">Minted on Jul 20, 2024</p>
+                  <button className="btn btn-primary w-100">
+                    View details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default NFTBadgesComponent;
+export default NFTMarketplace;

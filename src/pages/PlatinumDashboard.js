@@ -1579,12 +1579,12 @@ const PlatinumDashboard = () => {
             )} */}
             {activeDashboardTab === "market" && (
               <div className="row">
-                <div className="col-lg-7 mb-4">
+                <div className="col-lg-6 mb-4">
                   <MarketInsights />
                 </div>
 
                 {userData?.role === "analyst" ? (
-                  <div className="col-12 mb-4">
+                  <div className="col-6 mb-4">
                     <ChatWithAnalyst />
                   </div>
                 ) : (

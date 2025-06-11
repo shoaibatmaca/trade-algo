@@ -163,7 +163,7 @@ const ChatWithAnalyst = () => {
   };
 
   return (
-    <div className="col-lg-6 mx-auto">
+    <div className="">
       <div
         className="card border-0 shadow-lg"
         style={{

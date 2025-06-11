@@ -7862,8 +7862,163 @@ h4 {
   }
 }
 
-
 .section-title-heatmap::after {
-  display:none;
+  display: none;
+}
 
+/* nft market place cards */
+/* styles.css */
+
+/* Main Container */
+.main-container {
+  min-height: 100vh;
+  background: #222222;
+  padding: 40px 0;
+}
+
+/* Main Header */
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+.main-description {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Sections */
+.category-section {
+  margin-bottom: 80px;
+}
+
+.category-header {
+  margin-bottom: 40px;
+}
+
+.category-header h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.category-line {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  border-radius: 2px;
+}
+
+/* NFT Cards */
+.nft-card {
+  background: #414141 !important;
+  border: 1px solid #374151;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nft-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+  border: 1px solid #fbbf24;
+}
+
+/* Card Image Section */
+.nft-card .card-image {
+  text-align: center;
+  border-bottom: 1px solid #374151;
+}
+.nft-card .card-image {
+  height: 280px;
+}
+
+.badge-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.5));
+}
+
+/* Card Content */
+.nft-card .card-body {
+  padding: 24px;
+}
+
+.nft-card .card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.card-subtitle {
+  color: #fbbf24;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.token-id {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  font-family: "Courier New", monospace;
+}
+
+.mint-date {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+}
+
+/* Button Styling */
+.nft-card .btn-primary {
+  background: #f49d0b;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nft-card .btn-primary:hover {
+  background: #f49d0b;
+  transform: scale(1.02);
+}
+.obj_contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .category-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .badge-icon {
+    font-size: 3rem;
+  }
+
+  .nft-card .card-title {
+    font-size: 1.2rem;
+  }
 }
