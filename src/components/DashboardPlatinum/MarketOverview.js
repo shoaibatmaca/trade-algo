@@ -207,7 +207,7 @@ const MarketOverview = () => {
   );
 
   return (
-    <div className="market-overview-container">
+    <div className="market-overview-container rounded-lg shadow-sm border-zinc-800 bg-zinc-900/50">
       <div className="market-overview-header">
         <h1 className="market-overview-title">Market Overview</h1>
         <div className="market-search-container">
