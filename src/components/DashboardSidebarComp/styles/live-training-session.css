@@ -6,6 +6,9 @@
 .live-session-title {
   color: #000 !important;
 }
+.live-session-titleds {
+  color: #fff !important;
+}
 .bg-dark .live-session-title {
   color: #ffff !important;
 }

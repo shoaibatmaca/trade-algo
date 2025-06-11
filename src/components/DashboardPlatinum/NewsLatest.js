@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TradingPlatform from "../DashboardSidebarComp/LiveSessionChat";
+import TradingPlatform from "./upcomingsessions";
 const API_KEY = "04RGF1U9PAJ49VYI";
 
 const LatestNews = () => {
