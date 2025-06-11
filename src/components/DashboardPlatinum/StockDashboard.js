@@ -315,6 +315,8 @@ const StockDashboard = () => {
   const [selectedSymbol, setSelectedSymbol] = useState(null);
   const [optionsData, setOptionsData] = useState([]);
   const [expandedSymbol, setExpandedSymbol] = useState(null);
+  const [earningsTranscript, setEarningsTranscript] = useState("");
+  const [showFullTranscript, setShowFullTranscript] = useState(false);
 
   const tickerSymbols = [
     "AAPL",
@@ -353,30 +355,42 @@ const StockDashboard = () => {
       return null;
     }
   };
-
   const fetchOptionsData = async (symbol) => {
     if (expandedSymbol === symbol) {
       setExpandedSymbol(null);
-      setOptionsData([]); // Clear on collapse
+      setOptionsData([]);
+      setInsiderData([]);
+      setEarningsTranscript([]);
       return;
     }
 
     try {
-      const response = await fetch(
-        `${BASE_URL}?function=REALTIME_OPTIONS&symbol=${symbol}&apikey=${API_KEY}`
-      );
-      const data = await response.json();
+      const [optionsRes, insiderRes, transcriptRes] = await Promise.all([
+        fetch(
+          `${BASE_URL}?function=REALTIME_OPTIONS&symbol=${symbol}&apikey=${API_KEY}`
+        ),
+        fetch(
+          `${BASE_URL}?function=INSIDER_TRANSACTIONS&symbol=${symbol}&apikey=${API_KEY}`
+        ),
+        fetch(
+          `${BASE_URL}?function=EARNINGS_CALL_TRANSCRIPT&symbol=${symbol}&quarter=2024Q1&apikey=${API_KEY}`
+        ),
+      ]);
 
-      if (data?.data?.length > 0) {
-        setOptionsData(data.data);
-      } else {
-        setOptionsData([]); // Ensure table doesn't show
-      }
+      const optionsJson = await optionsRes.json();
+      const insiderJson = await insiderRes.json();
+      const transcriptJson = await transcriptRes.json();
 
+      setOptionsData(optionsJson?.data || []);
+      setInsiderData(insiderJson?.data?.slice(0, 10) || []);
+      setEarningsTranscript(transcriptJson?.transcript || []);
+      setShowFullTranscript(false); // reset toggle
       setExpandedSymbol(symbol);
     } catch (err) {
-      console.error("Error fetching options data:", err);
+      console.error("Error fetching data:", err);
       setOptionsData([]);
+      setInsiderData([]);
+      setEarningsTranscript([]);
       setExpandedSymbol(symbol);
     }
   };
@@ -395,6 +409,7 @@ const StockDashboard = () => {
     textAlign: "center",
     color: "#ccc",
   };
+  const [insiderData, setInsiderData] = useState([]);
 
   const getCompanyName = (symbol) => {
     const names = {
@@ -614,12 +629,24 @@ const StockDashboard = () => {
                   const isExpanded = expandedSymbol === ticker.symbol;
 
                   return (
+                    // <div
+                    //   key={ticker.symbol}
+                    //   className={`ticker-item ${
+                    //     isPositive ? "positive" : "negative"
+                    //   }`}
+                    //   onClick={() => fetchOptionsData(ticker.symbol)}
+                    //   style={{ cursor: "pointer" }}
+                    // >
                     <div
                       key={ticker.symbol}
                       className={`ticker-item ${
                         isPositive ? "positive" : "negative"
                       }`}
-                      onClick={() => fetchOptionsData(ticker.symbol)}
+                      onClick={() => {
+                        if (expandedSymbol !== ticker.symbol) {
+                          fetchOptionsData(ticker.symbol);
+                        }
+                      }}
                       style={{ cursor: "pointer" }}
                     >
                       <div className="d-flex justify-content-between align-items-center">
@@ -643,10 +670,10 @@ const StockDashboard = () => {
                         </div>
                       </div>
 
-                      {isExpanded &&
-                        expandedSymbol === ticker.symbol &&
-                        optionsData.length > 0 && (
-                          <div style={{ marginTop: "1rem", overflowX: "auto" }}>
+                      {isExpanded && expandedSymbol === ticker.symbol && (
+                        <div style={{ marginTop: "1rem", overflowX: "auto" }}>
+                          {/* Options Table */}
+                          {optionsData.length > 0 && (
                             <table
                               className="topsearchticker"
                               style={{
@@ -658,6 +685,7 @@ const StockDashboard = () => {
                                 backgroundColor: "rgba(255,255,255,0.02)",
                                 border: "1px solid #333",
                                 borderRadius: "8px",
+                                marginBottom: "2rem",
                               }}
                             >
                               <thead>
@@ -708,8 +736,117 @@ const StockDashboard = () => {
                                 ))}
                               </tbody>
                             </table>
-                          </div>
-                        )}
+                          )}
+
+                          {/* Insider Table */}
+                          {insiderData.length > 0 && (
+                            <table
+                              className="topsearchticker"
+                              style={{
+                                width: "1000px",
+                                fontSize: "0.85rem",
+                                color: "#ccc",
+                                borderCollapse: "collapse",
+                                backgroundColor: "rgba(255,255,255,0.02)",
+                                border: "1px solid #333",
+                                borderRadius: "8px",
+                              }}
+                            >
+                              <thead>
+                                <tr
+                                  style={{
+                                    backgroundColor: "#1e1e1e",
+                                    color: "#fff",
+                                  }}
+                                >
+                                  <th style={thStyle}>Date</th>
+                                  <th style={thStyle}>Executive</th>
+                                  <th style={thStyle}>Title</th>
+                                  <th style={thStyle}>Type</th>
+                                  <th style={thStyle}>Shares</th>
+                                  <th style={thStyle}>Price</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {insiderData.map((tx, index) => (
+                                  <tr
+                                    key={index}
+                                    style={{
+                                      borderBottom: "1px solid #2a2a2a",
+                                    }}
+                                  >
+                                    <td style={tdStyle}>
+                                      {tx.transaction_date}
+                                    </td>
+                                    <td style={tdStyle}>{tx.executive}</td>
+                                    <td style={tdStyle}>
+                                      {tx.executive_title}
+                                    </td>
+                                    <td style={tdStyle}>
+                                      {tx.acquisition_or_disposal}
+                                    </td>
+                                    <td style={tdStyle}>{tx.shares}</td>
+                                    <td style={tdStyle}>${tx.share_price}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          )}
+
+                          {earningsTranscript.length > 0 && (
+                            <div
+                              style={{
+                                marginTop: "1.5rem",
+                                backgroundColor: "#111",
+                                padding: "1rem 1.5rem",
+                                borderRadius: "8px",
+                                color: "#ccc",
+                                fontSize: "0.95rem",
+                              }}
+                            >
+                              <h5
+                                style={{ marginBottom: "1rem", color: "#fff" }}
+                              >
+                                📣 Platinum Pulse: Earnings Coverage
+                              </h5>
+
+                              {(showFullTranscript
+                                ? earningsTranscript
+                                : earningsTranscript.slice(0, 3)
+                              ).map((line, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    marginBottom: "1rem",
+                                    lineHeight: "1.6",
+                                  }}
+                                >
+                                  <strong>{line.speaker}:</strong>{" "}
+                                  {line.content}
+                                </div>
+                              ))}
+
+                              {!showFullTranscript && (
+                                <div style={{ textAlign: "right" }}>
+                                  <button
+                                    onClick={() => setShowFullTranscript(true)}
+                                    style={{
+                                      background: "#222",
+                                      color: "#fff",
+                                      border: "1px solid #555",
+                                      padding: "6px 12px",
+                                      borderRadius: "6px",
+                                      cursor: "pointer",
+                                    }}
+                                  >
+                                    View Full Transcript
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
