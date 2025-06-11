@@ -8178,7 +8178,7 @@ h4 {
 .market-overview-container {
   /* background: #1a1a1a; */
   color: #ffffff;
-  min-height: 100vh;
+  
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin-bottom: 30px;
@@ -8284,6 +8284,7 @@ h4 {
   /* background: #0b0b0d; */
   border-radius: 12px;
   padding: 12px;
+  max-height: 130px;
   border: 1px solid #404040;
   transition: all 0.2s ease;
   position: relative;
@@ -8301,10 +8302,13 @@ h4 {
   margin-bottom: 16px;
 }
 
-.market-symbol-info {
+/* .market-symbol-info {
   flex: 1;
+} */
+market-symbol-info {
+  display: flex;
+  justify-content: space-between;
 }
-
 .market-symbol-name {
   font-size: 16px;
   font-weight: 600;

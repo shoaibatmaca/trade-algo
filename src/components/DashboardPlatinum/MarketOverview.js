@@ -1,3 +1,4 @@
+import { TrendingDown, TrendingUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const API_KEY = "04RGF1U9PAJ49VYI";
@@ -190,24 +191,15 @@ const MarketOverview = () => {
       item.symbol.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const ChartIcon = ({ isPositive }) => (
-    <svg
-      width="24"
-      height="16"
-      viewBox="0 0 24 16"
-      className={isPositive ? "market-text-success" : "market-text-danger"}
-    >
-      <polyline
-        points={isPositive ? "2,14 8,8 12,10 22,2" : "2,2 8,8 12,6 22,14"}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-    </svg>
-  );
+  const ChartIcon = ({ isPositive }) =>
+    isPositive ? (
+      <TrendingUp size={20} className="market-text-success" strokeWidth={2} />
+    ) : (
+      <TrendingDown size={20} className="market-text-danger" strokeWidth={2} />
+    );
 
   return (
-    <div className="market-overview-container rounded-lg shadow-sm border-zinc-800 bg-zinc-900/50">
+    <div className="market-overview-container">
       <div className="market-overview-header">
         <h1 className="market-overview-title">Market Overview</h1>
         <div className="market-search-container">

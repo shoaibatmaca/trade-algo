@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import Wabinar from "../DashboardPlatinum/Wabinars";
-
+import TradingPlatform from "../DashboardSidebarComp/LiveSessionChat";
 const API_KEY = "04RGF1U9PAJ49VYI";
 
 const LatestNews = () => {
@@ -202,7 +201,7 @@ const LatestNews = () => {
       <div class="row">
         <div className="col-lg-6">
           <div className="news-container">
-            <h2 className="news-header">📰 Latest News</h2>
+            <h2 className="news-header">Latest News</h2>
 
             {loading ? (
               // Shimmer Loading State
@@ -294,7 +293,7 @@ const LatestNews = () => {
         </div>
 
         <div class="col-lg-6">
-          <Wabinar />
+          <TradingPlatform />
         </div>
       </div>
     </div>
