@@ -89,7 +89,7 @@ const TradingPlatform = () => {
     <div className="container-fluid p-0">
       <div className="row g-0">
         <div className="sec_heading">
-          <h2 className="live-session-title">Upcoming Live Streams</h2>
+          <h2 className="live-session-title">Exclusive Webinars</h2>
         </div>
 
         <div className="col-lg-12">
