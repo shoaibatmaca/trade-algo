@@ -807,7 +807,9 @@ const StockDashboard = () => {
                               <h5
                                 style={{ marginBottom: "1rem", color: "#fff" }}
                               >
-                                📣 Platinum Pulse: Earnings Coverage
+                                {/* 📣 Platinum Pulse: Earnings Coverage
+                                 */}
+                                 📣 Platinum Financial Digest
                               </h5>
 
                               {(showFullTranscript
