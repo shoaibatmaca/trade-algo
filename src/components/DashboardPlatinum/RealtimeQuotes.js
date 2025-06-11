@@ -65,7 +65,7 @@ const RealtimeQuotes = () => {
             style={{ backgroundColor: "#161515", border: "1px solid #2c2c2c" }}
           >
             <div className="card-body text-white">
-              <h5 className="card-title mb-4">📈 Live Realtime Quotes</h5>
+              <h5 className="card-title mb-4">Live Realtime Quotes</h5>
 
               <div className="mb-3 d-flex">
                 <input
