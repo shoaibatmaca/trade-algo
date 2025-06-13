@@ -1588,6 +1588,8 @@ video::-webkit-media-controls {
     align-items: flex-start;
   }
 
+
+
   .read-more-btn {
     align-self: flex-end;
   }
@@ -1708,4 +1710,16 @@ video::-webkit-media-controls {
   .blog-post {
     padding: 30px 40px;
   }
+}
+
+
+
+
+.login-container .login-img img {
+  border-radius: 0;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: none;
+  object-fit: contain !important;
+
 }
