@@ -1588,8 +1588,6 @@ video::-webkit-media-controls {
     align-items: flex-start;
   }
 
-
-
   .read-more-btn {
     align-self: flex-end;
   }
@@ -1712,14 +1710,164 @@ video::-webkit-media-controls {
   }
 }
 
-
-
-
 .login-container .login-img img {
   border-radius: 0;
   transform: none !important;
   transition: none !important;
   pointer-events: none;
   object-fit: contain !important;
+}
 
+/* Main overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container with 2 columns */
+.popup-container {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 1100px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Left side (info) */
+.popup-left {
+  flex: 1;
+  background-color: var(--theme-color);
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-left h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.popup-left .highlight {
+  background: linear-gradient(to right, #2d9cf4, #bc6ff1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.popup-description {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.popup-stats {
+  margin-top: 25px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  font-size: 14px;
+}
+
+/* Right side (form) */
+.popup-right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-right h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.learn-link {
+  color: var(--theme-color);
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.popup-info {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.popup-right input {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.register-btn {
+  background: var(--theme-color);
+  color: #fff;
+  padding: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.consent-text {
+  font-size: 12px;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .popup-container {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .popup-left,
+  .popup-right {
+    padding: 25px;
+    flex: none;
+    width: 100%;
+  }
+
+  .popup-left h2,
+  .popup-right h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .popup-stats {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .popup-info,
+  .popup-description {
+    text-align: center;
+  }
+
+  .register-btn {
+    font-size: 15px;
+  }
 }

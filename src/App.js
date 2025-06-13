@@ -196,11 +196,14 @@
 // }
 
 // export default App;
-
 import { useEffect, useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
-import logo from "./assets/images/Valour_Wealth.png";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+
 import Dashboard from "./components/Dashboard";
 import Benefits from "./components/DashboardPlatinum/Benefits";
 import ViewChallenge from "./components/DashboardPlatinum/ViewChallenge";
@@ -229,171 +232,205 @@ import TermsService from "./pages/TermsService";
 import UsePolicy from "./pages/UsePolicy";
 import WealthDetails from "./pages/WealthDetails";
 
-function App() {
-  const [loading, setLoading] = useState(true);
+import "./App.css";
+import logo from "./assets/images/Valour_Wealth.png";
+
+function LoaderWrapper({ children }) {
+  const location = useLocation();
+  const [showLoader, setShowLoader] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  const excludedRoutes = [
+    "/market-details",
+    "/technology-details",
+    "/wealth-details",
+    "/events-details",
+    "/our-products",
+    "/platinum-dashboard",
+  ];
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds
-    return () => clearTimeout(timer);
-  }, []);
+    const navEntry = performance.getEntriesByType("navigation")[0];
+    const isInitialLoad =
+      navEntry?.type === "navigate" || navEntry?.type === "reload";
 
-  if (loading) {
-    return (
-      <div className="preloader">
-        <img src={logo} alt="Loading..." className="rotating-logo" />
-      </div>
-    );
-  }
+    if (isInitialLoad && !excludedRoutes.includes(location.pathname)) {
+      setShowLoader(true);
+      const t1 = setTimeout(() => setFadeOut(true), 2500);
+      const t2 = setTimeout(() => setShowLoader(false), 3000);
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
+    }
+  }, [location.pathname]);
 
   return (
+    <>
+      {showLoader && (
+        <div className={`preloader ${fadeOut ? "hidden" : ""}`}>
+          <div className="rotating-logo-wrapper">
+            <img src={logo} alt="Loading..." className="rotating-logo" />
+          </div>
+        </div>
+      )}
+      {children}
+    </>
+  );
+}
+
+function App() {
+  return (
     <Router>
-      <Routes>
-        <Route path="/benefits" element={<Benefits />} />
-        <Route path="/releasenotes" element={<ReleaseNotes />} />
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <Home />
-            </Layout>
-          }
-        />
-        <Route
-          path="/blog-details"
-          element={
-            <Layout>
-              <BlogDetail />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <Layout>
-              <AboutUs />
-            </Layout>
-          }
-        />
-        <Route
-          path="/features"
-          element={
-            <Layout>
-              <Feature />
-            </Layout>
-          }
-        />
-        <Route
-          path="/market-details"
-          element={
-            <Layout>
-              <MarketDetails />
-            </Layout>
-          }
-        />
-        <Route
-          path="/technology-details"
-          element={
-            <Layout>
-              <TechnologyDetail />
-            </Layout>
-          }
-        />
-        <Route
-          path="/wealth-details"
-          element={
-            <Layout>
-              <WealthDetails />
-            </Layout>
-          }
-        />
-        <Route
-          path="/events-details"
-          element={
-            <Layout>
-              <EventsDetails />
-            </Layout>
-          }
-        />
-        <Route
-          path="/crypto-details"
-          element={
-            <Layout>
-              <CryptoDetails />
-            </Layout>
-          }
-        />
-        <Route
-          path="/customer-support"
-          element={
-            <Layout>
-              <CustomerSupport />
-            </Layout>
-          }
-        />
-        <Route
-          path="/leave-a-review"
-          element={
-            <Layout>
-              <Review />
-            </Layout>
-          }
-        />
-        <Route
-          path="/latest-news"
-          element={
-            <Layout>
-              <News />
-            </Layout>
-          }
-        />
-        <Route
-          path="/terms-of-service"
-          element={
-            <Layout>
-              <TermsService />
-            </Layout>
-          }
-        />
-        <Route
-          path="/acceptable-use-policy"
-          element={
-            <Layout>
-              <UsePolicy />
-            </Layout>
-          }
-        />
-        <Route
-          path="/legal-disclaimer"
-          element={
-            <Layout>
-              <LegalDisclaimer />
-            </Layout>
-          }
-        />
-        <Route
-          path="/our-products"
-          element={
-            <Layout>
-              <Products />
-            </Layout>
-          }
-        />
-        <Route path="/academy/:courseId" element={<CourseDetails />} />
-        <Route
-          path="/request-a-demo"
-          element={
-            <Layout>
-              <RequestDemo />
-            </Layout>
-          }
-        />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/platinum-dashboard" element={<PlatinumDashboard />} />
-        <Route path="/challenges/:id" element={<ViewChallenge />} />
-      </Routes>
+      <LoaderWrapper>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <AboutUs />
+              </Layout>
+            }
+          />
+          <Route
+            path="/features"
+            element={
+              <Layout>
+                <Feature />
+              </Layout>
+            }
+          />
+          <Route
+            path="/market-details"
+            element={
+              <Layout>
+                <MarketDetails />
+              </Layout>
+            }
+          />
+          <Route
+            path="/technology-details"
+            element={
+              <Layout>
+                <TechnologyDetail />
+              </Layout>
+            }
+          />
+          <Route
+            path="/wealth-details"
+            element={
+              <Layout>
+                <WealthDetails />
+              </Layout>
+            }
+          />
+          <Route
+            path="/events-details"
+            element={
+              <Layout>
+                <EventsDetails />
+              </Layout>
+            }
+          />
+          <Route
+            path="/crypto-details"
+            element={
+              <Layout>
+                <CryptoDetails />
+              </Layout>
+            }
+          />
+          <Route
+            path="/customer-support"
+            element={
+              <Layout>
+                <CustomerSupport />
+              </Layout>
+            }
+          />
+          <Route
+            path="/leave-a-review"
+            element={
+              <Layout>
+                <Review />
+              </Layout>
+            }
+          />
+          <Route
+            path="/latest-news"
+            element={
+              <Layout>
+                <News />
+              </Layout>
+            }
+          />
+          <Route
+            path="/terms-of-service"
+            element={
+              <Layout>
+                <TermsService />
+              </Layout>
+            }
+          />
+          <Route
+            path="/acceptable-use-policy"
+            element={
+              <Layout>
+                <UsePolicy />
+              </Layout>
+            }
+          />
+          <Route
+            path="/legal-disclaimer"
+            element={
+              <Layout>
+                <LegalDisclaimer />
+              </Layout>
+            }
+          />
+          <Route
+            path="/our-products"
+            element={
+              <Layout>
+                <Products />
+              </Layout>
+            }
+          />
+          <Route
+            path="/blog-details"
+            element={
+              <Layout>
+                <BlogDetail />
+              </Layout>
+            }
+          />
+          <Route path="/academy/:courseId" element={<CourseDetails />} />
+          <Route
+            path="/request-a-demo"
+            element={
+              <Layout>
+                <RequestDemo />
+              </Layout>
+            }
+          />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/platinum-dashboard" element={<PlatinumDashboard />} />
+          <Route path="/challenges/:id" element={<ViewChallenge />} />
+          <Route path="/benefits" element={<Benefits />} />
+          <Route path="/releasenotes" element={<ReleaseNotes />} />
+        </Routes>
+      </LoaderWrapper>
     </Router>
   );
 }
