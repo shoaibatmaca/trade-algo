@@ -313,6 +313,10 @@ h3 {
   pointer-events: none !important;
   user-select: none !important;
 }
+.login-img {
+ pointer-events: none !important;
+user-select: none !important;
+}
 
 /* Title */
 .login-box h2 {
@@ -324,10 +328,14 @@ h3 {
 .logo-web {
   height: 140px;
   margin-bottom: 10px;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 .website-logo {
   height: 100%;
   object-fit: contain;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 /* Input Fields */

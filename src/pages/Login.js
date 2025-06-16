@@ -200,13 +200,7 @@ function Login() {
           </div>
           <div className="col-lg-6 p-0">
             <div className="login-box">
-              <div
-                className="logo-web"
-                style="
-                  pointer-events: none !important;
-                  user-select: none !important;
-              "
-              >
+              <div className="logo-web">
                 <img
                   src={websiteLogo}
                   alt="Website Logo"
