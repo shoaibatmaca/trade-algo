@@ -304,6 +304,8 @@ h3 {
 }
 .login-img .logo {
   border-radius: 0;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 /* Title */
@@ -316,12 +318,15 @@ h3 {
 .logo-web {
   height: 140px;
   margin-bottom: 10px;
-  pointer-events: none;
   object-fit: contain !important;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 .website-logo {
   height: 100%;
   object-fit: contain;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 /* Input Fields */
