@@ -286,6 +286,8 @@ h3 {
 }
 .login-container .login-img img {
   border-radius: 0;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 /* Centering the login box */
