@@ -184,7 +184,13 @@ function Login() {
       <div className="container-fluid">
         <div className="row" style={{ position: "relative" }}>
           <div className="col-lg-6 p-0">
-            <div className="login-img">
+            <div
+              className="login-img"
+              style="
+                  pointer-events: none !important;
+                  user-select: none !important;
+              "
+            >
               <img
                 src={sideLoginImg}
                 alt="Website Logo"
@@ -194,7 +200,13 @@ function Login() {
           </div>
           <div className="col-lg-6 p-0">
             <div className="login-box">
-              <div className="logo-web">
+              <div
+                className="logo-web"
+                style="
+                  pointer-events: none !important;
+                  user-select: none !important;
+              "
+              >
                 <img
                   src={websiteLogo}
                   alt="Website Logo"
