@@ -45,8 +45,6 @@ h3 {
   height: 800px; /* Adjust height as needed */
   position: relative;
   overflow: hidden;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 /* navbar search */
@@ -267,8 +265,6 @@ h3 {
 .store-images a img {
   width: 150px; /* Adjust size */
   height: auto;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 /* Hover effect: Slightly scale images */
@@ -290,8 +286,6 @@ h3 {
 }
 .login-container .login-img img {
   border-radius: 0;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 /* Centering the login box */
@@ -310,12 +304,6 @@ h3 {
 }
 .login-img .logo {
   border-radius: 0;
-  pointer-events: none !important;
-  user-select: none !important;
-}
-.login-img {
- pointer-events: none !important;
-user-select: none !important;
 }
 
 /* Title */
@@ -328,14 +316,10 @@ user-select: none !important;
 .logo-web {
   height: 140px;
   margin-bottom: 10px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .website-logo {
   height: 100%;
   object-fit: contain;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 /* Input Fields */
@@ -495,14 +479,10 @@ user-select: none !important;
 
 .section_latest .card img {
   height: 300px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .news-wrap img {
   height: 450px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .news-wrap h3 {
   background: #fff;
@@ -531,8 +511,6 @@ user-select: none !important;
 
 .side-news-img {
   width: 130px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .other-news_section {
@@ -565,8 +543,6 @@ user-select: none !important;
 .popular_card img {
   height: 340px;
   width: 100%;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .popular_card a {
   text-decoration: none !important;
@@ -610,8 +586,6 @@ user-select: none !important;
   background-size: cover;
   color: white;
   padding: 60px 0;
-  pointer-events: none !important;
-  user-select: none !important;
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -640,21 +614,15 @@ user-select: none !important;
 .editors-choice img {
   width: 100%;
   transition: all 0.3s ease;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .editors-choice .choice_img {
   overflow: hidden !important;
   height: 210px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .editors-choice:hover img {
   transform: scale(1.1);
   overflow: hidden !important;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .editors-choice a {
   text-decoration: none;
@@ -713,22 +681,16 @@ user-select: none !important;
 
 .market_details .mid_img {
   height: 360px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .market_detail_img {
   overflow: hidden;
   height: 185px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .max_height {
   min-height: 280px;
 }
 .img_height {
   height: 450px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .market_details .name {
@@ -1161,8 +1123,6 @@ section:last-child {
 }
 .analyst-img {
   height: 350px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .analyst-img img {
   border-radius: 10px;
@@ -1170,14 +1130,10 @@ section:last-child {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .main-detail-img {
   height: 250px;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 .products_card .card-body {
   justify-content: left;
@@ -1405,8 +1361,6 @@ video::-webkit-media-controls {
   position: relative;
   height: 240px;
   overflow: hidden;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .blog-card-image img {
@@ -1414,14 +1368,10 @@ video::-webkit-media-controls {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .blog-card:hover .blog-card-image img {
   transform: scale(1.08);
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 .image-overlay {
@@ -1766,8 +1716,6 @@ video::-webkit-media-controls {
   transition: none !important;
   pointer-events: none;
   object-fit: contain !important;
-  pointer-events: none !important;
-  user-select: none !important;
 }
 
 /* Main overlay */
