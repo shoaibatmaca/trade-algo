@@ -316,6 +316,8 @@ h3 {
 .logo-web {
   height: 140px;
   margin-bottom: 10px;
+  pointer-events: none;
+  object-fit: contain !important;
 }
 .website-logo {
   height: 100%;
@@ -1714,6 +1716,8 @@ video::-webkit-media-controls {
   border-radius: 0;
   transform: none !important;
   transition: none !important;
+}
+.login-img {
   pointer-events: none;
   object-fit: contain !important;
 }
