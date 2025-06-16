@@ -184,13 +184,7 @@ function Login() {
       <div className="container-fluid">
         <div className="row" style={{ position: "relative" }}>
           <div className="col-lg-6 p-0">
-            <div
-              className="login-img"
-              style="
-                  pointer-events: none !important;
-                  user-select: none !important;
-              "
-            >
+            <div className="login-img">
               <img
                 src={sideLoginImg}
                 alt="Website Logo"
